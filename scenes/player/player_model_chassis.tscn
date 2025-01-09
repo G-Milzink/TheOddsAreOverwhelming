@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://2gegeweix5ad"]
+
+[ext_resource type="PackedScene" uid="uid://cu5dpb6s8kdnq" path="res://assets/blends/player/player_model_chassis.blend" id="1_stvae"]
+
+[node name="player_model_chassis" instance=ExtResource("1_stvae")]
+
+[node name="Chassis" parent="." index="0"]
+gi_mode = 2

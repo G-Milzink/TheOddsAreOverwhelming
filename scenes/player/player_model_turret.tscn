@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfr8iinpn8x1x"]
+
+[ext_resource type="PackedScene" uid="uid://cprpfepn353nw" path="res://assets/blends/player/player_model_turret.blend" id="1_10p0n"]
+
+[node name="player_model_turret" instance=ExtResource("1_10p0n")]

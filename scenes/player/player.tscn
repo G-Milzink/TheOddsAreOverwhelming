@@ -1,29 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bh7c4qfu43tmt"]
+[gd_scene load_steps=5 format=3 uid="uid://bh7c4qfu43tmt"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_7uitc"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gakf1"]
-albedo_color = Color(0.121041, 0.269859, 0.300516, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_6s3r6"]
-material = SubResource("StandardMaterial3D_gakf1")
-size = Vector3(1.5, 0.25, 1.5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i15he"]
-albedo_color = Color(0.321728, 0.321728, 0.321728, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_ncrus"]
-material = SubResource("StandardMaterial3D_i15he")
-size = Vector3(1, 0.25, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ufdpw"]
-albedo_color = Color(0.11399, 0.181315, 0.170154, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_f0ar0"]
-material = SubResource("StandardMaterial3D_ufdpw")
-top_radius = 0.07
-bottom_radius = 0.07
-height = 0.75
+[ext_resource type="PackedScene" uid="uid://2gegeweix5ad" path="res://scenes/player/player_model_chassis.tscn" id="2_35jd4"]
+[ext_resource type="PackedScene" uid="uid://cfr8iinpn8x1x" path="res://scenes/player/player_model_turret.tscn" id="3_2le5l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o3ydk"]
 size = Vector3(1.5, 0.5, 1.5)
@@ -33,22 +12,14 @@ script = ExtResource("1_7uitc")
 baseSpeed = 10.0
 
 [node name="Base" type="Node3D" parent="."]
-
-[node name="Chassis" type="MeshInstance3D" parent="Base"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
-mesh = SubResource("BoxMesh_6s3r6")
+
+[node name="player_model_chassis" parent="Base" instance=ExtResource("2_35jd4")]
 
 [node name="Turret" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.125, 0)
 
-[node name="Dome" type="MeshInstance3D" parent="Turret"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.375, 0)
-mesh = SubResource("BoxMesh_ncrus")
-
-[node name="Cannon" type="MeshInstance3D" parent="Turret/Dome"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.852057, 0, 0)
-mesh = SubResource("CylinderMesh_f0ar0")
-skeleton = NodePath("../..")
+[node name="player_model_turret" parent="Turret" instance=ExtResource("3_2le5l")]
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)

@@ -1,16 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://mh7qc55oo1dr"]
+[gd_scene load_steps=12 format=3 uid="uid://mh7qc55oo1dr"]
 
 [ext_resource type="PackedScene" uid="uid://bh7c4qfu43tmt" path="res://scenes/player/player.tscn" id="1_wmtrd"]
 [ext_resource type="PackedScene" uid="uid://dhams2ygh62h8" path="res://scenes/enemies/Drone/drone.tscn" id="2_q3yxl"]
-
-[sub_resource type="Environment" id="Environment_h76ts"]
-background_mode = 2
-tonemap_mode = 2
-ssr_enabled = true
-ssao_enabled = true
-ssil_enabled = true
-sdfgi_enabled = true
-glow_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_d0ulv"]
 vertices = PackedVector3Array(-19.25, 0.5, -19.25, -19.25, 0.5, 19.5, 19.5, 0.5, 19.5, 19.5, 0.5, -19.25)
@@ -42,14 +33,6 @@ points = PackedVector3Array(-0.5, -1, -20.5, 0.5, -1, -20.5, -0.5, -1, 20.5, -0.
 points = PackedVector3Array(-0.5, -1, -20.5, 0.5, -1, -20.5, -0.5, -1, 20.5, -0.5, 1, -20.5, 0.5, 1, -20.5, 0.5, -1, 20.5, -0.5, 1, 20.5, 0.5, 1, 20.5)
 
 [node name="Map_00" type="Node3D"]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_h76ts")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
-light_energy = 0.2
-shadow_enabled = true
 
 [node name="NavRegion" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_d0ulv")
