@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5sys7p51uej7"]
+
+[ext_resource type="Script" path="res://scenes/projectiles/player/player_bullet.gd" id="1_x7cq1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gd57f"]
+albedo_color = Color(0.662452, 0.662452, 0.662452, 1)
+metallic = 1.0
+roughness = 0.38
+
+[sub_resource type="SphereMesh" id="SphereMesh_x1h8v"]
+material = SubResource("StandardMaterial3D_gd57f")
+radius = 0.1
+height = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4ey1u"]
+radius = 0.100429
+
+[node name="PlayerBullet" type="CharacterBody3D"]
+script = ExtResource("1_x7cq1")
+
+[node name="Model" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_x1h8v")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_4ey1u")
