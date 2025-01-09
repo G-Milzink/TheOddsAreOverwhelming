@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhqweiul45ifi"]
+
+[ext_resource type="Script" path="res://scenes/utillities/camera/camera_rig.gd" id="1_h8xfe"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xysi0"]
+
+[node name="CameraRig" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 3.20027, 0)
+motion_mode = 1
+script = ExtResource("1_h8xfe")
+
+[node name="Camera3D" type="Camera3D" parent="." groups=["camera"]]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 8.75346, 0)
+current = true
+
+[node name="collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.125, 0)
+shape = SubResource("SphereShape3D_xysi0")
+disabled = true

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo64vasx02sta"]
+
+[ext_resource type="PackedScene" uid="uid://dhqweiul45ifi" path="res://scenes/utillities/camera/camera_rig.tscn" id="1_m4lal"]
+[ext_resource type="PackedScene" uid="uid://mh7qc55oo1dr" path="res://scenes/maps/map_00.tscn" id="1_ug4g2"]
+
+[node name="Main" type="Node3D"]
+
+[node name="Map_00" parent="." instance=ExtResource("1_ug4g2")]
+
+[node name="CameraRig" parent="." instance=ExtResource("1_m4lal")]

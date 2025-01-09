@@ -1,0 +1,104 @@
+[gd_scene load_steps=13 format=3 uid="uid://mh7qc55oo1dr"]
+
+[ext_resource type="PackedScene" uid="uid://bh7c4qfu43tmt" path="res://scenes/player/player.tscn" id="1_wmtrd"]
+[ext_resource type="PackedScene" uid="uid://dhams2ygh62h8" path="res://scenes/enemies/Drone/drone.tscn" id="2_q3yxl"]
+
+[sub_resource type="Environment" id="Environment_h76ts"]
+background_mode = 2
+tonemap_mode = 2
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_d0ulv"]
+vertices = PackedVector3Array(-19.25, 0.5, -19.25, -19.25, 0.5, 19.5, 19.5, 0.5, 19.5, 19.5, 0.5, -19.25)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6oglk"]
+albedo_color = Color(0.304172, 0.400919, 0.426924, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fimhc"]
+material = SubResource("StandardMaterial3D_6oglk")
+size = Vector3(40, 0.25, 40)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_prnqb"]
+points = PackedVector3Array(-20, -0.125, -20, -20, 0.125, -20, 20, -0.125, -20, -20, -0.125, 20, -20, 0.125, 20, 20, 0.125, -20, 20, -0.125, 20, 20, 0.125, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3c2m0"]
+size = Vector3(1, 2, 41)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_phhje"]
+points = PackedVector3Array(-0.5, -1, -20.5, 0.5, -1, -20.5, -0.5, -1, 20.5, -0.5, 1, -20.5, 0.5, 1, -20.5, 0.5, -1, 20.5, -0.5, 1, 20.5, 0.5, 1, 20.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xjooy"]
+points = PackedVector3Array(-0.5, -1, -20.5, 0.5, -1, -20.5, -0.5, -1, 20.5, -0.5, 1, -20.5, 0.5, 1, -20.5, 0.5, -1, 20.5, -0.5, 1, 20.5, 0.5, 1, 20.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rjsky"]
+points = PackedVector3Array(-0.5, -1, -20.5, 0.5, -1, -20.5, -0.5, -1, 20.5, -0.5, 1, -20.5, 0.5, 1, -20.5, 0.5, -1, 20.5, -0.5, 1, 20.5, 0.5, 1, 20.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_305wf"]
+points = PackedVector3Array(-0.5, -1, -20.5, 0.5, -1, -20.5, -0.5, -1, 20.5, -0.5, 1, -20.5, 0.5, 1, -20.5, 0.5, -1, 20.5, -0.5, 1, 20.5, 0.5, 1, 20.5)
+
+[node name="Map_00" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h76ts")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+light_energy = 0.2
+shadow_enabled = true
+
+[node name="NavRegion" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_d0ulv")
+
+[node name="Floor" type="StaticBody3D" parent="NavRegion"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavRegion/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
+mesh = SubResource("BoxMesh_fimhc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
+shape = SubResource("ConvexPolygonShape3D_prnqb")
+
+[node name="Walls" type="StaticBody3D" parent="NavRegion"]
+
+[node name="W" type="MeshInstance3D" parent="NavRegion/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5, 1, -0.5)
+mesh = SubResource("BoxMesh_3c2m0")
+
+[node name="W2" type="CollisionShape3D" parent="NavRegion/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5, 1, -0.5)
+shape = SubResource("ConvexPolygonShape3D_phhje")
+
+[node name="E" type="MeshInstance3D" parent="NavRegion/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 1, 0.5)
+mesh = SubResource("BoxMesh_3c2m0")
+
+[node name="E2" type="CollisionShape3D" parent="NavRegion/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 1, 0.5)
+shape = SubResource("ConvexPolygonShape3D_xjooy")
+
+[node name="N" type="MeshInstance3D" parent="NavRegion/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.500001, 1, -20.5)
+mesh = SubResource("BoxMesh_3c2m0")
+
+[node name="N2" type="CollisionShape3D" parent="NavRegion/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.5, 1, -20.5)
+shape = SubResource("ConvexPolygonShape3D_rjsky")
+
+[node name="S" type="MeshInstance3D" parent="NavRegion/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.500001, 1, 20.5)
+mesh = SubResource("BoxMesh_3c2m0")
+
+[node name="S2" type="CollisionShape3D" parent="NavRegion/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.5, 1, 20.5)
+shape = SubResource("ConvexPolygonShape3D_305wf")
+
+[node name="Player" parent="." instance=ExtResource("1_wmtrd")]
+
+[node name="Drone" parent="." instance=ExtResource("2_q3yxl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.37821, 0, -6.15345)

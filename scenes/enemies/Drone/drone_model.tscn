@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw80k1wxccov6"]
+
+[ext_resource type="PackedScene" uid="uid://chghcyplxa4uc" path="res://assets/blends/enemies/drone/Drone.blend" id="1_y0xiv"]
+
+[node name="Drone" instance=ExtResource("1_y0xiv")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/2/rotation = Quaternion(-0.707107, 0.707107, -4.21608e-09, 5.76012e-08)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "ArmatureAction_004"
