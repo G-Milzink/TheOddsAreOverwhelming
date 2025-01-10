@@ -28,7 +28,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_o3ydk")
 
 [node name="projectile_timer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.2
 one_shot = true
 
 [connection signal="timeout" from="projectile_timer" to="." method="_on_projectile_timer_timeout"]

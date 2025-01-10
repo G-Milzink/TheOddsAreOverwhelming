@@ -17,6 +17,7 @@ radius = 0.100429
 
 [node name="PlayerBullet" type="CharacterBody3D"]
 script = ExtResource("1_x7cq1")
+speed = 15.0
 
 [node name="Model" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_x1h8v")

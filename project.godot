@@ -15,10 +15,15 @@ run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PlayerData="*res://globals/playerData/player_data.tscn"
+
 [file_customization]
 
 folder_colors={
 "res://assets/": "red",
+"res://globals/": "teal",
 "res://scenes/": "green"
 }
 
@@ -26,6 +31,7 @@ folder_colors={
 
 player=""
 camera=""
+enemies=""
 
 [input]
 

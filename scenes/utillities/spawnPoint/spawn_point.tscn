@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ckyoyx36w1yg"]
+
+[node name="SpawnPoint" type="Node3D" groups=["spawnpoints"]]
+
+[node name="Marker3D" type="Marker3D" parent="."]
+top_level = true

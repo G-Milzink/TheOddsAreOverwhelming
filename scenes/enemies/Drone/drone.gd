@@ -4,17 +4,18 @@ extends CharacterBody3D
 
 var currentSpeed : float
 var direction : Vector3 = Vector3.ZERO
+var health : float = 10.0
+var spawnLocation : Vector3
 
 @onready var navigator: NavigationAgent3D = $Navigator
 @onready var target : CharacterBody3D = get_tree().get_first_node_in_group("player")
 
 func _ready() -> void:
 	currentSpeed = baseSpeed
-
+	global_position = spawnLocation
 
 func _physics_process(delta: float) -> void:
 	handle_pathfinding_and_movement(delta)
-
 
 func handle_pathfinding_and_movement(delta):
 	if NavigationServer3D.map_get_iteration_id(navigator.get_navigation_map()) == 0:
@@ -32,3 +33,8 @@ func handle_pathfinding_and_movement(delta):
 		velocity.x = move_toward(velocity.x, 0, currentSpeed * delta)
 		velocity.z = move_toward(velocity.z, 0, currentSpeed * delta)
 	move_and_collide(velocity)
+
+func takeDamage(damageTaken : float):
+	health -= damageTaken
+	if health <= 0:
+		queue_free()

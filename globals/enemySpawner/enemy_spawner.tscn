@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c36cwasjtgxxf"]
+
+[ext_resource type="Script" path="res://globals/enemySpawner/EnemySpawner.gd" id="1_iopen"]
+
+[node name="EnemySpawer" type="Node3D" groups=["spawnpoints"]]
+script = ExtResource("1_iopen")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+process_callback = 0
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

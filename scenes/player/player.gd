@@ -1,13 +1,12 @@
 extends CharacterBody3D
 
-@export var  baseSpeed : float = 7.5
-
 @onready var main : Node3D = get_tree().get_root().get_node("Main")
+@onready var camera: Camera3D = get_tree().get_first_node_in_group("camera")
 @onready var turret: Node3D = $Turret
 @onready var projectile_spawn: Node3D = $Turret/projectile_spawn
 @onready var projectile_timer: Timer = $projectile_timer
-@onready var camera: Camera3D = get_tree().get_first_node_in_group("camera")
 
+#RayCast variables:
 var rayOrigin = Vector3()
 var rayEnd = Vector3()
 var mousePosition = Vector3()
@@ -15,18 +14,18 @@ var spaceState : PhysicsDirectSpaceState3D
 var query :PhysicsRayQueryParameters3D
 var intersection : Dictionary
 var lookAtPosition = Vector3()
+#Movement variables:
 var currentSpeed : float
+#projectile variables:
 var can_shoot : bool = true
-
 var projectile : PackedScene 
 const BULLET : PackedScene = preload("res://scenes/projectiles/player/player_bullet.tscn")
 
-func _ready():
-	currentSpeed = baseSpeed
-	projectile = BULLET
+#-------------------------------------------------------------------------------
 
-func _process(_delta):
-	pass
+func _ready():
+	currentSpeed = PlayerData.baseSpeed
+	projectile = BULLET
 
 func _physics_process(delta: float) -> void:
 	handle_movement(delta)
@@ -67,7 +66,7 @@ func fire_projectile():
 	if can_shoot:
 		can_shoot = false
 		var instance = projectile.instantiate()
-		instance.spawn_position = projectile_spawn.global_position
+		instance.spawnPosition = projectile_spawn.global_position
 		instance.direction = (lookAtPosition - projectile_spawn.global_position).normalized()
 		main.add_child.call_deferred(instance)
 		projectile_timer.start()
