@@ -12,6 +12,7 @@ const DRONE = preload("res://scenes/enemies/Drone/drone.tscn")
 
 @onready var main : Node3D = get_tree().get_root().get_node("Main")
 
+#-------------------------------------------------------------------------------
 
 func _ready() -> void:
 	randomNumberGenerator.randomize()
@@ -30,4 +31,3 @@ func spawnDrone():
 	var instance = DRONE.instantiate()
 	instance.spawnLocation = spawnLocation
 	main.add_child.call_deferred(instance)
-	
