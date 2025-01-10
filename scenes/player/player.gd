@@ -60,7 +60,10 @@ func rotate_turret():
 	
 	if intersection:
 		lookAtPosition = intersection.position
-		turret.look_at(Vector3(lookAtPosition.x,position.y,lookAtPosition.z), Vector3.UP)
+		lookAtPosition.y = projectile_spawn.global_transform.origin.y  # Use global position for accuracy
+		var direction = (lookAtPosition - turret.global_transform.origin).normalized()
+		direction.y = 0
+		turret.rotation.y = atan2(direction.x, direction.z)  # Rotate only on the Y-axis
 
 func fire_projectile():
 	if can_shoot:

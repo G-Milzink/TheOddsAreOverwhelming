@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/projectiles/player/player_bullet.gd" id="1_x7cq1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gd57f"]
-albedo_color = Color(0.662452, 0.662452, 0.662452, 1)
+albedo_color = Color(4.81308e-06, 0.632693, 0.998115, 1)
 metallic = 1.0
 roughness = 0.38
 
@@ -24,3 +24,7 @@ mesh = SubResource("SphereMesh_x1h8v")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_4ey1u")
+
+[node name="Light" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.138263, 0)
+light_color = Color(0, 0.631373, 1, 1)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bo64vasx02sta"]
+[gd_scene load_steps=6 format=3 uid="uid://bo64vasx02sta"]
 
 [ext_resource type="PackedScene" uid="uid://c36cwasjtgxxf" path="res://globals/enemySpawner/enemy_spawner.tscn" id="1_7diqv"]
+[ext_resource type="Script" path="res://globals/main.gd" id="1_is4p4"]
 [ext_resource type="PackedScene" uid="uid://dhqweiul45ifi" path="res://scenes/utillities/camera/camera_rig.tscn" id="1_m4lal"]
 [ext_resource type="PackedScene" uid="uid://mh7qc55oo1dr" path="res://scenes/maps/map_00.tscn" id="1_ug4g2"]
 
@@ -13,6 +14,7 @@ sdfgi_enabled = true
 glow_enabled = true
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_is4p4")
 
 [node name="EnemySpawer" parent="." instance=ExtResource("1_7diqv")]
 
