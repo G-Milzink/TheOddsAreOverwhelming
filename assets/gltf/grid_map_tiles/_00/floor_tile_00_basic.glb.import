@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://df26livsf8n3w"
-path="res://.godot/imported/floor_tile_00_vent.glb-f189b93e03a67b2b79fcfcc5e7671ed4.scn"
+uid="uid://ilmqv3evv707"
+path="res://.godot/imported/floor_tile_00_basic.glb-9610d6be0688ceec6a06ecae1d713bb9.scn"
 
 [deps]
 
-source_file="res://assets/gltf/floor_tiles/_00/floor_tile_00_vent.glb"
-dest_files=["res://.godot/imported/floor_tile_00_vent.glb-f189b93e03a67b2b79fcfcc5e7671ed4.scn"]
+source_file="res://assets/gltf/grid_map_tiles/_00/floor_tile_00_basic.glb"
+dest_files=["res://.godot/imported/floor_tile_00_basic.glb-9610d6be0688ceec6a06ecae1d713bb9.scn"]
 
 [params]
 
@@ -31,6 +31,12 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:floor_tile_00_basic": {
+"generate/physics": true
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

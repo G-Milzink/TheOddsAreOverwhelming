@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bjd2xwl2nji4q"
-path="res://.godot/imported/floor_tile_00_basic.blend-da6fbd46591dabd217f12d44765d8329.scn"
+uid="uid://b8trcrs60dxp6"
+path="res://.godot/imported/floor_tile_00_vent.blend-429a92f95c9cef2a8101c4d1def33fde.scn"
 
 [deps]
 
-source_file="res://assets/blends/floor_tiles/_00/floor_tile_00_basic.blend"
-dest_files=["res://.godot/imported/floor_tile_00_basic.blend-da6fbd46591dabd217f12d44765d8329.scn"]
+source_file="res://assets/blends/grid_map_tiles/_00/floor_tile_00_vent.blend"
+dest_files=["res://.godot/imported/floor_tile_00_vent.blend-429a92f95c9cef2a8101c4d1def33fde.scn"]
 
 [params]
 

@@ -10,7 +10,7 @@ motion_mode = 1
 script = ExtResource("1_h8xfe")
 
 [node name="Camera3D" type="Camera3D" parent="." groups=["camera"]]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 13.8785, 2.29105e-07)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 17.8785, 4.07919e-07)
 current = true
 
 [node name="collider" type="CollisionShape3D" parent="."]

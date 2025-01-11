@@ -4,6 +4,7 @@
 
 [node name="EnemySpawer" type="Node3D"]
 script = ExtResource("1_iopen")
+spawnInterval = 1.5
 
 [node name="SpawnTimer" type="Timer" parent="."]
 process_callback = 0

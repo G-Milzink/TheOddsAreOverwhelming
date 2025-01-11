@@ -19,4 +19,7 @@ func _process(delta: float) -> void:
 		direction = (player.position - position).normalized() * velocityFactor
 		velocity.x = direction.x * followSpeed * delta
 		velocity.z = direction.z * followSpeed * delta
+	else:
+		velocity.x = move_toward(velocity.x, 0, followSpeed * delta)
+		velocity.z = move_toward(velocity.z, 0, followSpeed * delta)
 	move_and_collide(velocity)

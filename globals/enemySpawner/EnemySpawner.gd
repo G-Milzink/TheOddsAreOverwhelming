@@ -19,7 +19,8 @@ func _ready() -> void:
 	spawnPointList = get_tree().get_nodes_in_group("spawnpoints")
 	spawn_timer = get_node("SpawnTimer")
 	spawn_timer.set_wait_time(spawnInterval)
-	spawn_timer.start()
+	if canSpawn:
+		spawn_timer.start()
 
 func _on_spawn_timer_timeout() -> void:
 	spawnDrone()

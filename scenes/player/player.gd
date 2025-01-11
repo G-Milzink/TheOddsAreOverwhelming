@@ -41,15 +41,28 @@ func _input(event):
 #-------------------------------------------------------------------------------
 
 func handle_movement(delta):
-	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+
+	# Calculate velocity based on input
 	if direction:
-		velocity.x = direction.x * currentSpeed * delta
-		velocity.z = direction.z * currentSpeed * delta
+		velocity.x = direction.x * currentSpeed
+		velocity.z = direction.z * currentSpeed
 	else:
 		velocity.x = move_toward(velocity.x, 0, currentSpeed * delta)
 		velocity.z = move_toward(velocity.z, 0, currentSpeed * delta)
-	move_and_collide(velocity)
+
+	# Perform movement
+	var collision = move_and_collide(velocity * delta)
+
+	if collision:
+		# Get the collision normal and slide the velocity along it
+		var collision_normal = collision.get_normal()
+		velocity = velocity.slide(collision_normal)
+
+		# Apply the adjusted velocity to continue sliding
+		move_and_collide(velocity * delta)
+
 
 func rotate_turret():
 	spaceState = get_world_3d().direct_space_state

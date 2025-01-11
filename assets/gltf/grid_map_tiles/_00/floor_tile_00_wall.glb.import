@@ -1,0 +1,43 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://cl1hsp28oy4u2"
+path="res://.godot/imported/floor_tile_00_wall.glb-2d91345912dfcb8e539a31f68bd65163.scn"
+
+[deps]
+
+source_file="res://assets/gltf/grid_map_tiles/_00/floor_tile_00_wall.glb"
+dest_files=["res://.godot/imported/floor_tile_00_wall.glb-2d91345912dfcb8e539a31f68bd65163.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"nodes": {
+"PATH:floor_tile_00_wall": {
+"generate/physics": true,
+"physics/physics_material_override": null
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1
