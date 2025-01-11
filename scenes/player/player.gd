@@ -58,7 +58,7 @@ func rotate_turret():
 	query = PhysicsRayQueryParameters3D.create(rayOrigin, rayEnd)
 	intersection = spaceState.intersect_ray(query)
 	
-	if intersection:
+	if intersection && !main.menu_is_open:
 		lookAtPosition = intersection.position
 		lookAtPosition.y = projectile_spawn.global_transform.origin.y  # Use global position for accuracy
 		var direction = (lookAtPosition - turret.global_transform.origin).normalized()
@@ -66,7 +66,7 @@ func rotate_turret():
 		turret.rotation.y = atan2(direction.x, direction.z)  # Rotate only on the Y-axis
 
 func fire_projectile():
-	if can_shoot:
+	if can_shoot && !main.menu_is_open :
 		can_shoot = false
 		var instance = projectile.instantiate()
 		instance.spawnPosition = projectile_spawn.global_position

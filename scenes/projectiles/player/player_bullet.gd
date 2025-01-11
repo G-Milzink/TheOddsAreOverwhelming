@@ -19,5 +19,5 @@ func _physics_process(delta):
 	if collision:
 		var collider = collision.get_collider()
 		if collider.is_in_group("enemies"):
-			collider.takeDamage(currentDamage)
+			collider.take_damage(currentDamage)
 		queue_free()

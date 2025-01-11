@@ -12,7 +12,10 @@ func _input(event: InputEvent) -> void:
 		handle_menu()
 
 func handle_menu():
-	if Input.mouse_mode == 3:
-		Input.mouse_mode = 0
-	else:
+	if menu_is_open:
 		Input.mouse_mode = 3
+		Engine.time_scale = 1
+	else:
+		Input.mouse_mode = 0
+		Engine.time_scale = 0
+	menu_is_open = !menu_is_open
