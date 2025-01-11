@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://7ec8v6xn1u0t"]
+
+[ext_resource type="PackedScene" uid="uid://ilmqv3evv707" path="res://assets/gltf/floor_tiles/_00/floor_tile_00_basic.glb" id="1_1d5qq"]
+[ext_resource type="PackedScene" uid="uid://df26livsf8n3w" path="res://assets/gltf/floor_tiles/_00/floor_tile_00_vent.glb" id="2_0nnyk"]
+
+[node name="MeshLib_00" type="Node3D"]
+
+[node name="floor_tile_00_basic2" parent="." instance=ExtResource("1_1d5qq")]
+
+[node name="floor_tile_00_vent2" parent="." instance=ExtResource("2_0nnyk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)

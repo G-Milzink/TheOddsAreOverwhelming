@@ -31,6 +31,7 @@ mouse_cursor/custom_image_hotspot=Vector2(8, 8)
 folder_colors={
 "res://assets/": "red",
 "res://globals/": "teal",
+"res://resources/": "orange",
 "res://scenes/": "green"
 }
 

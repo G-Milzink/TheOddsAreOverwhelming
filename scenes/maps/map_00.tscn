@@ -1,18 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://mh7qc55oo1dr"]
+[gd_scene load_steps=11 format=3 uid="uid://mh7qc55oo1dr"]
 
 [ext_resource type="PackedScene" uid="uid://bh7c4qfu43tmt" path="res://scenes/player/player.tscn" id="1_wmtrd"]
 [ext_resource type="PackedScene" uid="uid://ckyoyx36w1yg" path="res://scenes/utillities/spawnPoint/spawn_point.tscn" id="2_av5f8"]
+[ext_resource type="MeshLibrary" uid="uid://bgmpub3x1enpg" path="res://resources/mesh_libraries/mesh_lib_00.tres" id="3_3akyb"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_d0ulv"]
 vertices = PackedVector3Array(-19.25, 0.5, -19.25, -19.25, 0.5, 19.5, 19.5, 0.5, 19.5, 19.5, 0.5, -19.25)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6oglk"]
-albedo_color = Color(0.304172, 0.400919, 0.426924, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_fimhc"]
-material = SubResource("StandardMaterial3D_6oglk")
-size = Vector3(40, 0.25, 40)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_prnqb"]
 points = PackedVector3Array(-20, -0.125, -20, -20, 0.125, -20, 20, -0.125, -20, -20, -0.125, 20, -20, 0.125, 20, 20, 0.125, -20, 20, -0.125, 20, 20, 0.125, 20)
@@ -39,13 +33,20 @@ navigation_mesh = SubResource("NavigationMesh_d0ulv")
 
 [node name="Floor" type="StaticBody3D" parent="NavRegion"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NavRegion/Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
-mesh = SubResource("BoxMesh_fimhc")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
 shape = SubResource("ConvexPolygonShape3D_prnqb")
+
+[node name="GridMap" type="GridMap" parent="NavRegion/Floor"]
+mesh_library = ExtResource("3_3akyb")
+cell_size = Vector3(4, 2, 4)
+cell_octant_size = 1
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(0, 0, 1441792, 65535, 0, 1441792, 65534, 0, 1441792, 65533, 0, 1441792, 65532, 0, 1441792, 65531, 0, 1441792, 65531, 1, 1441792, 65532, 1, 1441792, 65533, 1, 1441792, 65534, 1, 1441792, 65535, 1, 1441792, 0, 1, 1441792, 1, 1, 1441792, 2, 1, 1441792, 3, 1, 1441792, 4, 1, 1441792, 5, 1, 1441792, 5, 0, 1441792, 4, 0, 1441792, 3, 0, 1441792, 2, 0, 1441792, 1, 0, 1441792, 65531, 65535, 1441792, 65532, 65535, 1441792, 65533, 65535, 1441792, 65534, 65535, 1441792, 65535, 65535, 1441792, 0, 65535, 1441792, 1, 65535, 1441792, 2, 65535, 1441792, 3, 65535, 1441792, 4, 65535, 1441792, 5, 65535, 1441792, 5, 65534, 1441792, 4, 65534, 1441792, 4, 65533, 1441792, 4, 65532, 1441792, 5, 65532, 1441792, 5, 65533, 1441792, 4, 65531, 1441792, 5, 65531, 1441792, 3, 65531, 1441792, 2, 65531, 1441792, 1, 65531, 1441792, 65534, 65531, 1441792, 65533, 65531, 1441792, 65535, 65531, 1441792, 0, 65531, 1441792, 65532, 65531, 1441792, 65531, 65531, 1441792, 65531, 65532, 1441792, 65531, 65533, 1441792, 65531, 65534, 1441792, 65532, 65534, 1441792, 65533, 65534, 1441792, 65534, 65534, 1441792, 65535, 65534, 1441792, 0, 65534, 1441792, 1, 65534, 1441792, 2, 65534, 1441792, 3, 65534, 1441792, 3, 65533, 1441792, 3, 65532, 1441792, 2, 65532, 1441792, 1, 65532, 1441792, 0, 65532, 1441792, 0, 65533, 1441792, 1, 65533, 1441792, 2, 65533, 1441792, 65535, 65532, 1441792, 65534, 65532, 1441792, 65534, 65533, 1441792, 65533, 65533, 1441792, 65532, 65533, 1441792, 65535, 65533, 1441792, 65532, 65532, 1441792, 65533, 65532, 1441792, 65531, 2, 1441792, 65531, 3, 1441792, 65531, 4, 1441792, 65531, 5, 1441792, 65532, 5, 1441792, 65533, 5, 1441792, 65534, 5, 1441792, 65535, 5, 1441792, 0, 5, 1441792, 1, 5, 1441792, 2, 5, 1441792, 3, 5, 1441792, 4, 5, 1441792, 5, 5, 1441792, 5, 4, 1441792, 5, 3, 1441792, 5, 2, 1441792, 4, 2, 1441792, 3, 2, 1441792, 2, 2, 1441792, 1, 2, 1441792, 0, 2, 1441792, 65535, 2, 1441792, 65534, 2, 1441792, 65533, 2, 1441792, 65532, 2, 1441792, 65532, 3, 1441792, 65532, 4, 1441792, 65533, 4, 1441792, 65534, 4, 1441792, 65534, 3, 1441792, 65533, 3, 1441792, 65535, 3, 1441792, 65535, 4, 1441792, 0, 4, 1441792, 0, 3, 1441792, 1, 3, 1441792, 2, 3, 1441792, 1, 4, 1441792, 2, 4, 1441792, 3, 3, 1441792, 4, 3, 1441792, 3, 4, 1441792, 4, 4, 1441792)
+}
 
 [node name="Walls" type="StaticBody3D" parent="NavRegion"]
 
