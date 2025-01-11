@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://eetx64ef4jpk"]
+
+[ext_resource type="PackedScene" uid="uid://cowyng4u7emu0" path="res://assets/blends/enemies/dart/dart.blend" id="1_2pyw0"]
+
+[node name="dart" instance=ExtResource("1_2pyw0")]
