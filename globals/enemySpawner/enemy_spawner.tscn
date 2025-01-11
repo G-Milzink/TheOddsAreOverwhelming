@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://globals/enemySpawner/EnemySpawner.gd" id="1_iopen"]
 
-[node name="EnemySpawer" type="Node3D" groups=["spawnpoints"]]
+[node name="EnemySpawer" type="Node3D"]
 script = ExtResource("1_iopen")
 
 [node name="SpawnTimer" type="Timer" parent="."]

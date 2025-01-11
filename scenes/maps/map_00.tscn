@@ -83,16 +83,16 @@ shape = SubResource("ConvexPolygonShape3D_305wf")
 
 [node name="Player" parent="." instance=ExtResource("1_wmtrd")]
 
-[node name="SpawnPoints" type="Node3D" parent="."]
+[node name="SpawnPointSet" type="Node3D" parent="."]
 
-[node name="SpawnPoint" parent="SpawnPoints" instance=ExtResource("2_av5f8")]
+[node name="SpawnPoint" parent="SpawnPointSet" instance=ExtResource("2_av5f8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7264, 0, -17.3222)
 
-[node name="SpawnPoint2" parent="SpawnPoints" instance=ExtResource("2_av5f8")]
+[node name="SpawnPoint2" parent="SpawnPointSet" instance=ExtResource("2_av5f8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.1807, 9.53674e-07, -17.3404)
 
-[node name="SpawnPoint3" parent="SpawnPoints" instance=ExtResource("2_av5f8")]
+[node name="SpawnPoint3" parent="SpawnPointSet" instance=ExtResource("2_av5f8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6014, 0, 16.8615)
 
-[node name="SpawnPoint4" parent="SpawnPoints" instance=ExtResource("2_av5f8")]
+[node name="SpawnPoint4" parent="SpawnPointSet" instance=ExtResource("2_av5f8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6807, 9.53674e-07, 16.8434)

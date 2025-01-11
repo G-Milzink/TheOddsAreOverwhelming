@@ -17,7 +17,6 @@ const DRONE = preload("res://scenes/enemies/Drone/drone.tscn")
 func _ready() -> void:
 	randomNumberGenerator.randomize()
 	spawnPointList = get_tree().get_nodes_in_group("spawnpoints")
-	spawnPointList.pop_front()
 	spawn_timer = get_node("SpawnTimer")
 	spawn_timer.set_wait_time(spawnInterval)
 	spawn_timer.start()
