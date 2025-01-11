@@ -9,12 +9,12 @@ var direction : Vector3
 var velocityFactor : float = 2.0
 
 func _ready() -> void:
-	player = get_tree().get_first_node_in_group("player")
 	position.y = baseCameraHeight
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	player = get_tree().get_first_node_in_group("player")
 	if player:
 		direction = (player.position - position).normalized() * velocityFactor
 		velocity.x = direction.x * followSpeed * delta

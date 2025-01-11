@@ -6,9 +6,10 @@ var currentSpeed : float
 var direction : Vector3 = Vector3.ZERO
 var hitPoints : float = 10.0
 var spawnLocation : Vector3
+var collisionDamage : float = 35.0
 
 @onready var navigator: NavigationAgent3D = $Navigator
-@onready var target : CharacterBody3D = get_tree().get_first_node_in_group("player")
+
 
 func _ready() -> void:
 	currentSpeed = baseSpeed
@@ -22,6 +23,7 @@ func handle_pathfinding(delta):
 	if NavigationServer3D.map_get_iteration_id(navigator.get_navigation_map()) == 0:
 	# Navigation map isn't ready; skip pathfinding this frame
 		return
+	var target : CharacterBody3D = get_tree().get_first_node_in_group("player")
 	if target:
 		navigator.target_position = target.global_position
 		direction =  navigator.get_next_path_position() - global_position.normalized()
@@ -39,6 +41,7 @@ func handle_movement_and_collision():
 	if collision:
 		var collider : Node3D = collision.get_collider()
 		if collider.is_in_group("player"):
+			collider.take_damage(collisionDamage)
 			handle_death()
 
 func take_damage(damageTaken : float):

@@ -14,7 +14,8 @@ var spaceState : PhysicsDirectSpaceState3D
 var query :PhysicsRayQueryParameters3D
 var intersection : Dictionary
 var lookAtPosition = Vector3()
-#Movement variables:
+#Player variables:
+var currentHitpoints : float
 var currentSpeed : float
 #projectile variables:
 var can_shoot : bool = true
@@ -25,6 +26,8 @@ const BULLET : PackedScene = preload("res://scenes/projectiles/player/player_bul
 
 func _ready():
 	currentSpeed = PlayerData.baseSpeed
+	currentHitpoints = PlayerData.baseHitpoints
+	
 	projectile = BULLET
 
 func _physics_process(delta: float) -> void:
@@ -76,3 +79,11 @@ func fire_projectile():
 
 func _on_projectile_timer_timeout() -> void:
 	can_shoot = true
+
+func take_damage(damageTaken : float):
+	currentHitpoints -= damageTaken
+	if currentHitpoints <= 0:
+		handle_death()
+
+func handle_death():
+	queue_free()
