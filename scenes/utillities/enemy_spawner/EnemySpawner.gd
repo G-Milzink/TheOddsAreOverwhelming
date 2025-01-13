@@ -24,7 +24,7 @@ func _ready() -> void:
 		spawn_timer.start()
 
 func _on_spawn_timer_timeout() -> void:
-	spawnDart()
+	spawnDrone()
 
 func spawnDrone():
 	randomNumber = randomNumberGenerator.randi() % spawnPointList.size()

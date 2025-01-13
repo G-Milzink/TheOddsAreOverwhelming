@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://mh7qc55oo1dr"]
 
 [ext_resource type="PackedScene" uid="uid://bh7c4qfu43tmt" path="res://scenes/player/player.tscn" id="1_wmtrd"]
-[ext_resource type="PackedScene" uid="uid://ckyoyx36w1yg" path="res://scenes/utillities/spawnPoint/spawn_point.tscn" id="2_av5f8"]
+[ext_resource type="PackedScene" uid="uid://ckyoyx36w1yg" path="res://scenes/utillities/spawnpoint/spawn_point.tscn" id="2_av5f8"]
 [ext_resource type="MeshLibrary" uid="uid://bgmpub3x1enpg" path="res://resources/mesh_libraries/mesh_lib_00.tres" id="3_3akyb"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_d0ulv"]

@@ -1,10 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://c36cwasjtgxxf"]
 
-[ext_resource type="Script" path="res://globals/enemySpawner/EnemySpawner.gd" id="1_iopen"]
+[ext_resource type="Script" path="res://scenes/utillities/enemy_spawner/EnemySpawner.gd" id="1_iopen"]
 
 [node name="EnemySpawer" type="Node3D"]
 script = ExtResource("1_iopen")
-spawnInterval = 1.5
 
 [node name="SpawnTimer" type="Timer" parent="."]
 process_callback = 0

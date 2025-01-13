@@ -10,7 +10,6 @@ var collisionDamage : float = 35.0
 
 @onready var navigator: NavigationAgent3D = $Navigator
 
-
 func _ready() -> void:
 	currentSpeed = baseSpeed
 	global_position = spawnLocation
@@ -50,4 +49,5 @@ func take_damage(damageTaken : float):
 		handle_death()
 
 func handle_death():
+	ProgressionManager.increase_score(ProgressionManager.droneReward)
 	queue_free()
