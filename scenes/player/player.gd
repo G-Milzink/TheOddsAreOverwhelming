@@ -3,8 +3,8 @@ extends CharacterBody3D
 @onready var main : Node3D = get_tree().get_root().get_node("Main")
 @onready var camera: Camera3D = get_tree().get_first_node_in_group("camera")
 @onready var turret: Node3D = $Turret
-@onready var projectile_spawn: Node3D = $Turret/projectile_spawn
-@onready var projectile_timer: Timer = $projectile_timer
+@onready var projectileSpawn: Node3D = $Turret/projectile_spawn
+@onready var projectileTimer: Timer = $ProjectileTimer
 
 #RayCast variables:
 var rayOrigin = Vector3()
@@ -76,7 +76,7 @@ func rotate_turret():
 	
 	if intersection && !main.menu_is_open:
 		lookAtPosition = intersection.position
-		lookAtPosition.y = projectile_spawn.global_transform.origin.y  # Use global position for accuracy
+		lookAtPosition.y = projectileSpawn.global_transform.origin.y  # Use global position for accuracy
 		var direction = (lookAtPosition - turret.global_transform.origin).normalized()
 		direction.y = 0
 		turret.rotation.y = atan2(direction.x, direction.z)  # Rotate only on the Y-axis
@@ -85,10 +85,10 @@ func fire_projectile():
 	if can_shoot && !main.menu_is_open :
 		can_shoot = false
 		var instance = projectile.instantiate()
-		instance.spawnPosition = projectile_spawn.global_position
-		instance.direction = (lookAtPosition - projectile_spawn.global_position).normalized()
+		instance.spawnPosition = projectileSpawn.global_position
+		instance.direction = (lookAtPosition - projectileSpawn.global_position).normalized()
 		main.add_child.call_deferred(instance)
-		projectile_timer.start()
+		projectileTimer.start()
 
 func _on_projectile_timer_timeout() -> void:
 	can_shoot = true

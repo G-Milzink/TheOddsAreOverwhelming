@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhojdngmkcsxf"]
+[gd_scene load_steps=5 format=3 uid="uid://dhojdngmkcsxf"]
 
 [ext_resource type="Script" path="res://scenes/enemies/Dart/dart.gd" id="1_lk232"]
 [ext_resource type="PackedScene" uid="uid://eetx64ef4jpk" path="res://scenes/enemies/Dart/dart_model.tscn" id="2_mbawd"]
@@ -7,11 +7,15 @@
 margin = 0.1
 points = PackedVector3Array(-1, 0, -0.895, 1, 0, -0.885, 0, 0, 1, -1, 1, -0.91, 1, 1, -0.91, 0, 0.73, 1)
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_pc7y8"]
+height = 0.712745
+radius = 12.2504
+
 [node name="Dart" type="CharacterBody3D" groups=["enemies"]]
 script = ExtResource("1_lk232")
-baseSpeed = 6.5
+attackSpeed = 15.0
 
-[node name="model" parent="." instance=ExtResource("2_mbawd")]
+[node name="Model" parent="." instance=ExtResource("2_mbawd")]
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_7iy7q")
@@ -25,3 +29,15 @@ light_energy = 2.5
 shadow_enabled = true
 spot_range = 1.524
 spot_angle = 12.52
+
+[node name="DetectionArea" type="Area3D" parent="."]
+
+[node name="DetectionCollider" type="CollisionShape3D" parent="DetectionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43805, 0)
+shape = SubResource("CylinderShape3D_pc7y8")
+
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

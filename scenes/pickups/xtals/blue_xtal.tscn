@@ -11,11 +11,7 @@ script = ExtResource("2_6jh3y")
 [node name="AnimationPlayer" parent="." index="1"]
 autoplay = "ArmatureAction"
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0912108, 0)
-light_color = Color(1.73271e-06, 0.621737, 0.901082, 1)
-
-[node name="StaticBody3D" type="Area3D" parent="." index="3"]
+[node name="StaticBody3D" type="Area3D" parent="." index="2"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

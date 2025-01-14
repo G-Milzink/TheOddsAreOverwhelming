@@ -39,7 +39,6 @@ light_energy = 0.1
 shadow_enabled = true
 
 [node name="EnemySpawer" parent="." instance=ExtResource("1_7diqv")]
-spawnInterval = 0.5
 
 [node name="CameraRig" parent="." instance=ExtResource("1_m4lal")]
 

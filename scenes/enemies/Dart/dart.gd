@@ -1,6 +1,8 @@
 extends CharacterBody3D
 
-@export var baseSpeed  : float = 1
+@export var baseSpeed  : float = 7.5
+@export var preAttackSpeed : float = 2.5
+@export var attackSpeed : float = 10.0
 
 var currentSpeed : float
 var direction : Vector3 = Vector3.ZERO
@@ -9,7 +11,7 @@ var spawnLocation : Vector3
 var collisionDamage : float = 35.0
 
 @onready var navigator: NavigationAgent3D = $Navigator
-
+@onready var attackTimer: Timer = $AttackTimer
 
 func _ready() -> void:
 	currentSpeed = baseSpeed
@@ -19,8 +21,6 @@ func _physics_process(delta: float) -> void:
 	handle_pathfinding(delta)
 	handle_rotation(delta)
 	handle_movement_and_collision()
-	
-	
 
 func handle_pathfinding(delta):
 	if NavigationServer3D.map_get_iteration_id(navigator.get_navigation_map()) == 0:
@@ -53,9 +53,17 @@ func handle_movement_and_collision():
 			collider.take_damage(collisionDamage)
 			handle_death()
 
+func _on_detection_area_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		currentSpeed = preAttackSpeed
+		attackTimer.start(1.0)
+
+func _on_attack_timer_timeout() -> void:
+	currentSpeed = attackSpeed
+
 func take_damage(damageTaken : float):
 	hitPoints -= damageTaken
-	if hitPoints <= 0:
+	if hitPoints <= 0.0:
 		handle_death()
 
 func handle_death():
