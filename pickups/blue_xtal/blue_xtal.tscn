@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxl2gw5lsekbu"]
+
+[ext_resource type="PackedScene" uid="uid://by1tpgsq16drt" path="res://assets/gltf/pickups/blue_xtal.glb" id="1_m45yg"]
+
+[node name="BlueXtal" type="Node3D"]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20795, 0)
+
+[node name="blue_xtal" parent="." instance=ExtResource("1_m45yg")]

@@ -42,7 +42,7 @@ func handle_pathfinding(delta):
 
 func handle_rotation(delta):
 	if direction.length() > 0.01: # Avoid jittering when the direction is too small
-		var target_rotation: Vector3 = global_transform.basis.z.cross(Vector3.UP).normalized()
+		#var target_rotation: Vector3 = global_transform.basis.z.cross(Vector3.UP).normalized()
 		rotation.y = lerp_angle(rotation.y, atan2(direction.x, direction.z), 3.5 * delta)
 
 func handle_movement_and_collision():
@@ -59,4 +59,5 @@ func take_damage(damageTaken : float):
 		handle_death()
 
 func handle_death():
+	ProgressionManager.increase_score(ProgressionManager.dartReward)
 	queue_free()

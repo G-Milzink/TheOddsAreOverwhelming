@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c54ckgp1skvh1"]
+
+[ext_resource type="PackedScene" uid="uid://b4arq1526vwrb" path="res://assets/blends/pickups/blue_xtal.blend" id="1_t6ih8"]
+[ext_resource type="Script" path="res://scenes/pickups/xtals/blue_xtal.gd" id="2_6jh3y"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_j65jw"]
+
+[node name="blue_xtal" instance=ExtResource("1_t6ih8")]
+script = ExtResource("2_6jh3y")
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "ArmatureAction"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0912108, 0)
+light_color = Color(1.73271e-06, 0.621737, 0.901082, 1)
+
+[node name="StaticBody3D" type="Area3D" parent="." index="3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_j65jw")
+
+[connection signal="body_entered" from="StaticBody3D" to="." method="_on_static_body_3d_body_entered"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfubmbc2dmj0j"]
+
+[sub_resource type="Theme" id="Theme_eg8ny"]
+default_font_size = 30
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CurrentScoreDisplay" type="RichTextLabel" parent="." groups=["currentscoredisplay"]]
+layout_mode = 1
+offset_left = 13.0
+offset_top = -1.0
+offset_right = 30.0
+offset_bottom = 41.0
+theme = SubResource("Theme_eg8ny")
+text = "0"
+fit_content = true
+autowrap_mode = 0

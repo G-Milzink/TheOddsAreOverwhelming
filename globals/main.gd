@@ -7,7 +7,7 @@ var player : CharacterBody3D
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	player = get_tree().get_first_node_in_group("player")
 	if !player:
 		Engine.time_scale = 0
