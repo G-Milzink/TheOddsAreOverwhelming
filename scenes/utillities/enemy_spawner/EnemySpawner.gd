@@ -10,6 +10,7 @@ var spawn_timer: Timer
 
 const DRONE = preload("res://scenes/enemies/Drone/drone.tscn")
 const DART = preload("res://scenes/enemies/Dart/dart.tscn")
+const DRONE_ARMORED = preload("res://scenes/enemies/Drone_Armored/drone_armored.tscn")
 
 @onready var main : Node3D = get_tree().get_root().get_node("Main")
 
@@ -24,7 +25,7 @@ func _ready() -> void:
 		spawn_timer.start()
 
 func _on_spawn_timer_timeout() -> void:
-	spawnDart()
+	spawnDroneArmored()
 
 func spawnDrone():
 	randomNumber = randomNumberGenerator.randi() % spawnPointList.size()
@@ -37,5 +38,12 @@ func spawnDart():
 	randomNumber = randomNumberGenerator.randi() % spawnPointList.size()
 	var spawnLocation = spawnPointList[randomNumber].position
 	var instance = DART.instantiate()
+	instance.spawnLocation = spawnLocation
+	main.add_child.call_deferred(instance)
+
+func spawnDroneArmored():
+	randomNumber = randomNumberGenerator.randi() % spawnPointList.size()
+	var spawnLocation = spawnPointList[randomNumber].position
+	var instance = DRONE_ARMORED.instantiate()
 	instance.spawnLocation = spawnLocation
 	main.add_child.call_deferred(instance)

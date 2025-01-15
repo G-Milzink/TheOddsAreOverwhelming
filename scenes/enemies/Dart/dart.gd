@@ -6,7 +6,7 @@ extends CharacterBody3D
 
 var currentSpeed : float
 var direction : Vector3 = Vector3.ZERO
-var hitPoints : float = 10.0
+var hitPoints : float = 20.0
 var spawnLocation : Vector3
 var collisionDamage : float = 35.0
 

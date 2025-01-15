@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://unydk8t0n165"]
+
+[ext_resource type="Script" path="res://scenes/enemies/Drone_Armored/drone_armored.gd" id="1_q4t4b"]
+[ext_resource type="PackedScene" uid="uid://bfnyc3hwkedw" path="res://scenes/enemies/Drone_Armored/drone_armored_model.tscn" id="2_317sx"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ybhfo"]
+height = 1.25
+radius = 1.25
+
+[node name="DroneArmored" type="CharacterBody3D" groups=["enemies"]]
+script = ExtResource("1_q4t4b")
+baseSpeed = 7.5
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.629789, 0)
+shape = SubResource("CylinderShape3D_ybhfo")
+
+[node name="Navigator" type="NavigationAgent3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.60248, 0)
+light_color = Color(0.630653, 0, 0.0642944, 1)
+light_energy = 2.5
+omni_range = 3.0
+
+[node name="DroneArmored" parent="." instance=ExtResource("2_317sx")]

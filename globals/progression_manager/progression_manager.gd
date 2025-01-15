@@ -1,6 +1,7 @@
 extends Node
 
 const droneReward : int = 1
+const droneArmoredReward : int = 3
 const dartReward : int = 2
 
 const blueXtalReward : int = 5

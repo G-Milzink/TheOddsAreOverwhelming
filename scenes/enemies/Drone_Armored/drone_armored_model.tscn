@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfnyc3hwkedw"]
+
+[ext_resource type="PackedScene" uid="uid://cxwd208f45vun" path="res://assets/blends/enemies/drone_armored/DroneArmored.blend" id="1_pfhp7"]
+
+[node name="DroneArmored" instance=ExtResource("1_pfhp7")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/2/rotation = Quaternion(-0.707107, 0.707107, -4.21608e-09, 5.76012e-08)
+
+[node name="AnimationPlayer" parent="." index="2"]
+autoplay = "ArmatureAction_004"
