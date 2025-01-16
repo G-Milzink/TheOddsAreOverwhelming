@@ -1,17 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://c54ckgp1skvh1"]
 
-[ext_resource type="PackedScene" uid="uid://b4arq1526vwrb" path="res://assets/blends/pickups/blue_xtal.blend" id="1_t6ih8"]
-[ext_resource type="Script" path="res://scenes/pickups/xtals/blue_xtal.gd" id="2_6jh3y"]
+[ext_resource type="PackedScene" uid="uid://b4arq1526vwrb" path="res://assets/blends/pickups/blue_crystal.blend" id="1_t6ih8"]
+[ext_resource type="Script" path="res://scenes/pickups/crystals/blue/blue_crystal.gd" id="2_6jh3y"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_j65jw"]
 
-[node name="BlueXtal" instance=ExtResource("1_t6ih8")]
+[node name="BlueCrystal" instance=ExtResource("1_t6ih8")]
 script = ExtResource("2_6jh3y")
 
 [node name="AnimationPlayer" parent="." index="1"]
 autoplay = "ArmatureAction"
 
 [node name="StaticBody3D" type="Area3D" parent="." index="2"]
+collision_layer = 257
+collision_mask = 257
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

@@ -8,7 +8,10 @@ var hitPoints : float = 30.0
 var spawnLocation : Vector3
 var collisionDamage : float = 35.0
 
+const EXPLOSION = preload("res://scenes/FX/Explosions/DroneArmored/explosion_drone_armored.tscn")
+
 @onready var navigator: NavigationAgent3D = $Navigator
+@onready var main : Node3D = get_tree().get_root().get_node("Main")
 
 func _ready() -> void:
 	currentSpeed = baseSpeed
@@ -50,4 +53,10 @@ func take_damage(damageTaken : float):
 
 func handle_death():
 	ProgressionManager.increase_score(ProgressionManager.droneArmoredReward)
+	spawnExplosion()
 	queue_free()
+
+func spawnExplosion():
+	var instance = EXPLOSION.instantiate()
+	instance.spawnPosition = global_position
+	main.add_child.call_deferred(instance)

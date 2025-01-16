@@ -8,7 +8,7 @@ var hitPoints : float = 10.0
 var spawnLocation : Vector3
 var collisionDamage : float = 35.0
 
-const EXPLOSION_A = preload("res://scenes/FX/Explosions/explosion_a.tscn")
+const EXPLOSION = preload("res://scenes/FX/Explosions/Drone/explosion_drone.tscn")
 
 @onready var navigator: NavigationAgent3D = $Navigator
 @onready var main : Node3D = get_tree().get_root().get_node("Main")
@@ -57,7 +57,7 @@ func handle_death():
 	queue_free()
 
 func spawnExplosion():
-	var instance = EXPLOSION_A.instantiate()
+	var instance = EXPLOSION.instantiate()
 	instance.spawnPosition = global_position
 	main.add_child.call_deferred(instance)
 	

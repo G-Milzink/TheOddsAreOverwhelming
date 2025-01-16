@@ -11,5 +11,5 @@
 [node name="floor_tile_00_vent" parent="." instance=ExtResource("2_0nnyk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
 
-[node name="floor_tile_00_wall" parent="." instance=ExtResource("3_jqyhx")]
+[node name="floor_tile_00_wall" parent="." groups=["walls"] instance=ExtResource("3_jqyhx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)

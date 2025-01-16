@@ -17,11 +17,11 @@ func _ready() -> void:
 	print("wave: ", currentWave)
 
 func _process(_delta: float) -> void:
-	if currentScore == 10 && currentWave == 1:
+	if currentScore >= 50 && currentWave == 1:
 		currentWave += 1
 		spawnDelay *= .9
 		print("wave: ", currentWave)
-	if currentScore == 20 && currentWave == 2:
+	if currentScore >= 100 && currentWave == 2:
 		currentWave += 1
 		spawnDelay *= .9
 		print("wave: ", currentWave)

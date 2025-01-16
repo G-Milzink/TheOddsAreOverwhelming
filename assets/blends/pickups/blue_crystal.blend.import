@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b4arq1526vwrb"
-path="res://.godot/imported/blue_xtal.blend-5be636822107cabe56ee0523aaddbbfc.scn"
+path="res://.godot/imported/blue_crystal.blend-941f5f8728cad995d25595a74e8423b7.scn"
 
 [deps]
 
-source_file="res://assets/blends/pickups/blue_xtal.blend"
-dest_files=["res://.godot/imported/blue_xtal.blend-5be636822107cabe56ee0523aaddbbfc.scn"]
+source_file="res://assets/blends/pickups/blue_crystal.blend"
+dest_files=["res://.godot/imported/blue_crystal.blend-941f5f8728cad995d25595a74e8423b7.scn"]
 
 [params]
 

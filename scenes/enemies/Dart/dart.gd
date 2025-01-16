@@ -4,14 +4,18 @@ extends CharacterBody3D
 @export var preAttackSpeed : float = 2.5
 @export var attackSpeed : float = 10.0
 
-var currentSpeed : float
+var isAttacking : bool = false
+var currentSpeed : float = 0.0
 var direction : Vector3 = Vector3.ZERO
 var hitPoints : float = 20.0
-var spawnLocation : Vector3
+var spawnLocation : Vector3 = Vector3.ZERO
 var collisionDamage : float = 35.0
+
+const EXPLOSION = preload("res://scenes/FX/Explosions/Dart/explosion_dart.tscn")
 
 @onready var navigator: NavigationAgent3D = $Navigator
 @onready var attackTimer: Timer = $AttackTimer
+@onready var main : Node3D = get_tree().get_root().get_node("Main")
 
 func _ready() -> void:
 	currentSpeed = baseSpeed
@@ -54,7 +58,8 @@ func handle_movement_and_collision():
 			handle_death()
 
 func _on_detection_area_body_entered(body: Node3D) -> void:
-	if body.is_in_group("player"):
+	if body.is_in_group("player") && !isAttacking:
+		isAttacking = true
 		currentSpeed = preAttackSpeed
 		attackTimer.start(1.0)
 
@@ -68,4 +73,10 @@ func take_damage(damageTaken : float):
 
 func handle_death():
 	ProgressionManager.increase_score(ProgressionManager.dartReward)
+	spawnExplosion()
 	queue_free()
+
+func spawnExplosion():
+	var instance = EXPLOSION.instantiate()
+	instance.spawnPosition = global_position
+	main.add_child.call_deferred(instance)
