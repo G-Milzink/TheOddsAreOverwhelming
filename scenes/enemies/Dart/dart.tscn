@@ -12,6 +12,7 @@ height = 0.712745
 radius = 12.2504
 
 [node name="Dart" type="CharacterBody3D" groups=["enemies"]]
+axis_lock_linear_y = true
 script = ExtResource("1_lk232")
 attackSpeed = 15.0
 

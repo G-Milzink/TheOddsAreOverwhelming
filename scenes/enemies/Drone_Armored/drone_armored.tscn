@@ -8,6 +8,7 @@ height = 1.25
 radius = 1.25
 
 [node name="DroneArmored" type="CharacterBody3D" groups=["enemies"]]
+axis_lock_linear_y = true
 script = ExtResource("1_q4t4b")
 baseSpeed = 7.5
 
