@@ -23,7 +23,7 @@ func _ready() -> void:
 
 func onTimeout():
 	spawnPickup()
-	spawnInterval = randf_range(5.0, 20.0)
+	spawnInterval = randf_range(15.0, 30.0)
 	spawnTimer.start(spawnInterval)
 
 func spawnPickup():

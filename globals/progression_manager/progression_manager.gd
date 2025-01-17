@@ -9,7 +9,7 @@ const blueXtalReward : int = 5
 var currentScore : int = 0
 var currentScoreDisplay : RichTextLabel 
 
-var spawnDelay : float = 2.0
+var spawnDelay : float = 1.5
 var currentWave : int = 1
 
 func _ready() -> void:

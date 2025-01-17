@@ -5,16 +5,16 @@ default_font_size = 30
 
 [node name="HUD" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CurrentScoreDisplay" type="RichTextLabel" parent="." groups=["currentscoredisplay"]]
 layout_mode = 1
-offset_left = 13.0
-offset_top = -1.0
-offset_right = 30.0
-offset_bottom = 41.0
+offset_right = 51.0
+offset_bottom = 42.0
 theme = SubResource("Theme_eg8ny")
 text = "0"
 fit_content = true

@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=3 uid="uid://bo64vasx02sta"]
+[gd_scene load_steps=6 format=3 uid="uid://bo64vasx02sta"]
 
-[ext_resource type="PackedScene" uid="uid://c36cwasjtgxxf" path="res://scenes/utillities/enemy_spawner/enemy_spawner.tscn" id="1_7diqv"]
 [ext_resource type="Script" path="res://globals/main.gd" id="1_is4p4"]
 [ext_resource type="PackedScene" uid="uid://dhqweiul45ifi" path="res://scenes/utillities/camera/camera_rig.tscn" id="1_m4lal"]
 [ext_resource type="PackedScene" uid="uid://mh7qc55oo1dr" path="res://scenes/maps/map_00.tscn" id="1_ug4g2"]
@@ -37,8 +36,6 @@ environment = SubResource("Environment_87gcj")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 light_energy = 0.1
 shadow_enabled = true
-
-[node name="EnemySpawer" parent="." instance=ExtResource("1_7diqv")]
 
 [node name="CameraRig" parent="." instance=ExtResource("1_m4lal")]
 

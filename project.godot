@@ -21,11 +21,13 @@ config/icon="res://icon.svg"
 PlayerData="*res://globals/player_data/player_data.tscn"
 ProgressionManager="*res://globals/progression_manager/progression_manager.gd"
 PickupSpawner="*res://globals/pickup_spawner/pickup_spawner.tscn"
+EnemySpawner="*res://globals/enemy_spawner/enemy_spawner.tscn"
 
 [display]
 
 window/size/viewport_width=960
 window/size/viewport_height=540
+window/stretch/mode="viewport"
 mouse_cursor/custom_image="res://assets/png/icons/battle_cursor.png"
 mouse_cursor/custom_image_hotspot=Vector2(8, 8)
 

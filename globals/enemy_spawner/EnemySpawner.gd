@@ -1,4 +1,4 @@
-extends Node3D
+extends Node
 
 @export var canSpawn = true
 
@@ -7,9 +7,8 @@ var randomNumberGenerator = RandomNumberGenerator.new()
 var randomSpawnPoint : int
 var randomEnemy : int
 var spawnTimer: Timer
-
-var waveNumber : int = 1
 var spawnInterval : float
+var waveNumber : int = 1
 
 const DRONE = preload("res://scenes/enemies/Drone/drone.tscn")
 const DART = preload("res://scenes/enemies/Dart/dart.tscn")
@@ -20,15 +19,17 @@ const DRONE_ARMORED = preload("res://scenes/enemies/Drone_Armored/drone_armored.
 #-------------------------------------------------------------------------------
 
 func _ready() -> void:
+	spawnTimer = Timer.new()
+	add_child(spawnTimer)
+	spawnTimer.timeout.connect(onTimeout)
 	spawnInterval = ProgressionManager.spawnDelay
 	randomNumberGenerator.randomize()
 	spawnPointList = get_tree().get_nodes_in_group("spawnpoints")
-	spawnTimer = get_node("SpawnTimer")
-	spawnTimer.set_wait_time(spawnInterval)
 	if canSpawn:
+		spawnEnemy()
 		spawnTimer.start(spawnInterval)
 
-func _on_spawn_timer_timeout() -> void:
+func onTimeout() -> void:
 	spawnEnemy()
 
 
