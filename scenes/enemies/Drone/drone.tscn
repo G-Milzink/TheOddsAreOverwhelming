@@ -8,6 +8,8 @@ height = 1.25
 radius = 1.25
 
 [node name="Drone" type="CharacterBody3D" groups=["enemies"]]
+axis_lock_linear_y = true
+safe_margin = 0.005
 script = ExtResource("1_yk1l3")
 baseSpeed = 5.0
 
@@ -18,6 +20,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.629789, 0)
 shape = SubResource("CylinderShape3D_ybhfo")
 
 [node name="Navigator" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.60248, 0)

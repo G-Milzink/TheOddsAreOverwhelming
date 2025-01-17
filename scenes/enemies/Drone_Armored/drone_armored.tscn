@@ -16,6 +16,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.629789, 0)
 shape = SubResource("CylinderShape3D_ybhfo")
 
 [node name="Navigator" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.60248, 0)

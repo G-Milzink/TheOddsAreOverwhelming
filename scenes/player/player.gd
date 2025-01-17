@@ -95,6 +95,7 @@ func _on_projectile_timer_timeout() -> void:
 
 func take_damage(damageTaken : float):
 	currentHitpoints -= damageTaken
+	PlayerData.setCurrentHitPoints(currentHitpoints)
 	if currentHitpoints <= 0:
 		handle_death()
 

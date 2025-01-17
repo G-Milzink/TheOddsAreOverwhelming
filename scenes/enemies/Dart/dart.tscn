@@ -21,6 +21,7 @@ attackSpeed = 15.0
 shape = SubResource("ConvexPolygonShape3D_7iy7q")
 
 [node name="Navigator" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
 
 [node name="EngineLight" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0.47748, -1)
