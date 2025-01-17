@@ -1,0 +1,43 @@
+Pickups:
+	Change points crystal to white.(common-90%?)
+	Add Blue pickup for Shield. (rare-7%?)
+	Add red pickup for Damage+ (very rare-1.5%?)
+	Add yellow pickup for FireRate+ (very rare-1.5%?)
+
+
+Enemies:
+	DropBom:
+		Crosshair > Beam > Explosion
+	Suicide Digger:
+		Burrowing, Hard to see.
+		Tries to get close and explodes
+		medium range.
+	Tank:
+		Medium PlayerLike Tank.
+		Beam weapon medium range.
+
+
+Bosses:
+	1 Super Tank:
+		Large PlayerLike Tank
+		Beam weapon large range.
+
+	2 Launcher:
+		Missile platform.
+		Canon + Carpet Bombing
+
+	3 Hunter:
+		Super Dart.
+		Fast! Attacks in a straight line
+		Then reacquires target.
+		Splits in two when first defeated.
+
+	4 ?
+
+
+PowerUps:
+	Teleport
+	Recharging shield
+	Beam weapon
+	AOE Attack
+	Double Canon
