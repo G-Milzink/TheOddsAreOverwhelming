@@ -10,7 +10,7 @@ func _ready():
 	velocity.x = direction.x * speed
 	velocity.z = direction.z * speed
 	global_position = spawnPosition
-	currentDamage = PlayerData.baseDamage * PlayerData.damageFactor
+	currentDamage = PlayerData.baseDamage * PlayerData.damageMultiplier
 
 func _physics_process(delta):
 	velocity.x = direction.x * speed

@@ -52,16 +52,17 @@ func handleWave1():
 
 func handleWave2():
 	randomEnemy = randi() % 100
-	if (randomEnemy < 25):
+	if (randomEnemy >= 70):
 		spawnDart()
 	else:
 		spawnDrone()
 
 func handleWave3():
 	randomEnemy = randi() % 100
-	if (randomEnemy < 25):
+	if (randomEnemy >= 70):
 		spawnDart()
-	if (randomEnemy < 50):
+		return
+	if (randomEnemy >= 35):
 		spawnDroneArmored()
 	else:
 		spawnDrone()

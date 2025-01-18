@@ -3,7 +3,6 @@ extends Node3D
 var menu_is_open : bool = false
 var player : CharacterBody3D
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 

@@ -28,8 +28,8 @@ func _ready() -> void:
 
 func onTimeout():
 	spawnPickup()
-	#spawnInterval = randf_range(15.0, 30.0)
-	spawnInterval = 2
+	spawnInterval = randf_range(15.0, 30.0)
+	#spawnInterval = 5
 	spawnTimer.start(spawnInterval)
 
 func spawnPickup():
@@ -50,11 +50,12 @@ func spawnPickup():
 func selectPickup():
 	instance_rng = randi() % 100
 	var crystals = [
-		{"threshold": 98.75, "crystal": RED_CRYSTAL},
-		{"threshold": 97.50, "crystal": YELLOW_CRYSTAL},
-		{"threshold": 95.0, "crystal": GREEN_CRYSTAL},
-		{"threshold": 92.5, "crystal": BLUE_CRYSTAL},
+		{"threshold": 97.5, "crystal": RED_CRYSTAL},
+		{"threshold": 95.0, "crystal": YELLOW_CRYSTAL},
+		{"threshold": 90.0, "crystal": GREEN_CRYSTAL},
+		{"threshold": 85.5, "crystal": BLUE_CRYSTAL},
 		{"threshold": 0.0, "crystal": WHITE_CRYSTAL}
+		#{"threshold": 0.0, "crystal": BLUE_CRYSTAL}
 	]
 	for crystal_data in crystals:
 		if instance_rng >= crystal_data["threshold"]:

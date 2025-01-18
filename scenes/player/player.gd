@@ -20,22 +20,24 @@ var currentSpeed : float
 #projectile variables:
 var can_shoot : bool = true
 var projectile : PackedScene 
+var projectileInterval : float
 const BULLET : PackedScene = preload("res://scenes/projectiles/player/player_bullet.tscn")
 
 #-------------------------------------------------------------------------------
 
 func _ready():
 	currentSpeed = PlayerData.baseSpeed
-	currentHitpoints = PlayerData.baseHitpoints
-	
+	currentHitpoints = PlayerData.maxHitpoints
 	projectile = BULLET
+	projectileInterval = PlayerData.projectileInterval
+	print(projectileInterval)
 
 func _physics_process(delta: float) -> void:
 	handle_movement(delta)
 	rotate_turret()
 
-func _input(event):
-	if event.is_action_pressed("fire_weapon"):
+func _process(_delta):
+	if Input.is_action_pressed("fire_weapon"):
 		fire_projectile()
 
 #-------------------------------------------------------------------------------
@@ -63,7 +65,6 @@ func handle_movement(delta):
 		# Apply the adjusted velocity to continue sliding
 		move_and_collide(velocity * delta)
 
-
 func rotate_turret():
 	spaceState = get_world_3d().direct_space_state
 	mousePosition = get_viewport().get_mouse_position()
@@ -88,16 +89,27 @@ func fire_projectile():
 		instance.spawnPosition = projectileSpawn.global_position
 		instance.direction = (lookAtPosition - projectileSpawn.global_position).normalized()
 		main.add_child.call_deferred(instance)
-		projectileTimer.start()
+		projectileTimer.start(projectileInterval)
 
 func _on_projectile_timer_timeout() -> void:
 	can_shoot = true
 
-func take_damage(damageTaken : float):
-	currentHitpoints -= damageTaken
+func take_damage(amount : float):
+	currentHitpoints -= amount
 	PlayerData.setCurrentHitPoints(currentHitpoints)
 	if currentHitpoints <= 0:
 		handle_death()
+
+func healDamage(amount : float):
+	currentHitpoints += amount
+	if currentHitpoints > PlayerData.maxHitpoints:
+		currentHitpoints = PlayerData.maxHitpoints
+	PlayerData.setCurrentHitPoints(currentHitpoints)
+
+func increaseFireRate():
+	projectileInterval *= 0.9
+	if projectileInterval < PlayerData.minProjectileInterval:
+		projectileInterval = PlayerData.minProjectileInterval
 
 func handle_death():
 	queue_free()
