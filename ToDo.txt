@@ -1,8 +1,9 @@
 Pickups:
-	Change points crystal to white.(common-90%?)
-	Add Blue pickup for Shield. (rare-7%?)
-	Add red pickup for Damage+ (very rare-1.5%?)
-	Add yellow pickup for FireRate+ (very rare-1.5%?)
+	Change points crystal to white.(common-92.5%?)
+	Add Blue pickup for Shield. (rare-2.5%?)
+	Add red pickup for Damage+ (very rare-1.25%?)
+	Add yellow pickup for FireRate+ (very rare-1.25%?)
+	Add green pickup for healing (rare - 2.5%?) 
 
 
 Enemies:

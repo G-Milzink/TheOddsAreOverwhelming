@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c65eb5ht1sqyu"]
+
+[ext_resource type="PackedScene" uid="uid://drrh4wxeyqfbg" path="res://assets/blends/pickups/yellow_crystal.blend" id="1_u7rsw"]
+[ext_resource type="Script" path="res://scenes/pickups/crystals/yellow/yellow_crystal.gd" id="2_asesv"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_c17np"]
+
+[node name="YellowCrystal" instance=ExtResource("1_u7rsw")]
+script = ExtResource("2_asesv")
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/rotation = Quaternion(0, 0, 0, 1)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "ArmatureAction"
+
+[node name="StaticBody3D" type="Area3D" parent="." index="2"]
+collision_layer = 257
+collision_mask = 257
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_c17np")
+
+[connection signal="body_entered" from="StaticBody3D" to="." method="_on_static_body_3d_body_entered"]
