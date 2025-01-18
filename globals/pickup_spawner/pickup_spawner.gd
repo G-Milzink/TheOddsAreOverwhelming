@@ -48,17 +48,15 @@ func spawnPickup():
 		main.add_child.call_deferred(instance)
 
 func selectPickup():
-	var instance_rng = randi() % 100
+	instance_rng = randi() % 100
 	var crystals = [
-		{"threshold": 80, "crystal": RED_CRYSTAL},
-		{"threshold": 60, "crystal": YELLOW_CRYSTAL},
-		{"threshold": 40, "crystal": GREEN_CRYSTAL},
-		{"threshold": 20, "crystal": BLUE_CRYSTAL},
-		{"threshold": 0, "crystal": WHITE_CRYSTAL}
+		{"threshold": 98.75, "crystal": RED_CRYSTAL},
+		{"threshold": 97.50, "crystal": YELLOW_CRYSTAL},
+		{"threshold": 95.0, "crystal": GREEN_CRYSTAL},
+		{"threshold": 92.5, "crystal": BLUE_CRYSTAL},
+		{"threshold": 0.0, "crystal": WHITE_CRYSTAL}
 	]
 	for crystal_data in crystals:
 		if instance_rng >= crystal_data["threshold"]:
 			return crystal_data["crystal"]
 	return null  # Fallback in case no crystal is matched (shouldn't happen)
-
-	

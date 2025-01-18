@@ -19,4 +19,16 @@ collision_mask = 257
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_j65jw")
 
+[node name="Despawner" type="Node" parent="." index="3"]
+
+[node name="DespawnTimer" type="Timer" parent="Despawner" index="0"]
+wait_time = 2.0
+one_shot = true
+
+[node name="FlashTimer" type="Timer" parent="Despawner" index="1"]
+wait_time = 0.25
+autostart = true
+
 [connection signal="body_entered" from="StaticBody3D" to="." method="_on_static_body_3d_body_entered"]
+[connection signal="timeout" from="Despawner/DespawnTimer" to="." method="_on_despawn_timer_timeout"]
+[connection signal="timeout" from="Despawner/FlashTimer" to="." method="_on_flash_timer_timeout"]
