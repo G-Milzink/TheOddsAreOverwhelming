@@ -32,7 +32,6 @@ func _ready() -> void:
 func onTimeout() -> void:
 	spawnEnemy()
 
-
 func spawnEnemy():
 	waveNumber = ProgressionManager.currentWave
 	spawnInterval = ProgressionManager.spawnDelay
@@ -44,7 +43,6 @@ func spawnEnemy():
 		3:
 			handleWave3()
 	spawnTimer.start(spawnInterval)
-
 
 #region Wave Handlers
 func handleWave1():

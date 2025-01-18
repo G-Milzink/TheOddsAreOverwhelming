@@ -6,11 +6,9 @@ var flashing : bool = false
 @onready var despawnTimer: Timer = $Despawner/DespawnTimer
 @onready var flashTimer: Timer = $Despawner/FlashTimer
 
-
 func _ready() -> void:
 	global_position = spawnLocation
 	despawnTimer.start()
-
 
 func _on_static_body_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
@@ -27,7 +25,6 @@ func _on_despawn_timer_timeout() -> void:
 		flashing = true
 		despawnTimer.start()
 		flashTimer.start()
-
 
 func _on_flash_timer_timeout() -> void:
 	if flashing:

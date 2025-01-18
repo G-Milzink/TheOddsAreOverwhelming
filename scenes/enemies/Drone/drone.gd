@@ -60,4 +60,3 @@ func spawnExplosion():
 	var instance = EXPLOSION.instantiate()
 	instance.spawnPosition = global_position
 	main.add_child.call_deferred(instance)
-	

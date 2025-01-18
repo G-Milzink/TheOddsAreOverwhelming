@@ -12,7 +12,6 @@ var playerHealthBar: ProgressBar
 var projectileInterval : float = 0.3
 const minProjectileInterval : float = 0.1
 
-
 func _ready() -> void:
 	playerHealthBar = get_tree().get_first_node_in_group("PlayerHealthBar")
 	playerHealthBar.set_value(currentHitPoints)
