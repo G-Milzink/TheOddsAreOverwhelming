@@ -28,8 +28,7 @@ func _ready() -> void:
 
 func onTimeout():
 	spawnPickup()
-	spawnInterval = randf_range(15.0, 30.0)
-	#spawnInterval = 5
+	spawnInterval = randf_range(5.0, 15.0)
 	spawnTimer.start(spawnInterval)
 
 func spawnPickup():
@@ -50,14 +49,15 @@ func spawnPickup():
 func selectPickup():
 	instance_rng = randi() % 100
 	var crystals = [
-		{"threshold": 97.5, "crystal": RED_CRYSTAL},
-		{"threshold": 95.0, "crystal": YELLOW_CRYSTAL},
-		{"threshold": 90.0, "crystal": GREEN_CRYSTAL},
-		{"threshold": 85.5, "crystal": BLUE_CRYSTAL},
+		{"threshold": 95.0, "crystal": RED_CRYSTAL},
+		{"threshold": 90.0, "crystal": YELLOW_CRYSTAL},
+		{"threshold": 82.5, "crystal": GREEN_CRYSTAL},
+		{"threshold": 75.0, "crystal": BLUE_CRYSTAL},
 		{"threshold": 0.0, "crystal": WHITE_CRYSTAL}
-		#{"threshold": 0.0, "crystal": BLUE_CRYSTAL}
 	]
 	for crystal_data in crystals:
 		if instance_rng >= crystal_data["threshold"]:
+			if crystal_data["crystal"] == BLUE_CRYSTAL and player.hasShield:
+				return WHITE_CRYSTAL
 			return crystal_data["crystal"]
 	return null  # Fallback in case no crystal is matched (shouldn't happen)

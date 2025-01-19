@@ -17,12 +17,15 @@ var lookAtPosition = Vector3()
 #Player variables:
 var currentHitpoints : float
 var currentSpeed : float
-#projectile variables:
+#Projectile variables:
 var can_shoot : bool = true
 var projectile : PackedScene 
 var projectileInterval : float
-const BULLET : PackedScene = preload("res://scenes/projectiles/player/player_bullet.tscn")
+#Shield  variables:
+var hasShield : bool = false
 
+const BULLET : PackedScene = preload("res://scenes/projectiles/player/player_bullet.tscn")
+const TEMP_SHIELD = preload("res://scenes/shields/temp_shield/temp_shield.tscn")
 #-------------------------------------------------------------------------------
 
 func _ready():
@@ -30,7 +33,6 @@ func _ready():
 	currentHitpoints = PlayerData.maxHitpoints
 	projectile = BULLET
 	projectileInterval = PlayerData.projectileInterval
-	print(projectileInterval)
 
 func _physics_process(delta: float) -> void:
 	handle_movement(delta)
@@ -113,3 +115,9 @@ func increaseFireRate():
 
 func handle_death():
 	queue_free()
+
+func spawnTempShield():
+	if !hasShield:
+		hasShield = true
+		var instance = TEMP_SHIELD.instantiate()
+		add_child.call_deferred(instance)

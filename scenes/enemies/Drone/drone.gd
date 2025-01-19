@@ -44,14 +44,14 @@ func handle_movement_and_collision():
 		var collider : Node3D = collision.get_collider()
 		if collider.is_in_group("player"):
 			collider.take_damage(collisionDamage)
-			handle_death()
+			handleDeath()
 
 func take_damage(damageTaken : float):
 	hitPoints -= damageTaken
 	if hitPoints <= 0:
-		handle_death()
+		handleDeath()
 
-func handle_death():
+func handleDeath():
 	ProgressionManager.increase_score(ProgressionManager.droneReward)
 	spawnExplosion()
 	queue_free()

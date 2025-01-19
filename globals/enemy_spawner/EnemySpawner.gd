@@ -26,7 +26,6 @@ func _ready() -> void:
 	randomNumberGenerator.randomize()
 	spawnPointList = get_tree().get_nodes_in_group("spawnpoints")
 	if canSpawn:
-		spawnEnemy()
 		spawnTimer.start(spawnInterval)
 
 func onTimeout() -> void:

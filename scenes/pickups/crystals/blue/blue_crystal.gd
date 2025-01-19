@@ -12,7 +12,7 @@ func _ready() -> void:
 
 func _on_static_body_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
-		ProgressionManager.increase_score(ProgressionManager.blueXtalReward)
+		body.spawnTempShield()
 		queue_free()
 	if body.is_in_group("pickuprejector"):
 		PickupSpawner.spawnPickup()

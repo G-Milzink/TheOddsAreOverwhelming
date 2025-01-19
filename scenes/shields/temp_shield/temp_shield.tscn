@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddrgxvwrqin5n"]
+
+[ext_resource type="Script" path="res://scenes/shields/temp_shield/temp_shield.gd" id="1_yhkq3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ma1nx"]
+transparency = 1
+albedo_color = Color(0, 0.916667, 1, 0.454902)
+
+[sub_resource type="SphereMesh" id="SphereMesh_4nmnn"]
+material = SubResource("StandardMaterial3D_ma1nx")
+radius = 1.0
+is_hemisphere = true
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bkdje"]
+height = 1.0
+radius = 1.0
+
+[node name="TempShield" type="Node3D"]
+transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 0, 0, 0)
+script = ExtResource("1_yhkq3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_4nmnn")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_bkdje")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
