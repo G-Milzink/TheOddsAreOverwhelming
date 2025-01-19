@@ -23,7 +23,7 @@ func _ready() -> void:
 	spawnTimer = Timer.new()
 	add_child(spawnTimer)
 	spawnTimer.timeout.connect(onTimeout)
-	spawnInterval = randf_range(0.5, 2.0)
+	spawnInterval = randf_range(1.0, 3.0)
 	spawnTimer.start(spawnInterval)
 
 func onTimeout():
@@ -58,6 +58,10 @@ func selectPickup():
 	for crystal_data in crystals:
 		if instance_rng >= crystal_data["threshold"]:
 			if crystal_data["crystal"] == BLUE_CRYSTAL and player.hasShield:
+				print("Blue pickup canceled")
+				return WHITE_CRYSTAL
+			if crystal_data["crystal"] == GREEN_CRYSTAL and player.currentHitpoints == PlayerData.maxHitpoints:
+				print("Green pickup canceled")
 				return WHITE_CRYSTAL
 			return crystal_data["crystal"]
 	return null  # Fallback in case no crystal is matched (shouldn't happen)

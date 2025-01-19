@@ -20,6 +20,7 @@ attackSpeed = 15.0
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_7iy7q")
+disabled = true
 
 [node name="Navigator" type="NavigationAgent3D" parent="."]
 avoidance_enabled = true

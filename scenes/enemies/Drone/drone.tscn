@@ -18,6 +18,7 @@ baseSpeed = 5.0
 [node name="Collider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.629789, 0)
 shape = SubResource("CylinderShape3D_ybhfo")
+disabled = true
 
 [node name="Navigator" type="NavigationAgent3D" parent="."]
 avoidance_enabled = true

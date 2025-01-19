@@ -11,6 +11,7 @@ var collisionDamage : float = 35.0
 const EXPLOSION = preload("res://scenes/FX/Explosions/DroneArmored/explosion_drone_armored.tscn")
 
 @onready var navigator: NavigationAgent3D = $Navigator
+@onready var collider: CollisionShape3D = $Collider
 @onready var main : Node3D = get_tree().get_root().get_node("Main")
 
 func _ready() -> void:
@@ -20,6 +21,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	handle_pathfinding(delta)
 	handle_movement_and_collision()
+
+func _process(delta: float) -> void:
+	if collider.disabled:
+		collider.disabled = false
 
 func handle_pathfinding(delta):
 	if NavigationServer3D.map_get_iteration_id(navigator.get_navigation_map()) == 0:
