@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 	handle_rotation(delta)
 	handle_movement_and_collision()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if collider.disabled:
 		collider.disabled = false
 
@@ -58,9 +58,9 @@ func handle_rotation(delta):
 func handle_movement_and_collision():
 	var collision : KinematicCollision3D = move_and_collide(velocity)
 	if collision:
-		var collider : Node3D = collision.get_collider()
-		if collider.is_in_group("player"):
-			collider.take_damage(collisionDamage)
+		var collisionObject : Node3D = collision.get_collider()
+		if collisionObject.is_in_group("player"):
+			collisionObject.take_damage(collisionDamage)
 			handleDeath()
 
 func _on_detection_area_body_entered(body: Node3D) -> void:

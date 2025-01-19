@@ -22,7 +22,7 @@ func _physics_process(delta: float) -> void:
 	handle_pathfinding(delta)
 	handle_movement_and_collision()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if collider.disabled:
 		collider.disabled = false
 
@@ -46,9 +46,9 @@ func handle_pathfinding(delta):
 func handle_movement_and_collision():
 	var collision : KinematicCollision3D = move_and_collide(velocity)
 	if collision:
-		var collider : Node3D = collision.get_collider()
-		if collider.is_in_group("player"):
-			collider.take_damage(collisionDamage)
+		var collisionObject : Node3D = collision.get_collider()
+		if collisionObject.is_in_group("player"):
+			collisionObject.take_damage(collisionDamage)
 			handleDeath()
 
 func take_damage(damageTaken : float):

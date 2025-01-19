@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bo64vasx02sta"]
+[gd_scene load_steps=8 format=3 uid="uid://bo64vasx02sta"]
 
 [ext_resource type="Script" path="res://globals/main.gd" id="1_is4p4"]
 [ext_resource type="PackedScene" uid="uid://dhqweiul45ifi" path="res://scenes/utillities/camera/camera_rig.tscn" id="1_m4lal"]
 [ext_resource type="PackedScene" uid="uid://mh7qc55oo1dr" path="res://scenes/maps/map_00.tscn" id="1_ug4g2"]
+[ext_resource type="PackedScene" uid="uid://wajl11rfq8k3" path="res://UI/start_menu/start_menu.tscn" id="5_22n0w"]
 [ext_resource type="PackedScene" uid="uid://cfubmbc2dmj0j" path="res://UI/hud.tscn" id="5_p4vhe"]
+[ext_resource type="PackedScene" uid="uid://djdf4tloyudss" path="res://UI/pause_menu/pause_menu.tscn" id="6_xxlw5"]
 
 [sub_resource type="Environment" id="Environment_87gcj"]
 background_mode = 1
@@ -40,4 +42,11 @@ shadow_enabled = true
 
 [node name="CameraRig" parent="." instance=ExtResource("1_m4lal")]
 
-[node name="HUD" parent="." instance=ExtResource("5_p4vhe")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("5_p4vhe")]
+
+[node name="StartMenu" parent="CanvasLayer" instance=ExtResource("5_22n0w")]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_xxlw5")]
+visible = false
