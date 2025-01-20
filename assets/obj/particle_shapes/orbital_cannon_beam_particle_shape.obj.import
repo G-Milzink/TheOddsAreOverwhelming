@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://r4s45pefj75n"
+path="res://.godot/imported/orbital_cannon_beam_particle_shape.obj-eae8cf4e966da9fc785150b5fce4581d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/orbital_cannon_beam_particle_shape.obj-eae8cf4e966da9fc785150b5fce4581d.mesh"]
+
+source_file="res://assets/obj/particle_shapes/orbital_cannon_beam_particle_shape.obj"
+dest_files=["res://.godot/imported/orbital_cannon_beam_particle_shape.obj-eae8cf4e966da9fc785150b5fce4581d.mesh", "res://.godot/imported/orbital_cannon_beam_particle_shape.obj-eae8cf4e966da9fc785150b5fce4581d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

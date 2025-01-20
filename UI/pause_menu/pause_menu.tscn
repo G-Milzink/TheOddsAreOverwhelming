@@ -55,6 +55,7 @@ offset_right = 40.5
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 2
 
 [node name="Continue" type="Button" parent="MenuPanel/VBox"]
 layout_mode = 2
@@ -62,14 +63,19 @@ text = "	CONTINUE
 "
 
 [node name="Options" type="Button" parent="MenuPanel/VBox"]
-visible = false
+modulate = Color(0.219501, 0.219501, 0.219501, 1)
 layout_mode = 2
-text = "Start Run"
+text = "OPTIONS"
 
 [node name="How To Play" type="Button" parent="MenuPanel/VBox"]
-visible = false
+modulate = Color(0.219608, 0.219608, 0.219608, 1)
 layout_mode = 2
-text = "Start Run"
+text = "HOW TO PLAY"
+
+[node name="Leaderboards" type="Button" parent="MenuPanel/VBox"]
+modulate = Color(0.219608, 0.219608, 0.219608, 1)
+layout_mode = 2
+text = "LEADERBOARD"
 
 [node name="Exit" type="Button" parent="MenuPanel/VBox"]
 layout_mode = 2

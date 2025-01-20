@@ -96,7 +96,7 @@ func fire_projectile():
 func _on_projectile_timer_timeout() -> void:
 	can_shoot = true
 
-func take_damage(amount : float):
+func takeDamage(amount : float):
 	currentHitpoints -= amount
 	PlayerData.setCurrentHitPoints(currentHitpoints)
 	if currentHitpoints <= 0:

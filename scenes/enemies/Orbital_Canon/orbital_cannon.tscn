@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://blj70phbkn3mn"]
+
+[ext_resource type="Script" path="res://scenes/enemies/Orbital_Canon/orbital_cannon.gd" id="1_534c0"]
+[ext_resource type="PackedScene" uid="uid://ckagdxoi46e6s" path="res://scenes/enemies/Orbital_Canon/cross_hair_model.tscn" id="1_td5wx"]
+[ext_resource type="ArrayMesh" uid="uid://r4s45pefj75n" path="res://assets/obj/particle_shapes/orbital_cannon_beam_particle_shape.obj" id="3_dg4gu"]
+
+[sub_resource type="Curve" id="Curve_vmgqa"]
+max_value = 3.0
+_data = [Vector2(0.00218818, 0.504519), 0.0, 0.0, 0, 0, Vector2(0.509847, 0.515201), 0.0, 0.0, 0, 0, Vector2(0.757112, 3), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_sp6bj"]
+max_value = 25.0
+_data = [Vector2(0, 0.175823), 0.0, 0.0, 0, 0, Vector2(0.748359, 25), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_7m12s"]
+max_value = 3.0
+_data = [Vector2(0, 0.493837), 0.0, 0.0, 0, 0, Vector2(0.496718, 0.504519), 0.0, 0.0, 0, 0, Vector2(0.754923, 3), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_rqt0t"]
+curve_x = SubResource("Curve_vmgqa")
+curve_y = SubResource("Curve_sp6bj")
+curve_z = SubResource("Curve_7m12s")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y1e0y"]
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveXYZTexture_rqt0t")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mqsnr"]
+height = 0.75
+radius = 2.19986
+
+[node name="OrbitalCannon" type="Node3D"]
+script = ExtResource("1_534c0")
+
+[node name="Beam" type="GPUParticles3D" parent="."]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0, 24.5644, 0)
+emitting = false
+amount = 1
+lifetime = 0.4
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_y1e0y")
+draw_pass_1 = ExtResource("3_dg4gu")
+
+[node name="FollowTimer" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+autostart = true
+
+[node name="BlastTimer" type="Timer" parent="."]
+wait_time = 3.5
+one_shot = true
+autostart = true
+
+[node name="CrossHair" parent="." instance=ExtResource("1_td5wx")]
+
+[node name="BlastArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BlastArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, 0)
+shape = SubResource("CylinderShape3D_mqsnr")
+
+[connection signal="finished" from="Beam" to="." method="_on_beam_finished"]
+[connection signal="timeout" from="FollowTimer" to="." method="_on_follow_timer_timeout"]
+[connection signal="timeout" from="BlastTimer" to="." method="_on_blast_timer_timeout"]
