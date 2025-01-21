@@ -2,28 +2,28 @@ extends Node
 
 @export var canSpawn = true
 
-var spawnPointList
-var randomNumberGenerator = RandomNumberGenerator.new()
+var spawnPointList : Array
 var randomSpawnPoint : int
 var randomEnemy : int
 var spawnTimer: Timer
 var spawnInterval : float
-var waveNumber : int = 1
 
-const DRONE = preload("res://scenes/enemies/Drone/drone.tscn")
-const DART = preload("res://scenes/enemies/Dart/dart.tscn")
-const DRONE_ARMORED = preload("res://scenes/enemies/Drone_Armored/drone_armored.tscn")
-const ORBITAL_CANNON = preload("res://scenes/enemies/Orbital_Canon/orbital_cannon.tscn")
+var randomNumberGenerator = RandomNumberGenerator.new()
+var waveNumber : int = 1
+var canSpawnOrbitalCannon : bool = true
+
+const DRONE : PackedScene = preload("res://scenes/enemies/Drone/drone.tscn")
+const DART : PackedScene = preload("res://scenes/enemies/Dart/dart.tscn")
+const DRONE_ARMORED : PackedScene = preload("res://scenes/enemies/Drone_Armored/drone_armored.tscn")
+const ORBITAL_CANNON : PackedScene = preload("res://scenes/enemies/Orbital_Canon/orbital_cannon.tscn")
 
 @onready var main : Node3D = get_tree().get_root().get_node("Main")
-
-#-------------------------------------------------------------------------------
 
 func _ready() -> void:
 	spawnTimer = Timer.new()
 	add_child(spawnTimer)
 	spawnTimer.timeout.connect(onTimeout)
-	spawnInterval = ProgressionManager.spawnDelay
+	spawnInterval = ProgressionManager.spawnInterval
 	randomNumberGenerator.randomize()
 	spawnPointList = get_tree().get_nodes_in_group("spawnpoints")
 	if canSpawn:
@@ -34,7 +34,7 @@ func onTimeout() -> void:
 
 func spawnEnemy():
 	waveNumber = ProgressionManager.currentWave
-	spawnInterval = ProgressionManager.spawnDelay
+	spawnInterval = ProgressionManager.spawnInterval
 	match waveNumber:
 		1:
 			handleWave1()
@@ -70,7 +70,10 @@ func handleWave3():
 func handleWave4():
 	randomEnemy = randi() % 100
 	if (randomEnemy >= 75):
-		spawnOrbitalCannon()
+		if EnemySpawner.canSpawnOrbitalCannon == true:
+			spawnOrbitalCannon()
+		else:
+			spawnDroneArmored()
 		return
 	if (randomEnemy >= 50):
 		spawnDart()

@@ -5,7 +5,6 @@ var player : CharacterBody3D
 
 @onready var pauseMenu: Control = $CanvasLayer/PauseMenu
 
-
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	Engine.time_scale = 0

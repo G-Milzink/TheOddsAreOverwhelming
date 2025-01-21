@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cfr8iinpn8x1x" path="res://scenes/player/player_model_turret.tscn" id="3_2le5l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o3ydk"]
-size = Vector3(1.5, 0.5, 1.5)
+size = Vector3(2.12142, 1.11035, 2.10487)
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 axis_lock_linear_y = true
@@ -22,10 +22,10 @@ transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0, 0, 0)
 transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0, 0, 0)
 
 [node name="projectile_spawn" type="Node3D" parent="Turret"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -4.11726e-07, 0.665706, 1.5846)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -4.59029e-07, 0.6283, 1.85514)
 
 [node name="Collider" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000461578, 0.555176, -0.0038681)
 shape = SubResource("BoxShape3D_o3ydk")
 
 [node name="ProjectileTimer" type="Timer" parent="."]

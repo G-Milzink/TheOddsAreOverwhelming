@@ -9,7 +9,7 @@ const blueXtalReward : int = 5
 var currentScore : int = 0
 var currentScoreDisplay : RichTextLabel 
 
-var spawnDelay : float = 1.5
+var spawnInterval : float = 1.5
 var currentWave : int = 1
 
 func _ready() -> void:
@@ -19,15 +19,15 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if currentScore >= 50 && currentWave == 1:
 		currentWave += 1
-		spawnDelay *= .9
+		spawnInterval *= .9
 		print("wave: ", currentWave)
 	if currentScore >= 100 && currentWave == 2:
 		currentWave += 1
-		spawnDelay *= .9
+		spawnInterval *= .9
 		print("wave: ", currentWave)
 	if currentScore >= 150 && currentWave == 3:
 		currentWave += 1
-		spawnDelay *= .9
+		spawnInterval *= .9
 		print("wave: ", currentWave)
 
 

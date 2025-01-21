@@ -21,7 +21,7 @@ func setCurrentHitPoints(amount: float):
 	playerHealthBar.set_value(currentHitPoints)
 
 func increaseDamage():
-	damageMultiplier += 0.1
+	damageMultiplier += 5.0
 	if damageMultiplier > maxDamageMultiplier:
 		damageMultiplier = maxDamageMultiplier
 	print(damageMultiplier)
