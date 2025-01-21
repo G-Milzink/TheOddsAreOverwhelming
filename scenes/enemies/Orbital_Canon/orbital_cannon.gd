@@ -15,11 +15,8 @@ func _ready() -> void:
 	following = true
 
 func _process(delta: float) -> void:
-
-	print("Beam emitting:", beam.emitting)
-	if following:
+	if following && player:
 		position = player.global_position
-		
 
 func _on_follow_timer_timeout() -> void:
 	following = false

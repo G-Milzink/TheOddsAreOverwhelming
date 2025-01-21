@@ -13,6 +13,7 @@ var waveNumber : int = 1
 const DRONE = preload("res://scenes/enemies/Drone/drone.tscn")
 const DART = preload("res://scenes/enemies/Dart/dart.tscn")
 const DRONE_ARMORED = preload("res://scenes/enemies/Drone_Armored/drone_armored.tscn")
+const ORBITAL_CANNON = preload("res://scenes/enemies/Orbital_Canon/orbital_cannon.tscn")
 
 @onready var main : Node3D = get_tree().get_root().get_node("Main")
 
@@ -41,6 +42,8 @@ func spawnEnemy():
 			handleWave2()
 		3:
 			handleWave3()
+		4:
+			handleWave4()
 	spawnTimer.start(spawnInterval)
 
 #region Wave Handlers
@@ -60,6 +63,19 @@ func handleWave3():
 		spawnDart()
 		return
 	if (randomEnemy >= 35):
+		spawnDroneArmored()
+	else:
+		spawnDrone()
+
+func handleWave4():
+	randomEnemy = randi() % 100
+	if (randomEnemy >= 75):
+		spawnOrbitalCannon()
+		return
+	if (randomEnemy >= 50):
+		spawnDart()
+		return
+	if (randomEnemy >= 20):
 		spawnDroneArmored()
 	else:
 		spawnDrone()
@@ -85,5 +101,10 @@ func spawnDroneArmored():
 	var spawnLocation = spawnPointList[randomSpawnPoint].position
 	var instance = DRONE_ARMORED.instantiate()
 	instance.spawnLocation = spawnLocation
+	main.add_child.call_deferred(instance)
+
+func spawnOrbitalCannon():
+	randomSpawnPoint = randomNumberGenerator.randi() % spawnPointList.size()
+	var instance = ORBITAL_CANNON.instantiate()
 	main.add_child.call_deferred(instance)
 #endregion

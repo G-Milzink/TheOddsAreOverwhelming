@@ -48,7 +48,7 @@ func handle_movement_and_collision():
 	if collision:
 		var collisionObject : Node3D = collision.get_collider()
 		if collisionObject.is_in_group("player"):
-			collisionObject.take_damage(collisionDamage)
+			collisionObject.takeDamage(collisionDamage)
 			handleDeath()
 
 func take_damage(damageTaken : float):

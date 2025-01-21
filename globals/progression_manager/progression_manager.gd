@@ -25,6 +25,14 @@ func _process(_delta: float) -> void:
 		currentWave += 1
 		spawnDelay *= .9
 		print("wave: ", currentWave)
+	if currentScore >= 150 && currentWave == 3:
+		currentWave += 1
+		spawnDelay *= .9
+		print("wave: ", currentWave)
+
+
+
+
 
 func increase_score(amount : int):
 	currentScore += amount

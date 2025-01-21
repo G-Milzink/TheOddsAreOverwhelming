@@ -43,6 +43,7 @@ shadow_enabled = true
 [node name="CameraRig" parent="." instance=ExtResource("1_m4lal")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_scale = 0.5
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("5_p4vhe")]
 
