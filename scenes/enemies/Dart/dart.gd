@@ -80,6 +80,7 @@ func take_damage(damageTaken : float):
 func handleDeath():
 	ProgressionManager.increase_score(ProgressionManager.dartReward)
 	spawnExplosion()
+	JuiceInjector.shakeCamera(0.2)
 	queue_free()
 
 func spawnExplosion():

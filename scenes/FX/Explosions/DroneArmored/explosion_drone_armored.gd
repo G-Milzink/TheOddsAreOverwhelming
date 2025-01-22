@@ -7,6 +7,7 @@ var spawnPosition : Vector3
 @onready var debrisUnique2: GPUParticles3D = $DebrisUnique2
 @onready var smoke: GPUParticles3D = $Smoke
 @onready var fire: GPUParticles3D = $Fire
+@onready var audioFx: AudioStreamPlayer3D = $AudioFx
 
 func _ready() -> void:
 	global_position = spawnPosition
@@ -20,6 +21,8 @@ func explode():
 	
 	debrisUnique1.emitting = true
 	debrisUnique2.emitting = true
+	
+	audioFx.play()
 	
 	await get_tree().create_timer(2.0).timeout
 	queue_free()

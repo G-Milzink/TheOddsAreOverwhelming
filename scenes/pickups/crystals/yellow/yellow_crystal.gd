@@ -5,6 +5,7 @@ var flashing : bool = false
 
 @onready var despawnTimer: Timer = $Despawner/DespawnTimer
 @onready var flashTimer: Timer = $Despawner/FlashTimer
+@onready var audioFx: AudioStreamPlayer3D = $AudioFx
 
 func _ready() -> void:
 	global_position = spawnLocation
@@ -12,8 +13,10 @@ func _ready() -> void:
 
 func _on_static_body_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
+		flashTimer.stop()
+		visible = false
 		body.increaseFireRate()
-		queue_free()
+		audioFx.play()
 	if body.is_in_group("pickuprejector"):
 		PickupSpawner.spawnPickup()
 		queue_free()
@@ -29,3 +32,6 @@ func _on_despawn_timer_timeout() -> void:
 func _on_flash_timer_timeout() -> void:
 	if flashing:
 		self.visible = !self.visible
+
+func _on_audio_fx_finished() -> void:
+	queue_free()

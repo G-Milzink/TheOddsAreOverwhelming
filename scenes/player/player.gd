@@ -18,14 +18,18 @@ var projectileInterval : float
 #Shield  variables:
 var hasShield : bool = false
 
-const BULLET : PackedScene = preload("res://scenes/projectiles/player/player_bullet.tscn")
+const BULLET : PackedScene = preload("res://scenes/projectiles/player/bullet/player_bullet.tscn")
 const TEMP_SHIELD : PackedScene = preload("res://scenes/shields/temp_shield/temp_shield.tscn")
+const EXPLOSION_PLAYER_DEATH : PackedScene = preload("res://scenes/FX/Explosions/Player/explosion_player_death.tscn")
 
 @onready var main : Node3D = get_tree().get_root().get_node("Main")
 @onready var camera: Camera3D = get_tree().get_first_node_in_group("camera")
 @onready var turret: Node3D = $Turret
 @onready var projectileSpawn: Node3D = $Turret/projectile_spawn
 @onready var projectileTimer: Timer = $ProjectileTimer
+
+@onready var bulletFx: AudioStreamPlayer3D = $BulletFx
+
 #-------------------------------------------------------------------------------
 
 func _ready():
@@ -83,6 +87,7 @@ func rotate_turret():
 
 func fire_projectile():
 	if can_shoot && !main.menu_is_open :
+		bulletFx.play()
 		can_shoot = false
 		var instance = projectile.instantiate()
 		instance.spawnPosition = projectileSpawn.global_position
@@ -111,6 +116,10 @@ func increaseFireRate():
 		projectileInterval = PlayerData.minProjectileInterval
 
 func handle_death():
+	PickupSpawner.canSpawnPickups = false
+	var instance = EXPLOSION_PLAYER_DEATH.instantiate()
+	instance.spawnPosition = position
+	main.add_child.call_deferred(instance)
 	queue_free()
 
 func spawnTempShield():

@@ -1,6 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://bhpbbeenvqfc7"]
+[gd_scene load_steps=36 format=3 uid="uid://bhpbbeenvqfc7"]
 
 [ext_resource type="Script" path="res://scenes/FX/Explosions/Dart/explosion_dart.gd" id="1_bior4"]
+[ext_resource type="AudioStream" uid="uid://npchc3frg2b3" path="res://assets/wav/explosion_a1.wav" id="2_f2qfx"]
+[ext_resource type="AudioStream" uid="uid://dof48ijbb4abh" path="res://assets/wav/explosion_a2.wav" id="3_n4xjj"]
+[ext_resource type="AudioStream" uid="uid://xdp3lsg7e1hy" path="res://assets/wav/explosion_a3.wav" id="4_04mgh"]
+[ext_resource type="AudioStream" uid="uid://cf8v500hmjpa1" path="res://assets/wav/explosion_a4.wav" id="5_k2rmm"]
 
 [sub_resource type="Curve" id="Curve_8b3ej"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -161,6 +165,14 @@ color = Color(1, 0.729412, 0, 1)
 color_ramp = SubResource("GradientTexture1D_7pqrk")
 emission_curve = SubResource("CurveTexture_7aar4")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6m2kv"]
+random_pitch = 1.1
+streams_count = 4
+stream_0/stream = ExtResource("2_f2qfx")
+stream_1/stream = ExtResource("3_n4xjj")
+stream_2/stream = ExtResource("4_04mgh")
+stream_3/stream = ExtResource("5_k2rmm")
+
 [node name="ExplosionDart" type="Node3D"]
 script = ExtResource("1_bior4")
 
@@ -219,3 +231,7 @@ explosiveness = 1.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_uu22e")
 draw_pass_1 = SubResource("SphereMesh_nnhbu")
+
+[node name="AudioFx" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_6m2kv")
+max_polyphony = 2

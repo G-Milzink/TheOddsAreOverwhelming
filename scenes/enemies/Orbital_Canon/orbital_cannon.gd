@@ -8,9 +8,10 @@ var following : bool
 @onready var beam: GPUParticles3D = $Beam
 
 func _ready() -> void:
-	player = get_tree().get_first_node_in_group("player")
 	EnemySpawner.canSpawnOrbitalCannon = false
-	position = player.global_position
+	player = get_tree().get_first_node_in_group("player")
+	if player:
+		position = player.global_position
 	crossHair.visible = true
 	beam.emitting = false
 	following = true
@@ -29,5 +30,6 @@ func _on_blast_timer_timeout() -> void:
 		player.takeDamage(50.0)
 
 func _on_beam_finished() -> void:
+	JuiceInjector.shakeCamera(0.3)
 	EnemySpawner.canSpawnOrbitalCannon = true
 	queue_free()

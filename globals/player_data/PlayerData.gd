@@ -9,7 +9,7 @@ var damageMultiplier : float = 1.0
 var maxDamageMultiplier : float = 2.0
 var playerHealthBar: ProgressBar 
 
-var projectileInterval : float = 0.3
+var projectileInterval : float = 0.4
 const minProjectileInterval : float = 0.1
 
 func _ready() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bo64vasx02sta"]
+[gd_scene load_steps=9 format=3 uid="uid://bo64vasx02sta"]
 
 [ext_resource type="Script" path="res://globals/main.gd" id="1_is4p4"]
 [ext_resource type="PackedScene" uid="uid://dhqweiul45ifi" path="res://scenes/utillities/camera/camera_rig.tscn" id="1_m4lal"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://wajl11rfq8k3" path="res://UI/start_menu/start_menu.tscn" id="5_22n0w"]
 [ext_resource type="PackedScene" uid="uid://cfubmbc2dmj0j" path="res://UI/hud.tscn" id="5_p4vhe"]
 [ext_resource type="PackedScene" uid="uid://djdf4tloyudss" path="res://UI/pause_menu/pause_menu.tscn" id="6_xxlw5"]
+[ext_resource type="PackedScene" uid="uid://p11ldq2q2sqg" path="res://scenes/utillities/audio_system/audio_system.tscn" id="7_iv24y"]
 
 [sub_resource type="Environment" id="Environment_87gcj"]
 background_mode = 1
@@ -39,6 +40,8 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 light_color = Color(0.787759, 0.787759, 0.787759, 1)
 light_energy = 0.1
 shadow_enabled = true
+
+[node name="AudioSystem" parent="." instance=ExtResource("7_iv24y")]
 
 [node name="CameraRig" parent="." instance=ExtResource("1_m4lal")]
 

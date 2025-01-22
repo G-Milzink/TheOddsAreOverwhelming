@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bco8flpwsfbpl"]
+
+[ext_resource type="Script" path="res://globals/juice_injector/juice_injector.gd" id="1_15wul"]
+
+[node name="JuiceInjector" type="Node"]
+script = ExtResource("1_15wul")

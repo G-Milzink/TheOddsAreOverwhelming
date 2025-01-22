@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c65eb5ht1sqyu"]
+[gd_scene load_steps=5 format=3 uid="uid://c65eb5ht1sqyu"]
 
 [ext_resource type="PackedScene" uid="uid://drrh4wxeyqfbg" path="res://assets/blends/pickups/yellow_crystal.blend" id="1_u7rsw"]
 [ext_resource type="Script" path="res://scenes/pickups/crystals/yellow/yellow_crystal.gd" id="2_asesv"]
+[ext_resource type="AudioStream" uid="uid://8fkudghxgy0a" path="res://assets/wav/pickups/fireRateUp.wav" id="3_28rb7"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_c17np"]
 
@@ -32,6 +33,10 @@ one_shot = true
 wait_time = 0.25
 autostart = true
 
+[node name="AudioFx" type="AudioStreamPlayer3D" parent="." index="4"]
+stream = ExtResource("3_28rb7")
+
 [connection signal="body_entered" from="StaticBody3D" to="." method="_on_static_body_3d_body_entered"]
 [connection signal="timeout" from="Despawner/DespawnTimer" to="." method="_on_despawn_timer_timeout"]
 [connection signal="timeout" from="Despawner/FlashTimer" to="." method="_on_flash_timer_timeout"]
+[connection signal="finished" from="AudioFx" to="." method="_on_audio_fx_finished"]

@@ -59,6 +59,7 @@ func take_damage(damageTaken : float):
 func handleDeath():
 	ProgressionManager.increase_score(ProgressionManager.droneArmoredReward)
 	spawnExplosion()
+	JuiceInjector.shakeCamera(0.2)
 	queue_free()
 
 func spawnExplosion():
