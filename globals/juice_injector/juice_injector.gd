@@ -13,7 +13,7 @@ func _ready() -> void:
 func setupCamerTimer():
 	cameraShakeTimer = Timer.new()
 	add_child(cameraShakeTimer)
-	cameraShakeTimer.one_shot = true
+	cameraShakeTimer.set_one_shot(true)
 	cameraShakeTimer.timeout.connect(cameraShakeTimeout)
 
 func shakeCamera(intensity : float):
@@ -21,10 +21,9 @@ func shakeCamera(intensity : float):
 	var y = randf_range(-intensity, intensity) + initalRotation.y
 	var z = randf_range(-intensity, intensity) + initalRotation.z
 	cameraShakeTimer.start(0.05)
-	Engine.time_scale = 0.5
+	Engine.time_scale = 0.9
 	camera.rotation_degrees = Vector3(x,y,z)
 
 func cameraShakeTimeout():
-	print("!")
 	Engine.time_scale = 1
 	camera.rotation_degrees = Vector3(-90, 0, 0)
