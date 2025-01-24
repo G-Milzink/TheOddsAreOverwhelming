@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp3o65sc3kq1o"]
+
+[ext_resource type="PackedScene" uid="uid://bea3gu6e2kij8" path="res://assets/blends/enemies/cannon_crawler/cannon_crawler_body.blend" id="1_1ejyt"]
+
+[node name="cannon_crawler_body" instance=ExtResource("1_1ejyt")]
+
+[node name="Skeleton3D" parent="body" index="0"]
+bones/1/rotation = Quaternion(0.0238903, -0.025025, -0.750335, 0.660151)
+bones/2/rotation = Quaternion(0.130556, -0.000251967, -0.279148, 0.951331)
+bones/3/rotation = Quaternion(0.10432, 3.86353e-05, -0.220308, 0.969836)
+bones/4/rotation = Quaternion(0.474136, 0.578529, 0.409467, 0.522337)
+bones/5/rotation = Quaternion(-0.546805, 0.760616, -0.34995, 0.00142424)
+bones/6/rotation = Quaternion(0.345628, -0.000119983, -0.537208, 0.769383)
+bones/7/rotation = Quaternion(-0.749539, 0.660967, 0.0262804, -0.0249691)
+bones/8/rotation = Quaternion(-0.247362, 0.00376234, -0.521788, 0.816416)
+bones/9/rotation = Quaternion(-0.212693, 7.5315e-05, -0.450191, 0.867231)
+bones/10/rotation = Quaternion(-0.390954, 0.521432, -0.469153, 0.595953)
+bones/11/rotation = Quaternion(-0.228192, 7.06757e-05, -0.357771, 0.905499)
+bones/12/rotation = Quaternion(-0.232288, -0.000177144, -0.360069, 0.903544)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "walk"

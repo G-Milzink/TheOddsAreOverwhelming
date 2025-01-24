@@ -1,47 +1,41 @@
 extends CharacterBody3D
 
-@export var baseSpeed  : float = 7.5
-@export var preAttackSpeed : float = 2.5
-@export var attackSpeed : float = 10.0
+@export var baseSpeed  : float = 1
 
-var isAttacking : bool = false
-var currentSpeed : float = 0.0
+var currentSpeed : float
 var direction : Vector3 = Vector3.ZERO
-var hitPoints : float = 20.0
-var spawnLocation : Vector3 = Vector3.ZERO
+var hitPoints : float = 10.0
+var spawnLocation : Vector3
 var collisionDamage : float = 35.0
 
-const EXPLOSION = preload("res://scenes/FX/Explosions/Dart/explosion_dart.tscn")
+const EXPLOSION = preload("res://scenes/FX/Explosions/Drone/explosion_drone.tscn")
 
 @onready var navigator: NavigationAgent3D = $Navigator
-@onready var attackTimer: Timer = $AttackTimer
 @onready var collider: CollisionShape3D = $Collider
-
 @onready var main : Node3D = get_tree().get_root().get_node("Main")
 
 func _ready() -> void:
 	currentSpeed = baseSpeed
-	global_position = spawnLocation
+	#global_position = spawnLocation
 
 func _physics_process(delta: float) -> void:
 	handle_pathfinding(delta)
-	handle_rotation(delta)
 	handle_movement_and_collision()
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
+	handle_rotation(delta)
 	if collider.disabled:
 		collider.disabled = false
 
 func handle_pathfinding(delta):
 	if NavigationServer3D.map_get_iteration_id(navigator.get_navigation_map()) == 0:
+	# Navigation map isn't ready; skip pathfinding this frame
 		return
-		
 	var target : CharacterBody3D = get_tree().get_first_node_in_group("player")
-	
 	if target:
 		navigator.target_position = target.global_position
 		direction =  navigator.get_next_path_position() - global_position.normalized()
-	if !navigator.is_navigation_finished():
+	if navigator.is_navigation_finished() == false:
 		var next_position : Vector3 = navigator.get_next_path_position()
 		direction = (next_position - global_position).normalized()
 		velocity.x = direction.x * currentSpeed * delta
@@ -49,10 +43,6 @@ func handle_pathfinding(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, currentSpeed * delta)
 		velocity.z = move_toward(velocity.z, 0, currentSpeed * delta)
-
-func handle_rotation(delta):
-	if direction.length() > 0.01:
-		rotation.y = lerp_angle(rotation.y, atan2(direction.x, direction.z), 3.5 * delta)
 
 func handle_movement_and_collision():
 	var collision : KinematicCollision3D = move_and_collide(velocity)
@@ -62,22 +52,17 @@ func handle_movement_and_collision():
 			collisionObject.takeDamage(collisionDamage)
 			handleDeath()
 
-func _on_detection_area_body_entered(body: Node3D) -> void:
-	if body.is_in_group("player") && !isAttacking:
-		isAttacking = true
-		currentSpeed = preAttackSpeed
-		attackTimer.start(1.0)
-
-func _on_attack_timer_timeout() -> void:
-	currentSpeed = attackSpeed
+func handle_rotation(delta):
+	if direction.length() > 0.01:
+		rotation.y = lerp_angle(rotation.y, atan2(direction.x, direction.z), 3.5 * delta)
 
 func take_damage(damageTaken : float):
 	hitPoints -= damageTaken
-	if hitPoints <= 0.0:
+	if hitPoints <= 0:
 		handleDeath()
 
 func handleDeath():
-	ProgressionManager.increase_score(ProgressionManager.dartReward)
+	ProgressionManager.increase_score(ProgressionManager.droneReward)
 	spawnExplosion()
 	JuiceInjector.shakeCamera(0.2)
 	queue_free()
