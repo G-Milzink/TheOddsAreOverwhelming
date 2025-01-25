@@ -17,7 +17,8 @@ const EXPLOSION = preload("res://scenes/FX/Explosions/Drone/explosion_drone.tscn
 
 func _ready() -> void:
 	currentSpeed = baseSpeed
-	#global_position = spawnLocation
+	global_position = spawnLocation
+	EnemySpawner.canSpawnCannonCrawler = false
 
 func _physics_process(delta: float) -> void:
 	handle_pathfinding(delta)
@@ -67,6 +68,7 @@ func take_damage(damageTaken : float):
 func handleDeath():
 	ProgressionManager.increase_score(ProgressionManager.droneReward)
 	spawnExplosion()
+	EnemySpawner.canSpawnCannonCrawler = true
 	JuiceInjector.shakeCamera(0.2)
 	queue_free()
 

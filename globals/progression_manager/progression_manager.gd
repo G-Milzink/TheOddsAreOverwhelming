@@ -4,12 +4,12 @@ const droneReward : int = 1
 const droneArmoredReward : int = 3
 const dartReward : int = 2
 
-const blueXtalReward : int = 5
+const whiteCrystalReward : int = 5
 
 var currentScore : int = 0
 var currentScoreDisplay : RichTextLabel 
 
-var spawnInterval : float = 1.5
+var spawnInterval : float = 1.8
 var currentWave : int = 1
 
 var audioSystem : Node3D
@@ -34,6 +34,11 @@ func _process(_delta: float) -> void:
 		audioSystem.playAudioFx("nextWave")
 		print("wave: ", currentWave)
 	if currentScore >= 150 && currentWave == 3:
+		currentWave += 1
+		spawnInterval *= .9
+		audioSystem.playAudioFx("nextWave")
+		print("wave: ", currentWave)
+	if currentScore >= 150 && currentWave == 4:
 		currentWave += 1
 		spawnInterval *= .9
 		audioSystem.playAudioFx("nextWave")

@@ -11,12 +11,13 @@ var spawnInterval : float
 var randomNumberGenerator = RandomNumberGenerator.new()
 var waveNumber : int = 1
 var canSpawnOrbitalCannon : bool = true
+var canSpawnCannonCrawler : bool = true
 
 const DRONE : PackedScene = preload("res://scenes/enemies/Drone/drone.tscn")
 const DART : PackedScene = preload("res://scenes/enemies/Dart/dart.tscn")
 const DRONE_ARMORED : PackedScene = preload("res://scenes/enemies/Drone_Armored/drone_armored.tscn")
 const ORBITAL_CANNON : PackedScene = preload("res://scenes/enemies/Orbital_Canon/orbital_cannon.tscn")
-
+const CANNON_CRAWLER = preload("res://scenes/enemies/Cannon_Crawler/cannon_crawler.tscn")
 @onready var main : Node3D = get_tree().get_root().get_node("Main")
 
 func _ready() -> void:
@@ -44,12 +45,14 @@ func spawnEnemy():
 			handleWave3()
 		4:
 			handleWave4()
+		5:
+			handleWave5()
 	spawnTimer.start(spawnInterval)
 
 #region Wave Handlers
 func handleWave1():
 	spawnDrone()
-
+	
 func handleWave2():
 	randomEnemy = randi() % 100
 	if (randomEnemy >= 70):
@@ -70,7 +73,7 @@ func handleWave3():
 func handleWave4():
 	randomEnemy = randi() % 100
 	if (randomEnemy >= 75):
-		if EnemySpawner.canSpawnOrbitalCannon == true:
+		if canSpawnOrbitalCannon == true:
 			spawnOrbitalCannon()
 		else:
 			spawnDroneArmored()
@@ -82,6 +85,23 @@ func handleWave4():
 		spawnDroneArmored()
 	else:
 		spawnDrone()
+
+func handleWave5():
+	randomEnemy = randi() % 100
+	if (randomEnemy >= 75):
+		if canSpawnOrbitalCannon == true:
+			spawnOrbitalCannon()
+		else:
+			if canSpawnCannonCrawler:
+				spawnCannonCrawler()
+			else:
+				spawnDrone()
+		return
+	if (randomEnemy >= 50):
+		spawnDart()
+		return
+	if (randomEnemy >= 25):
+		spawnDroneArmored()
 #endregion
 
 #region Spawn Functions
@@ -110,4 +130,13 @@ func spawnOrbitalCannon():
 	randomSpawnPoint = randomNumberGenerator.randi() % spawnPointList.size()
 	var instance = ORBITAL_CANNON.instantiate()
 	main.add_child.call_deferred(instance)
+
+func spawnCannonCrawler():
+	randomSpawnPoint = randomNumberGenerator.randi() % spawnPointList.size()
+	var spawnLocation = spawnPointList[randomSpawnPoint].position
+	var instance = CANNON_CRAWLER.instantiate()
+	instance.spawnLocation = spawnLocation
+	main.add_child.call_deferred(instance)
+
+
 #endregion

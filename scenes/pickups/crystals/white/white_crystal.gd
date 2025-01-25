@@ -3,6 +3,7 @@ extends Node3D
 var spawnLocation : Vector3 = Vector3.ZERO
 var flashing : bool = false
 
+
 @onready var despawnTimer: Timer = $Despawner/DespawnTimer
 @onready var flashTimer: Timer = $Despawner/FlashTimer
 @onready var audioFx: AudioStreamPlayer3D = $AudioFx
@@ -16,7 +17,7 @@ func _on_static_body_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		flashTimer.stop()
 		visible = false
-		ProgressionManager.increase_score(ProgressionManager.blueXtalReward)
+		ProgressionManager.increase_score(ProgressionManager.whiteCrystalReward)
 		audioFx.play()
 	if body.is_in_group("pickuprejector"):
 		PickupSpawner.spawnPickup()
