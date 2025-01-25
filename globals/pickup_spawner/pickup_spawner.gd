@@ -35,7 +35,6 @@ func spawnPickup():
 	if !player:
 		player = get_tree().get_first_node_in_group("player")
 	if canSpawnPickups && player:
-		print(player)
 		instance = selectPickup().instantiate()
 		while true:
 			spawnX = randf_range(-5.0, 5.0) * 2 + player.position.x
