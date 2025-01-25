@@ -35,6 +35,7 @@ autostart = true
 
 [node name="AudioFx" type="AudioStreamPlayer3D" parent="." index="4"]
 stream = ExtResource("3_hhxew")
+bus = &"UI"
 
 [connection signal="body_entered" from="StaticBody3D" to="." method="_on_static_body_3d_body_entered"]
 [connection signal="timeout" from="Despawner/DespawnTimer" to="." method="_on_despawn_timer_timeout"]

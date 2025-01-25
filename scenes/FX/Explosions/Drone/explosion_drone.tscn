@@ -235,3 +235,4 @@ draw_pass_1 = SubResource("SphereMesh_nnhbu")
 [node name="AudioFx" type="AudioStreamPlayer3D" parent="."]
 stream = SubResource("AudioStreamRandomizer_y1gie")
 max_polyphony = 2
+bus = &"FX"
