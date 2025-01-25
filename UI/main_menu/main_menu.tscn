@@ -93,7 +93,6 @@ texture_normal = ExtResource("7_ymlpb")
 [node name="Options" type="TextureButton" parent="VBox"]
 layout_mode = 2
 theme = ExtResource("2_7l30x")
-disabled = true
 action_mode = 0
 texture_normal = ExtResource("8_xsqrq")
 

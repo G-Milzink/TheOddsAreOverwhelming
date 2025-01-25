@@ -1,0 +1,90 @@
+[gd_scene load_steps=8 format=3 uid="uid://dydmc2ikurkyf"]
+
+[ext_resource type="Script" path="res://UI/options_menu/options_menu.gd" id="1_bqqj5"]
+[ext_resource type="Texture2D" uid="uid://c2lsaidi68w61" path="res://assets/png/MenuBackground.png" id="2_b6u2x"]
+[ext_resource type="Texture2D" uid="uid://dfpihbeiti4gc" path="res://assets/png/button_textures/AUDIO.png" id="3_imapr"]
+[ext_resource type="Theme" uid="uid://citwgq7liyjkf" path="res://resources/themes/button_theme.tres" id="4_taobs"]
+[ext_resource type="Texture2D" uid="uid://dnix8hq4vxbvo" path="res://assets/png/button_textures/VIDEO.png" id="5_8ovvd"]
+[ext_resource type="Texture2D" uid="uid://ds4yv3g8p16wj" path="res://assets/png/button_textures/CONTROLS.png" id="6_7yixx"]
+[ext_resource type="Texture2D" uid="uid://dwvnofgpk3fx1" path="res://assets/png/button_textures/BACK.png" id="7_8vgh3"]
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_bqqj5")
+
+[node name="Frame" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -268.5
+offset_top = -264.5
+offset_right = 268.5
+offset_bottom = 264.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_b6u2x")
+
+[node name="VBox" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -134.0
+offset_top = -157.5
+offset_right = 134.0
+offset_bottom = 157.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+alignment = 1
+vertical = true
+
+[node name="Audio" type="TextureButton" parent="VBox"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+action_mode = 0
+texture_normal = ExtResource("3_imapr")
+
+[node name="Video" type="TextureButton" parent="VBox"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("4_taobs")
+action_mode = 0
+texture_normal = ExtResource("5_8ovvd")
+
+[node name="Controls" type="TextureButton" parent="VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("4_taobs")
+action_mode = 0
+texture_normal = ExtResource("6_7yixx")
+
+[node name="Back" type="TextureButton" parent="VBox"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("4_taobs")
+action_mode = 0
+texture_normal = ExtResource("7_8vgh3")
+
+[connection signal="pressed" from="VBox/Back" to="." method="_on_back_pressed"]

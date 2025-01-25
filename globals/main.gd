@@ -9,10 +9,12 @@ var loggedIn : bool
 @onready var loginForm: Control = $MenuLayer/LoginForm
 @onready var signUpForm: Control = $MenuLayer/SignUpForm
 @onready var mainMenu: Control = $MenuLayer/MainMenu
-@onready var map: Node3D = $Map
+@onready var optionsMenu: Control = $MenuLayer/OptionsMenu
+
+
 @onready var hud: Control = $MenuLayer/HUD
 @onready var runTimer : Timer = get_tree().get_first_node_in_group("runtimer")
-
+@onready var map: Node3D = $Map
 
 const PLAYER = preload("res://scenes/player/player.tscn")
 
@@ -26,6 +28,7 @@ func _ready() -> void:
 	loginForm.visible = false
 	signUpForm.visible = false
 	mainMenu.visible = false
+	optionsMenu.visible = false
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("open_menu"):
@@ -89,3 +92,11 @@ func openMainMenu():
 	inMenu = true
 	if Engine.time_scale > 0:
 		Engine.time_scale = 0
+
+func openOptionsMenu():
+	optionsMenu.visible = true
+	mainMenu.visible = false
+
+func closeOptionsMenu():
+	optionsMenu.visible = false
+	mainMenu.visible = true
