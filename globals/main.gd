@@ -40,7 +40,7 @@ func _input(event: InputEvent) -> void:
 			return
 
 func startGame():
-	restartGame()
+	intializeGame()
 	mainMenu.visible = false
 	backGround.visible = false
 	inMenu = false
@@ -54,7 +54,7 @@ func continueGame():
 	inGame = true
 	Engine.time_scale = 1.0
 
-func restartGame():
+func intializeGame():
 	var enemyArray = get_tree().get_nodes_in_group("enemies")
 	for enemy in enemyArray:
 		enemy.queue_free()
