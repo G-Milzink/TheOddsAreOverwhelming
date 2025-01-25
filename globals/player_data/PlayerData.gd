@@ -9,12 +9,21 @@ var damageMultiplier : float = 1.0
 var maxDamageMultiplier : float = 2.0
 var playerHealthBar: ProgressBar 
 
-var projectileInterval : float = 0.4
+var baseProjectileInterval : float = 0.6
+var projectileInterval : float
 const minProjectileInterval : float = 0.1
 
 func _ready() -> void:
 	playerHealthBar = get_tree().get_first_node_in_group("PlayerHealthBar")
 	playerHealthBar.set_value(currentHitPoints)
+	projectileInterval = baseProjectileInterval
+
+func reset():
+	currentHitPoints = maxHitpoints
+	playerHealthBar.set_value(currentHitPoints)
+	damageMultiplier = maxDamageMultiplier
+	projectileInterval = baseProjectileInterval
+	
 
 func setCurrentHitPoints(amount: float):
 	currentHitPoints = amount;

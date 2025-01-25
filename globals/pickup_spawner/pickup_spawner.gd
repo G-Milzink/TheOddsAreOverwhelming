@@ -32,7 +32,7 @@ func onTimeout():
 	spawnTimer.start(spawnInterval)
 
 func spawnPickup():
-	if canSpawnPickups:
+	if canSpawnPickups && player:
 		instance = selectPickup().instantiate()
 		while true:
 			spawnX = randf_range(-5.0, 5.0) * 2 + player.position.x

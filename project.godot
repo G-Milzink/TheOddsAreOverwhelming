@@ -55,6 +55,8 @@ gridmap=""
 pickuprejector=""
 PlayerHealthBar=""
 audioSystem=""
+spawnpoints=""
+map=""
 
 [input]
 

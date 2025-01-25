@@ -37,6 +37,7 @@ func _ready():
 	currentHitpoints = PlayerData.maxHitpoints
 	projectile = BULLET
 	projectileInterval = PlayerData.projectileInterval
+	PlayerData.reset()
 
 func _physics_process(delta: float) -> void:
 	handle_movement(delta)

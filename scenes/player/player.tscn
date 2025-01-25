@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bh7c4qfu43tmt"]
+[gd_scene load_steps=7 format=3 uid="uid://bh7c4qfu43tmt"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_7uitc"]
 [ext_resource type="PackedScene" uid="uid://2gegeweix5ad" path="res://scenes/player/player_model_chassis.tscn" id="2_35jd4"]
 [ext_resource type="PackedScene" uid="uid://cfr8iinpn8x1x" path="res://scenes/player/player_model_turret.tscn" id="3_2le5l"]
 [ext_resource type="AudioStream" uid="uid://djcvvfipgdaak" path="res://assets/wav/player/player_bullet.wav" id="4_56xhb"]
-[ext_resource type="PackedScene" uid="uid://cfubmbc2dmj0j" path="res://UI/hud/hud.tscn" id="5_sg2bt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o3ydk"]
 size = Vector3(2.12142, 1.11035, 2.10487)
@@ -43,7 +42,5 @@ one_shot = true
 
 [node name="BulletFx" type="AudioStreamPlayer3D" parent="."]
 stream = SubResource("AudioStreamRandomizer_hkjox")
-
-[node name="HUD" parent="." instance=ExtResource("5_sg2bt")]
 
 [connection signal="timeout" from="ProjectileTimer" to="." method="_on_projectile_timer_timeout"]

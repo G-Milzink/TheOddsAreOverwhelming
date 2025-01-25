@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bo64vasx02sta"]
+[gd_scene load_steps=11 format=3 uid="uid://bo64vasx02sta"]
 
 [ext_resource type="Script" path="res://globals/main.gd" id="1_is4p4"]
 [ext_resource type="PackedScene" uid="uid://dhqweiul45ifi" path="res://scenes/utillities/camera/camera_rig.tscn" id="1_m4lal"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://bkkfcfns0tsn0" path="res://UI/main_menu/main_menu.tscn" id="7_lwwwg"]
 [ext_resource type="PackedScene" uid="uid://dpt78rttq34et" path="res://UI/login_form/login_form.tscn" id="8_pkeo6"]
 [ext_resource type="PackedScene" uid="uid://64ghqqxktqtj" path="res://UI/signup_form/signup_form.tscn" id="9_q6rjk"]
-[ext_resource type="PackedScene" uid="uid://cfubmbc2dmj0j" path="res://UI/hud/hud.tscn" id="10_iy6fr"]
 
 [sub_resource type="Environment" id="Environment_87gcj"]
 background_mode = 1
@@ -50,8 +49,6 @@ shadow_enabled = true
 
 [node name="MenuLayer" type="CanvasLayer" parent="."]
 follow_viewport_scale = 0.5
-
-[node name="HUD" parent="MenuLayer" instance=ExtResource("10_iy6fr")]
 
 [node name="BackGround" type="TextureRect" parent="MenuLayer"]
 offset_right = 1920.0

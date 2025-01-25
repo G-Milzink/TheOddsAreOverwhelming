@@ -9,6 +9,9 @@ var loggedIn : bool
 @onready var loginForm: Control = $MenuLayer/LoginForm
 @onready var signUpForm: Control = $MenuLayer/SignUpForm
 @onready var mainMenu: Control = $MenuLayer/MainMenu
+@onready var map: Node3D = $Map
+
+const PLAYER = preload("res://scenes/player/player.tscn")
 
 func _ready() -> void:
 	Engine.time_scale = 0.0
@@ -24,15 +27,14 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("open_menu"):
 		if !inMenu:
-			print("open")
 			openMainMenu()
 			return
 		if inGame && inMenu:
-			print("close")
 			continueGame()
 			return
 
 func startGame():
+	restartGame()
 	mainMenu.visible = false
 	backGround.visible = false
 	inMenu = false
@@ -46,6 +48,14 @@ func continueGame():
 	inGame = true
 	Engine.time_scale = 1.0
 
+func restartGame():
+	var enemyArray = get_tree().get_nodes_in_group("enemies")
+	for enemy in enemyArray:
+		enemy.queue_free()
+	var instance = PLAYER.instantiate()
+	map.add_child(instance)
+	ProgressionManager.reset()
+	
 #-------------------------------------------------------------------------------
 
 func openLoginMenu():
