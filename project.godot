@@ -37,6 +37,7 @@ mouse_cursor/custom_image_hotspot=Vector2(15, 15)
 [file_customization]
 
 folder_colors={
+"res://BUILD/": "gray",
 "res://UI/": "yellow",
 "res://assets/": "red",
 "res://globals/": "teal",

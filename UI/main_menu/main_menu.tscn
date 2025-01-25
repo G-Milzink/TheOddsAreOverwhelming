@@ -1,0 +1,99 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkkfcfns0tsn0"]
+
+[ext_resource type="Script" path="res://UI/main_menu/main_menu.gd" id="1_w3dre"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08y54"]
+bg_color = Color(0.6, 0.6, 0.6, 0.368627)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.0646965, 0.0646965, 0.0646965, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w3dre")
+
+[node name="MenuPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.395312
+anchor_top = 0.418981
+anchor_right = 0.843537
+anchor_bottom = 0.969759
+offset_left = -235.0
+offset_top = -256.5
+offset_right = -693.591
+offset_bottom = -676.339
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.14077, 3.39908)
+theme_override_styles/panel = SubResource("StyleBoxFlat_08y54")
+
+[node name="VBox" type="VBoxContainer" parent="MenuPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.5
+offset_top = -20.0
+offset_right = 40.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 2
+
+[node name="Start" type="Button" parent="MenuPanel/VBox"]
+layout_mode = 2
+action_mode = 0
+text = "Start"
+
+[node name="Continue" type="Button" parent="MenuPanel/VBox"]
+layout_mode = 2
+action_mode = 0
+text = "Continue
+"
+
+[node name="Login" type="Button" parent="MenuPanel/VBox"]
+layout_mode = 2
+action_mode = 0
+text = "Login"
+
+[node name="Logout" type="Button" parent="MenuPanel/VBox"]
+layout_mode = 2
+action_mode = 0
+text = "Logout
+"
+
+[node name="LeaderBoards" type="Button" parent="MenuPanel/VBox"]
+layout_mode = 2
+disabled = true
+text = "Leaderboards"
+
+[node name="Options" type="Button" parent="MenuPanel/VBox"]
+layout_mode = 2
+disabled = true
+action_mode = 0
+text = "Options
+"
+
+[node name="Exit" type="Button" parent="MenuPanel/VBox"]
+layout_mode = 2
+action_mode = 0
+text = "Exit
+"
+
+[connection signal="pressed" from="MenuPanel/VBox/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MenuPanel/VBox/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="MenuPanel/VBox/Login" to="." method="_on_login_pressed"]
+[connection signal="pressed" from="MenuPanel/VBox/Logout" to="." method="_on_logout_pressed"]
+[connection signal="pressed" from="MenuPanel/VBox/LeaderBoards" to="." method="_on_leader_boards_pressed"]
+[connection signal="pressed" from="MenuPanel/VBox/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MenuPanel/VBox/Exit" to="." method="_on_exit_pressed"]

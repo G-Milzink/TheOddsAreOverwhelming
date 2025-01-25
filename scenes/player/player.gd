@@ -40,7 +40,6 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	handle_movement(delta)
-	
 
 func _process(_delta: float) -> void:
 	rotate_turret()
@@ -50,23 +49,24 @@ func _process(_delta: float) -> void:
 #-------------------------------------------------------------------------------
 
 func handle_movement(delta):
-	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if main.inGame && !main.inMenu:
+		var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+		var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
-	if direction:
-		velocity.x = direction.x * currentSpeed
-		velocity.z = direction.z * currentSpeed
-	else:
-		velocity.x = move_toward(velocity.x, 0, currentSpeed * delta)
-		velocity.z = move_toward(velocity.z, 0, currentSpeed * delta)
+		if direction:
+			velocity.x = direction.x * currentSpeed
+			velocity.z = direction.z * currentSpeed
+		else:
+			velocity.x = move_toward(velocity.x, 0, currentSpeed * delta)
+			velocity.z = move_toward(velocity.z, 0, currentSpeed * delta)
 
-	var collision = move_and_collide(velocity * delta)
+		var collision = move_and_collide(velocity * delta)
 
-	if collision:
-		var collision_normal = collision.get_normal()
-		velocity = velocity.slide(collision_normal)
-	
-		move_and_collide(velocity * delta)
+		if collision:
+			var collision_normal = collision.get_normal()
+			velocity = velocity.slide(collision_normal)
+		
+			move_and_collide(velocity * delta)
 
 func rotate_turret():
 	spaceState = get_world_3d().direct_space_state
@@ -78,7 +78,7 @@ func rotate_turret():
 	query = PhysicsRayQueryParameters3D.create(rayOrigin, rayEnd)
 	intersection = spaceState.intersect_ray(query)
 	
-	if intersection && !main.menu_is_open:
+	if intersection && main.inGame && !main.inMenu:
 		lookAtPosition = intersection.position
 		lookAtPosition.y = projectileSpawn.global_transform.origin.y 
 		var direction = (lookAtPosition - turret.global_transform.origin).normalized()
@@ -86,7 +86,7 @@ func rotate_turret():
 		turret.rotation.y = atan2(direction.x, direction.z)  
 
 func fire_projectile():
-	if can_shoot && !main.menu_is_open :
+	if main.inGame && !main.inMenu && can_shoot:
 		bulletFx.play()
 		can_shoot = false
 		var instance = projectile.instantiate()
@@ -120,6 +120,8 @@ func handle_death():
 	var instance = EXPLOSION_PLAYER_DEATH.instantiate()
 	instance.spawnPosition = position
 	main.add_child.call_deferred(instance)
+	main.inGame = false
+	main.openMainMenu()
 	queue_free()
 
 func spawnTempShield():

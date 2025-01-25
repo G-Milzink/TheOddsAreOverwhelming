@@ -19,7 +19,8 @@ func _on_static_body_3d_body_entered(body: Node3D) -> void:
 		visible = false
 		ProgressionManager.increase_score(ProgressionManager.whiteCrystalReward)
 		audioFx.play()
-	if body.is_in_group("pickuprejector"):
+	if body.is_in_group("pickuprejector
+	"):
 		PickupSpawner.spawnPickup()
 		queue_free()
 
