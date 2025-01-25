@@ -40,11 +40,11 @@ func _input(event: InputEvent) -> void:
 			return
 
 func startGame():
-	intializeGame()
 	mainMenu.visible = false
 	backGround.visible = false
 	inMenu = false
 	inGame = true
+	intializeGame()
 	Engine.time_scale = 1.0
 
 func continueGame():
@@ -55,13 +55,11 @@ func continueGame():
 	Engine.time_scale = 1.0
 
 func intializeGame():
-	var enemyArray = get_tree().get_nodes_in_group("enemies")
-	for enemy in enemyArray:
-		enemy.queue_free()
-	var instance = PLAYER.instantiate()
-	map.add_child(instance)
+	EnemySpawner.despawnAllEnemies()
 	ProgressionManager.reset()
 	hud.reset()
+	var instance = PLAYER.instantiate()
+	map.add_child(instance)
 	runTimer.start()
 	
 #-------------------------------------------------------------------------------

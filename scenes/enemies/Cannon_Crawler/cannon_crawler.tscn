@@ -84,7 +84,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10849, 0)
 shape = SubResource("CylinderShape3D_1uo85")
 
 [node name="CannonBeam" parent="." instance=ExtResource("4_4nrag")]
-transform = Transform3D(1, 0, 0, 0, 0.996285, -0.0861125, 0, 0.0861125, 0.996285, 0, 1.8317, 1.16486)
+transform = Transform3D(1, 0, 0, 0, 0.99691, -0.0785462, 0, 0.0785462, 0.99691, 0, 1.80501, 1.18427)
 
 [connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
 [connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]

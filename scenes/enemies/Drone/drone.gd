@@ -6,7 +6,7 @@ var currentSpeed : float
 var direction : Vector3 = Vector3.ZERO
 var hitPoints : float = 10.0
 var spawnLocation : Vector3
-var collisionDamage : float = 35.0
+var collisionDamage : float = 15.0
 
 const EXPLOSION = preload("res://scenes/FX/Explosions/Drone/explosion_drone.tscn")
 

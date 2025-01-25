@@ -3,3 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://llaisll0bxav" path="res://assets/blends/enemies/cannon_crawler/cannon_crawler_turret.blend" id="1_t6hnj"]
 
 [node name="cannon_crawler_turret" instance=ExtResource("1_t6hnj")]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.995233, 0.0975308, 0, -0.0975308, 0.995233, 0, 3.00663, -1.67159)
+light_color = Color(1, 0.843137, 0.756863, 1)
+spot_range = 20.0
+spot_angle = 8.31
+spot_angle_attenuation = 1.56917

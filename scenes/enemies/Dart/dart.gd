@@ -9,7 +9,7 @@ var currentSpeed : float = 0.0
 var direction : Vector3 = Vector3.ZERO
 var hitPoints : float = 20.0
 var spawnLocation : Vector3 = Vector3.ZERO
-var collisionDamage : float = 35.0
+var collisionDamage : float = 20.0
 
 const EXPLOSION = preload("res://scenes/FX/Explosions/Dart/explosion_dart.tscn")
 

@@ -140,3 +140,8 @@ func spawnCannonCrawler():
 
 
 #endregion
+
+func despawnAllEnemies():
+	var enemyArray = get_tree().get_nodes_in_group("enemies")
+	for enemy in enemyArray:
+		enemy.queue_free()

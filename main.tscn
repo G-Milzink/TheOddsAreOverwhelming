@@ -26,6 +26,9 @@ glow_enabled = true
 glow_normalized = true
 glow_intensity = 2.0
 glow_bloom = 1.0
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.351563, 0.351563, 0.351563, 1)
+volumetric_fog_emission = Color(0.0167334, 0.0606855, 0.0999413, 1)
 adjustment_enabled = true
 adjustment_brightness = 0.75
 
@@ -34,16 +37,17 @@ script = ExtResource("1_is4p4")
 
 [node name="Map" parent="." instance=ExtResource("1_ug4g2")]
 
-[node name="environment" type="Node3D" parent="."]
+[node name="Environment" type="Node3D" parent="."]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="environment"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
 environment = SubResource("Environment_87gcj")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="environment"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 21.5306, -21.0703)
 light_color = Color(0.787759, 0.787759, 0.787759, 1)
 light_energy = 0.1
 shadow_enabled = true
+shadow_reverse_cull_face = true
 
 [node name="AudioSystem" parent="." instance=ExtResource("7_iv24y")]
 
