@@ -1,99 +1,97 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkkfcfns0tsn0"]
+[gd_scene load_steps=10 format=3 uid="uid://bkkfcfns0tsn0"]
 
 [ext_resource type="Script" path="res://UI/main_menu/main_menu.gd" id="1_w3dre"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08y54"]
-bg_color = Color(0.6, 0.6, 0.6, 0.368627)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.0646965, 0.0646965, 0.0646965, 1)
+[ext_resource type="Theme" uid="uid://citwgq7liyjkf" path="res://resources/themes/button_theme.tres" id="2_7l30x"]
+[ext_resource type="Texture2D" uid="uid://dblxcs4ts6co0" path="res://assets/png/button_textures/LOGIN.png" id="3_mjk8w"]
+[ext_resource type="Texture2D" uid="uid://cbqwuauh2pwns" path="res://assets/png/button_textures/START.png" id="3_xnfpp"]
+[ext_resource type="Texture2D" uid="uid://btoigdr0wt5e" path="res://assets/png/button_textures/EXIT.png" id="4_5gk51"]
+[ext_resource type="Texture2D" uid="uid://d3wvxtuc4vsqo" path="res://assets/png/button_textures/CONTINUE.png" id="4_s028d"]
+[ext_resource type="Texture2D" uid="uid://bcvq6r7b3wf12" path="res://assets/png/button_textures/LOGOUT.png" id="6_0ngfu"]
+[ext_resource type="Texture2D" uid="uid://co2y7d70qhnj2" path="res://assets/png/button_textures/LEADERBOARDS.png" id="7_ymlpb"]
+[ext_resource type="Texture2D" uid="uid://bsm0xdg2h3kwj" path="res://assets/png/button_textures/OPTIONS.png" id="8_xsqrq"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_w3dre")
 
-[node name="MenuPanel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.395312
-anchor_top = 0.418981
-anchor_right = 0.843537
-anchor_bottom = 0.969759
-offset_left = -235.0
-offset_top = -256.5
-offset_right = -693.591
-offset_bottom = -676.339
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2.14077, 3.39908)
-theme_override_styles/panel = SubResource("StyleBoxFlat_08y54")
-
-[node name="VBox" type="VBoxContainer" parent="MenuPanel"]
+[node name="VBox" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -40.5
-offset_top = -20.0
-offset_right = 40.5
-offset_bottom = 20.0
+offset_left = -134.0
+offset_top = -268.5
+offset_right = 134.0
+offset_bottom = 268.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 2
 
-[node name="Start" type="Button" parent="MenuPanel/VBox"]
+[node name="Start" type="TextureButton" parent="VBox"]
+texture_filter = 1
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_7l30x")
 action_mode = 0
-text = "Start"
+texture_normal = ExtResource("3_xnfpp")
 
-[node name="Continue" type="Button" parent="MenuPanel/VBox"]
+[node name="Continue" type="TextureButton" parent="VBox"]
 layout_mode = 2
+theme = ExtResource("2_7l30x")
 action_mode = 0
-text = "Continue
-"
+texture_normal = ExtResource("4_s028d")
 
-[node name="Login" type="Button" parent="MenuPanel/VBox"]
+[node name="Login" type="TextureButton" parent="VBox"]
+texture_filter = 1
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_7l30x")
 action_mode = 0
-text = "Login"
+texture_normal = ExtResource("3_mjk8w")
 
-[node name="Logout" type="Button" parent="MenuPanel/VBox"]
+[node name="Logout" type="TextureButton" parent="VBox"]
 layout_mode = 2
+theme = ExtResource("2_7l30x")
 action_mode = 0
-text = "Logout
-"
+texture_normal = ExtResource("6_0ngfu")
 
-[node name="LeaderBoards" type="Button" parent="MenuPanel/VBox"]
+[node name="LeaderBoards" type="TextureButton" parent="VBox"]
 layout_mode = 2
+theme = ExtResource("2_7l30x")
 disabled = true
-text = "Leaderboards"
+texture_normal = ExtResource("7_ymlpb")
 
-[node name="Options" type="Button" parent="MenuPanel/VBox"]
+[node name="Options" type="TextureButton" parent="VBox"]
 layout_mode = 2
+theme = ExtResource("2_7l30x")
 disabled = true
 action_mode = 0
-text = "Options
-"
+texture_normal = ExtResource("8_xsqrq")
 
-[node name="Exit" type="Button" parent="MenuPanel/VBox"]
+[node name="Exit" type="TextureButton" parent="VBox"]
+texture_filter = 1
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_7l30x")
 action_mode = 0
-text = "Exit
-"
+texture_normal = ExtResource("4_5gk51")
 
-[connection signal="pressed" from="MenuPanel/VBox/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="MenuPanel/VBox/Continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="MenuPanel/VBox/Login" to="." method="_on_login_pressed"]
-[connection signal="pressed" from="MenuPanel/VBox/Logout" to="." method="_on_logout_pressed"]
-[connection signal="pressed" from="MenuPanel/VBox/LeaderBoards" to="." method="_on_leader_boards_pressed"]
-[connection signal="pressed" from="MenuPanel/VBox/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="MenuPanel/VBox/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="VBox/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBox/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="VBox/Login" to="." method="_on_login_pressed"]
+[connection signal="pressed" from="VBox/Logout" to="." method="_on_logout_pressed"]
+[connection signal="pressed" from="VBox/LeaderBoards" to="." method="_on_leader_boards_pressed"]
+[connection signal="pressed" from="VBox/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBox/Exit" to="." method="_on_exit_pressed"]

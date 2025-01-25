@@ -1,8 +1,8 @@
 extends Control
 
 @onready var main : Node3D = get_tree().get_root().get_node("Main")
-@onready var playerId: LineEdit = $MenuPanel/VBox/PlayerId
-@onready var password: LineEdit = $MenuPanel/VBox/Password
+@onready var playerId: LineEdit = $VBox/PlayerId
+@onready var password: LineEdit = $VBox/Password
 
 
 

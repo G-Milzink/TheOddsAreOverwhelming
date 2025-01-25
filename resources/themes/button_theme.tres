@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://citwgq7liyjkf"]
+
+[ext_resource type="FontFile" uid="uid://dtp5v6nkm0syf" path="res://assets/fonts/Pixeled.ttf" id="1_veqll"]
+
+[resource]
+default_font = ExtResource("1_veqll")
+default_font_size = 12

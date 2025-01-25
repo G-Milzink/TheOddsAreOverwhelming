@@ -2,10 +2,10 @@ extends Control
 
 
 @onready var main : Node3D = get_tree().get_root().get_node("Main")
-@onready var startGame: Button = $MenuPanel/VBox/Start
-@onready var continueGame : Button = $MenuPanel/VBox/Continue
-@onready var login: Button = $MenuPanel/VBox/Login
-@onready var logout: Button = $MenuPanel/VBox/Logout
+@onready var startGame: TextureButton = $VBox/Start
+@onready var continueGame : TextureButton = $VBox/Continue
+@onready var login: TextureButton = $VBox/Login
+@onready var logout: TextureButton = $VBox/Logout
 
 
 func _process(delta: float) -> void:

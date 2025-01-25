@@ -1,77 +1,77 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpovwq062s261"]
+[gd_scene load_steps=7 format=3 uid="uid://cpovwq062s261"]
 
 [ext_resource type="Script" path="res://UI/login_menu/login_menu.gd" id="1_l6ceu"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08y54"]
-bg_color = Color(0.6, 0.6, 0.6, 0.368627)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.0646965, 0.0646965, 0.0646965, 1)
+[ext_resource type="Theme" uid="uid://citwgq7liyjkf" path="res://resources/themes/button_theme.tres" id="2_3ds6i"]
+[ext_resource type="Texture2D" uid="uid://dblxcs4ts6co0" path="res://assets/png/button_textures/LOGIN.png" id="2_3yo8h"]
+[ext_resource type="Texture2D" uid="uid://du1stvp5f786k" path="res://assets/png/button_textures/SIGNUP.png" id="4_35kck"]
+[ext_resource type="Texture2D" uid="uid://cmeyh5pla50w5" path="res://assets/png/button_textures/OFFLINE.png" id="5_vhd2q"]
+[ext_resource type="Texture2D" uid="uid://btoigdr0wt5e" path="res://assets/png/button_textures/EXIT.png" id="6_0pqyr"]
 
 [node name="LoginMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_l6ceu")
 
-[node name="MenuPanel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.395312
-anchor_top = 0.418981
-anchor_right = 0.843537
-anchor_bottom = 0.969759
-offset_left = -235.0
-offset_top = -256.5
-offset_right = -693.591
-offset_bottom = -676.339
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2.14077, 3.39908)
-theme_override_styles/panel = SubResource("StyleBoxFlat_08y54")
-
-[node name="VBox" type="VBoxContainer" parent="MenuPanel"]
+[node name="VBox" type="BoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -40.5
-offset_top = -20.0
-offset_right = 40.5
-offset_bottom = 20.0
+offset_left = -134.0
+offset_top = -157.5
+offset_right = 134.0
+offset_bottom = 157.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 2
+theme_override_constants/separation = 5
+alignment = 1
+vertical = true
 
-[node name="Login" type="Button" parent="MenuPanel/VBox"]
+[node name="Login" type="TextureButton" parent="VBox"]
+texture_filter = 1
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 action_mode = 0
-text = "Login
-"
+texture_normal = ExtResource("2_3yo8h")
 
-[node name="SignUp" type="Button" parent="MenuPanel/VBox"]
+[node name="SignUp" type="TextureButton" parent="VBox"]
+texture_filter = 1
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_3ds6i")
 action_mode = 0
-text = "SignUp"
+texture_normal = ExtResource("4_35kck")
 
-[node name="Offline" type="Button" parent="MenuPanel/VBox"]
+[node name="Offline" type="TextureButton" parent="VBox"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_3ds6i")
 action_mode = 0
-text = "Offline"
+texture_normal = ExtResource("5_vhd2q")
 
-[node name="Exit" type="Button" parent="MenuPanel/VBox"]
+[node name="Exit" type="TextureButton" parent="VBox"]
+texture_filter = 1
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_3ds6i")
 action_mode = 0
-text = "Exit"
+texture_normal = ExtResource("6_0pqyr")
 
-[connection signal="pressed" from="MenuPanel/VBox/Login" to="." method="_on_login_pressed"]
-[connection signal="pressed" from="MenuPanel/VBox/SignUp" to="." method="_on_sign_up_pressed"]
-[connection signal="pressed" from="MenuPanel/VBox/Offline" to="." method="_on_offline_pressed"]
-[connection signal="pressed" from="MenuPanel/VBox/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="VBox/Login" to="." method="_on_login_pressed"]
+[connection signal="pressed" from="VBox/SignUp" to="." method="_on_sign_up_pressed"]
+[connection signal="pressed" from="VBox/Offline" to="." method="_on_offline_pressed"]
+[connection signal="pressed" from="VBox/Exit" to="." method="_on_exit_pressed"]

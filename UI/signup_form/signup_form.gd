@@ -3,10 +3,10 @@ extends Control
 var enableRetrieval : bool
 
 @onready var main : Node3D = get_tree().get_root().get_node("Main")
-@onready var playerId: LineEdit = $MenuPanel/VBox/PlayerId
-@onready var password: LineEdit = $MenuPanel/VBox/Password
-@onready var password_retrieval: CheckBox = $MenuPanel/VBox/PasswordRetrieval
-@onready var emailAdress: LineEdit = $MenuPanel/VBox/EmailAdress
+@onready var playerId: LineEdit = $VBox/PlayerId
+@onready var password: LineEdit = $VBox/Password
+@onready var password_retrieval: CheckBox = $VBox/PasswordRetrieval
+@onready var emailAdress: LineEdit = $VBox/EmailAdress
 
 func _ready() -> void:
 	enableRetrieval = false
