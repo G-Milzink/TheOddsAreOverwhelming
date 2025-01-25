@@ -1,18 +1,19 @@
 extends CharacterBody3D
 
 @export var baseSpeed  : float = 1
-
-var currentSpeed : float
+@export var hitPoints : float = 10.0
+var currentSpeed : float = baseSpeed
 var direction : Vector3 = Vector3.ZERO
-var hitPoints : float = 10.0
 var spawnLocation : Vector3
 var collisionDamage : float = 35.0
+var followingPlayer : bool = true
 
 const EXPLOSION = preload("res://scenes/FX/Explosions/Drone/explosion_drone.tscn")
 
 @onready var navigator: NavigationAgent3D = $Navigator
 @onready var collider: CollisionShape3D = $Collider
 @onready var main : Node3D = get_tree().get_root().get_node("Main")
+@onready var cannonBeam: Node3D = $CannonBeam
 
 func _ready() -> void:
 	currentSpeed = baseSpeed
@@ -40,6 +41,8 @@ func handle_pathfinding(delta):
 		direction = (next_position - global_position).normalized()
 		velocity.x = direction.x * currentSpeed * delta
 		velocity.z = direction.z * currentSpeed * delta
+		if !followingPlayer:
+			velocity *= 0.25
 	else:
 		velocity.x = move_toward(velocity.x, 0, currentSpeed * delta)
 		velocity.z = move_toward(velocity.z, 0, currentSpeed * delta)
@@ -71,3 +74,15 @@ func spawnExplosion():
 	var instance = EXPLOSION.instantiate()
 	instance.spawnPosition = global_position
 	main.add_child.call_deferred(instance)
+
+
+func _on_range_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		cannonBeam.fireCannon(true)
+		followingPlayer = false
+
+
+func _on_range_body_exited(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		cannonBeam.fireCannon(false)
+		followingPlayer = true

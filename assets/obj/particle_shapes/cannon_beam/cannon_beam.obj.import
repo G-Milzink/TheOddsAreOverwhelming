@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c2ji2eiw4bbl1"
+path="res://.godot/imported/cannon_beam.obj-10348fbe11ff3eb5fcc5dfe1cca623ee.mesh"
+
+[deps]
+
+files=["res://.godot/imported/cannon_beam.obj-10348fbe11ff3eb5fcc5dfe1cca623ee.mesh"]
+
+source_file="res://assets/obj/particle_shapes/cannon_beam/cannon_beam.obj"
+dest_files=["res://.godot/imported/cannon_beam.obj-10348fbe11ff3eb5fcc5dfe1cca623ee.mesh", "res://.godot/imported/cannon_beam.obj-10348fbe11ff3eb5fcc5dfe1cca623ee.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

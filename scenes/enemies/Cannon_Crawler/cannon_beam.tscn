@@ -1,0 +1,95 @@
+[gd_scene load_steps=17 format=3 uid="uid://bxo3dfs4mxm3t"]
+
+[ext_resource type="Shader" uid="uid://b6qjpgrqmp8c3" path="res://resources/shaders/cannon_beam_shader.tres" id="1_hyvo4"]
+[ext_resource type="Script" path="res://scenes/enemies/Cannon_Crawler/cannon_beam.gd" id="1_jvmvy"]
+[ext_resource type="Texture2D" uid="uid://dt12deqrvjpy4" path="res://assets/png/textures/T_VFX_Noise_4.PNG" id="2_632x3"]
+[ext_resource type="ArrayMesh" uid="uid://b5n0ugwnfol3q" path="res://assets/obj/particle_shapes/cannon_beam/cannon_beam_ring.obj" id="3_i775j"]
+[ext_resource type="Texture2D" uid="uid://q4n4bhiygtla" path="res://assets/png/textures/T_VFX_Noise_9.PNG" id="4_aor06"]
+[ext_resource type="ArrayMesh" uid="uid://c2ji2eiw4bbl1" path="res://assets/obj/particle_shapes/cannon_beam/cannon_beam.obj" id="5_7cwyh"]
+[ext_resource type="PackedScene" uid="uid://60osc1s721fr" path="res://scenes/enemies/Cannon_Crawler/cannon_impact/cannon_impact.tscn" id="6_61vko"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_76h3o"]
+render_priority = 0
+shader = ExtResource("1_hyvo4")
+shader_parameter/speed = Vector2(2, 1)
+shader_parameter/Texture_Power = 1.5
+shader_parameter/energy_texture = ExtResource("2_632x3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qup2a"]
+gravity = Vector3(0, 0, 0)
+scale_min = 0.2
+scale_max = 0.2
+color = Color(1, 0.283333, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_34g28"]
+render_priority = 0
+shader = ExtResource("1_hyvo4")
+shader_parameter/speed = Vector2(2, 2)
+shader_parameter/Texture_Power = 0.675
+shader_parameter/energy_texture = ExtResource("4_aor06")
+
+[sub_resource type="Curve" id="Curve_doymj"]
+max_value = 45.0
+_data = [Vector2(0, 45), 0.0, 0.0, 0, 0, Vector2(0.200873, 45), 0.0, 0.0, 0, 0, Vector2(1, 45), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_fc4av"]
+_data = [Vector2(0, 0.5), 0.0, 0.0, 0, 0, Vector2(1, 0.5), 0.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_2dt6j"]
+_data = [Vector2(0, 0.5), 0.0, 0.0, 0, 0, Vector2(1, 0.5), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_1nyms"]
+curve_x = SubResource("Curve_doymj")
+curve_y = SubResource("Curve_fc4av")
+curve_z = SubResource("Curve_2dt6j")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rehna"]
+gravity = Vector3(0, 0, 0)
+scale_min = 0.2
+scale_max = 0.2
+scale_curve = SubResource("CurveXYZTexture_1nyms")
+color = Color(1, 0.483333, 0, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_336t7"]
+height = 18.474
+radius = 0.122655
+
+[node name="CannonBeam" type="Node3D"]
+script = ExtResource("1_jvmvy")
+
+[node name="flare" type="GPUParticles3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_76h3o")
+amount = 1
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_qup2a")
+draw_pass_1 = ExtResource("3_i775j")
+
+[node name="beam" type="GPUParticles3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_34g28")
+amount = 1
+lifetime = 0.05
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_rehna")
+draw_pass_1 = ExtResource("5_7cwyh")
+
+[node name="CannonImpact" parent="." instance=ExtResource("6_61vko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.9714)
+
+[node name="HitBox" type="Area3D" parent="."]
+
+[node name="Collider" type="CollisionShape3D" parent="HitBox"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 8.77486)
+shape = SubResource("CylinderShape3D_336t7")
+
+[node name="DamageTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="body_exited" from="HitBox" to="." method="_on_hit_box_body_exited"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]

@@ -3,11 +3,3 @@
 [ext_resource type="PackedScene" uid="uid://llaisll0bxav" path="res://assets/blends/enemies/cannon_crawler/cannon_crawler_turret.blend" id="1_t6hnj"]
 
 [node name="cannon_crawler_turret" instance=ExtResource("1_t6hnj")]
-
-[node name="Nozzle" type="Node3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.81039, -1.79451)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Nozzle" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0386182)
-light_color = Color(0.485, 0, 0.97, 1)
-shadow_enabled = true

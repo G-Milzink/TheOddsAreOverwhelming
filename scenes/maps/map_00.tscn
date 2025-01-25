@@ -155,3 +155,4 @@ shape = SubResource("BoxShape3D_cy4hb")
 
 [node name="CannonCrawler" parent="." instance=ExtResource("4_r6bts")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8077, 0, -12.9704)
+hitPoints = 80.0

@@ -17,7 +17,7 @@ func _ready() -> void:
 	following = true
 
 func _process(delta: float) -> void:
-	if following && player:
+	if following && player != null:
 		position = player.global_position
 
 func _on_follow_timer_timeout() -> void:
