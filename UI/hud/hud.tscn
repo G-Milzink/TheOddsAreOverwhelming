@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfubmbc2dmj0j"]
+[gd_scene load_steps=6 format=3 uid="uid://cfubmbc2dmj0j"]
+
+[ext_resource type="Script" path="res://UI/hud/hud.gd" id="1_a7ada"]
 
 [sub_resource type="Theme" id="Theme_eg8ny"]
 default_font_size = 40
@@ -23,6 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_a7ada")
 
 [node name="CurrentScoreDisplay" type="RichTextLabel" parent="." groups=["currentscoredisplay"]]
 layout_mode = 1
@@ -33,6 +36,19 @@ offset_left = -15.0
 offset_right = 15.0
 offset_bottom = 55.0
 grow_horizontal = 2
+theme = SubResource("Theme_eg8ny")
+text = "0"
+fit_content = true
+autowrap_mode = 0
+
+[node name="RunTimeDisplay" type="RichTextLabel" parent="." groups=["runtimedisplay"]]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -30.0
+offset_bottom = 55.0
+grow_horizontal = 0
 theme = SubResource("Theme_eg8ny")
 text = "0"
 fit_content = true
@@ -71,3 +87,9 @@ theme_override_styles/background = SubResource("StyleBoxFlat_paiy2")
 theme_override_styles/fill = SubResource("StyleBoxFlat_n38mv")
 value = 50.0
 show_percentage = false
+
+[node name="RunTimer" type="Timer" parent="." groups=["runtimer"]]
+wait_time = 0.05
+one_shot = true
+
+[connection signal="timeout" from="RunTimer" to="." method="_on_timer_timeout"]

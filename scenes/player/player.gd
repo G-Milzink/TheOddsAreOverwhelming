@@ -27,7 +27,7 @@ const EXPLOSION_PLAYER_DEATH : PackedScene = preload("res://scenes/FX/Explosions
 @onready var turret: Node3D = $Turret
 @onready var projectileSpawn: Node3D = $Turret/projectile_spawn
 @onready var projectileTimer: Timer = $ProjectileTimer
-
+@onready var runTimer : Timer = get_tree().get_first_node_in_group("runtimer")
 @onready var bulletFx: AudioStreamPlayer3D = $BulletFx
 
 #-------------------------------------------------------------------------------
@@ -118,11 +118,11 @@ func increaseFireRate():
 
 func handle_death():
 	PickupSpawner.canSpawnPickups = false
+	main.inGame = false
 	var instance = EXPLOSION_PLAYER_DEATH.instantiate()
 	instance.spawnPosition = position
 	main.add_child.call_deferred(instance)
-	main.inGame = false
-	main.openMainMenu()
+	runTimer.stop()
 	queue_free()
 
 func spawnTempShield():

@@ -57,6 +57,8 @@ PlayerHealthBar=""
 audioSystem=""
 spawnpoints=""
 map=""
+runtimer=""
+runtimedisplay=""
 
 [input]
 

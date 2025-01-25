@@ -10,6 +10,9 @@ var loggedIn : bool
 @onready var signUpForm: Control = $MenuLayer/SignUpForm
 @onready var mainMenu: Control = $MenuLayer/MainMenu
 @onready var map: Node3D = $Map
+@onready var hud: Control = $MenuLayer/HUD
+@onready var runTimer : Timer = get_tree().get_first_node_in_group("runtimer")
+
 
 const PLAYER = preload("res://scenes/player/player.tscn")
 
@@ -55,6 +58,8 @@ func restartGame():
 	var instance = PLAYER.instantiate()
 	map.add_child(instance)
 	ProgressionManager.reset()
+	hud.reset()
+	runTimer.start()
 	
 #-------------------------------------------------------------------------------
 

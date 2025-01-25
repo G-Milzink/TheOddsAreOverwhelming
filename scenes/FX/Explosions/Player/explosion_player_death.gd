@@ -2,6 +2,7 @@ extends Node3D
 
 var spawnPosition : Vector3
 
+@onready var main : Node3D = get_tree().get_root().get_node("Main")
 @onready var debrisUniversal: GPUParticles3D = $DebrisUniversal
 @onready var debrisUnique1: GPUParticles3D = $DebrisUnique1
 @onready var debrisUnique2: GPUParticles3D = $DebrisUnique2
@@ -25,5 +26,6 @@ func explode():
 	audioFx.play()
 	
 	await get_tree().create_timer(2.0).timeout
+	main.openMainMenu()
 	Engine.time_scale = 0.0
 	queue_free()
