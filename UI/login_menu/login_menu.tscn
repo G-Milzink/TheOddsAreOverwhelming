@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpovwq062s261"]
+[gd_scene load_steps=8 format=3 uid="uid://cpovwq062s261"]
 
 [ext_resource type="Script" path="res://UI/login_menu/login_menu.gd" id="1_l6ceu"]
 [ext_resource type="Theme" uid="uid://citwgq7liyjkf" path="res://resources/themes/button_theme.tres" id="2_3ds6i"]
 [ext_resource type="Texture2D" uid="uid://dblxcs4ts6co0" path="res://assets/png/button_textures/LOGIN.png" id="2_3yo8h"]
+[ext_resource type="Texture2D" uid="uid://c2lsaidi68w61" path="res://assets/png/MenuBackground.png" id="2_owbpk"]
 [ext_resource type="Texture2D" uid="uid://du1stvp5f786k" path="res://assets/png/button_textures/SIGNUP.png" id="4_35kck"]
 [ext_resource type="Texture2D" uid="uid://cmeyh5pla50w5" path="res://assets/png/button_textures/OFFLINE.png" id="5_vhd2q"]
 [ext_resource type="Texture2D" uid="uid://btoigdr0wt5e" path="res://assets/png/button_textures/EXIT.png" id="6_0pqyr"]
@@ -20,6 +21,21 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_l6ceu")
 
+[node name="Frame" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -268.5
+offset_top = -264.5
+offset_right = 268.5
+offset_bottom = 264.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_owbpk")
+
 [node name="VBox" type="BoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -27,10 +43,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -134.0
-offset_top = -157.5
-offset_right = 134.0
-offset_bottom = 157.5
+offset_left = -135.0
+offset_top = -167.0
+offset_right = 133.0
+offset_bottom = 148.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 5
