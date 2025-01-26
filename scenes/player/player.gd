@@ -45,7 +45,8 @@ func _physics_process(delta: float) -> void:
 func _process(_delta: float) -> void:
 	rotate_turret()
 	if Input.is_action_pressed("fire_weapon"):
-		fire_projectile()
+		if !main.inMenu:
+			fire_projectile()
 
 #-------------------------------------------------------------------------------
 
@@ -87,7 +88,7 @@ func rotate_turret():
 		turret.rotation.y = atan2(direction.x, direction.z)  
 
 func fire_projectile():
-	if main.inGame && !main.inMenu && can_shoot:
+	if main.inGame && can_shoot:
 		bulletFx.play()
 		can_shoot = false
 		var instance = projectile.instantiate()

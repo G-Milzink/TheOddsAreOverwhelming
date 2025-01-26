@@ -51,10 +51,10 @@ func spawnPickup():
 func selectPickup():
 	instance_rng = randi() % 100
 	var crystals = [
-		{"threshold": 95.0, "crystal": RED_CRYSTAL},
-		{"threshold": 90.0, "crystal": YELLOW_CRYSTAL},
-		{"threshold": 82.5, "crystal": GREEN_CRYSTAL},
-		{"threshold": 75.0, "crystal": BLUE_CRYSTAL},
+		{"threshold": 90.0, "crystal": RED_CRYSTAL},
+		{"threshold": 80.0, "crystal": YELLOW_CRYSTAL},
+		{"threshold": 65.0, "crystal": GREEN_CRYSTAL},
+		{"threshold": 50.0, "crystal": BLUE_CRYSTAL},
 		{"threshold": 0.0, "crystal": WHITE_CRYSTAL}
 	]
 	for crystal_data in crystals:

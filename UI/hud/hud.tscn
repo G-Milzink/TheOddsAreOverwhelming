@@ -1,9 +1,49 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfubmbc2dmj0j"]
+[gd_scene load_steps=11 format=3 uid="uid://cfubmbc2dmj0j"]
 
 [ext_resource type="Script" path="res://UI/hud/hud.gd" id="1_a7ada"]
+[ext_resource type="Theme" uid="uid://cyxa2x2gw780h" path="res://resources/themes/current_score_display_theme.tres" id="2_nrwxx"]
+[ext_resource type="FontFile" uid="uid://bc67rduseqc40" path="res://assets/fonts/kongtext.ttf" id="3_basgh"]
 
-[sub_resource type="Theme" id="Theme_eg8ny"]
-default_font_size = 40
+[sub_resource type="Theme" id="Theme_wonhh"]
+default_font = ExtResource("3_basgh")
+default_font_size = 50
+
+[sub_resource type="Animation" id="Animation_ubppl"]
+resource_name = "RunTimeFlash"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/default_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.5, 0.7, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_japrm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/default_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r3qh4"]
+_data = {
+"RESET": SubResource("Animation_japrm"),
+"RunTimeFlash": SubResource("Animation_ubppl")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kxgr7"]
 bg_color = Color(0, 0, 0, 1)
@@ -32,11 +72,12 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -15.0
-offset_right = 15.0
-offset_bottom = 55.0
+offset_left = -20.0
+offset_top = 17.0
+offset_right = 20.0
+offset_bottom = 72.0
 grow_horizontal = 2
-theme = SubResource("Theme_eg8ny")
+theme = ExtResource("2_nrwxx")
 text = "0"
 fit_content = true
 autowrap_mode = 0
@@ -46,13 +87,21 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -30.0
-offset_bottom = 55.0
+offset_left = -338.0
+offset_top = 17.0
+offset_right = -18.0
+offset_bottom = 129.0
 grow_horizontal = 0
-theme = SubResource("Theme_eg8ny")
-text = "0"
+theme = SubResource("Theme_wonhh")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+text = "02:01:11"
 fit_content = true
 autowrap_mode = 0
+
+[node name="RunTimeAnimator" type="AnimationPlayer" parent="RunTimeDisplay"]
+libraries = {
+"": SubResource("AnimationLibrary_r3qh4")
+}
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
