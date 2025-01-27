@@ -13,6 +13,10 @@ func _ready() -> void:
 	uiBusIndex = AudioServer.get_bus_index("UI")
 	masterBusIndex = AudioServer.get_bus_index("Master")
 
+
+
+
+
 func _on_music_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(musicBusIndex, linear_to_db(value))
 
