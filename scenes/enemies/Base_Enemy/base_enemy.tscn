@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://m4fynon7ml0l"]
+
+[ext_resource type="Script" path="res://scenes/enemies/Base_Enemy/base_enemy.gd" id="1_0dopp"]
+[ext_resource type="PackedScene" uid="uid://bmnnf070vdaf3" path="res://scenes/FX/SpawnFx/enemy_spawnIn/spawn_in.tscn" id="2_6fa14"]
+
+[node name="BaseEnemy" type="CharacterBody3D"]
+script = ExtResource("1_0dopp")
+
+[node name="VFX" type="Node3D" parent="."]
+
+[node name="SpawnIn" parent="VFX" instance=ExtResource("2_6fa14")]

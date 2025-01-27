@@ -11,6 +11,9 @@ var baseSpawnInterval : float = 1.8
 var spawnInterval : float
 var currentWave : int = 1
 
+var enemySpeedMultiplier : float = 1.0
+var enemyDamageMultiplier : float = 1.0
+
 var audioSystem : Node3D
 
 @onready var main : Node3D = get_tree().get_root().get_node("Main")

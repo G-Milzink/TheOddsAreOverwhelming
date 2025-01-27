@@ -1,0 +1,114 @@
+[gd_scene load_steps=8 format=3 uid="uid://bf1jr5wo1gvlo"]
+
+[ext_resource type="Script" path="res://UI/audio_menu/audio_menu.gd" id="1_m2voy"]
+[ext_resource type="Texture2D" uid="uid://c2lsaidi68w61" path="res://assets/png/MenuBackground.png" id="2_f07nr"]
+[ext_resource type="Theme" uid="uid://citwgq7liyjkf" path="res://resources/themes/button_theme.tres" id="4_cf2mc"]
+[ext_resource type="Texture2D" uid="uid://cphkyskh8mb2x" path="res://assets/png/slider_textures/slider_grabber.png" id="4_u6pk8"]
+[ext_resource type="Texture2D" uid="uid://hu3w8q2brb6i" path="res://assets/png/slider_textures/slider_bg.png" id="5_ur2ak"]
+[ext_resource type="Texture2D" uid="uid://dwvnofgpk3fx1" path="res://assets/png/button_textures/BACK.png" id="7_q78ri"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_54d75"]
+texture = ExtResource("5_ur2ak")
+expand_margin_top = 34.0
+expand_margin_bottom = 34.0
+
+[node name="AudioMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_m2voy")
+
+[node name="Frame" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -268.5
+offset_top = -264.5
+offset_right = 268.5
+offset_bottom = 264.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_f07nr")
+
+[node name="VBox" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -134.0
+offset_top = -157.5
+offset_right = 134.0
+offset_bottom = 157.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+alignment = 1
+vertical = true
+
+[node name="MusicSlider" type="HSlider" parent="VBox"]
+layout_mode = 2
+theme_override_icons/grabber = ExtResource("4_u6pk8")
+theme_override_styles/slider = SubResource("StyleBoxTexture_54d75")
+max_value = 1.0
+step = 0.01
+
+[node name="MusicSliderLabel" type="RichTextLabel" parent="VBox"]
+layout_mode = 2
+tooltip_text = "Includes all music."
+theme = ExtResource("4_cf2mc")
+text = "MUSIC VOLUME:"
+fit_content = true
+
+[node name="FXSlider" type="HSlider" parent="VBox"]
+layout_mode = 2
+theme_override_icons/grabber = ExtResource("4_u6pk8")
+theme_override_styles/slider = SubResource("StyleBoxTexture_54d75")
+max_value = 1.0
+step = 0.01
+
+[node name="FXSliderLabel" type="RichTextLabel" parent="VBox"]
+layout_mode = 2
+tooltip_text = "Icludes ingame effect like: projectile, explosions enemy spawnin etc."
+theme = ExtResource("4_cf2mc")
+text = "EFFECTS VOLUME:"
+fit_content = true
+
+[node name="UISlider" type="HSlider" parent="VBox"]
+layout_mode = 2
+theme_override_icons/grabber = ExtResource("4_u6pk8")
+theme_override_styles/slider = SubResource("StyleBoxTexture_54d75")
+max_value = 1.0
+step = 0.01
+
+[node name="UISliderLabel" type="RichTextLabel" parent="VBox"]
+layout_mode = 2
+tooltip_text = "Icludes menu sounds, and ingame notifications for things like pickups and wave-level."
+theme = ExtResource("4_cf2mc")
+text = "UI VOLUME:"
+fit_content = true
+
+[node name="Back" type="TextureButton" parent="VBox"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("4_cf2mc")
+action_mode = 0
+texture_normal = ExtResource("7_q78ri")
+
+[connection signal="value_changed" from="VBox/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="VBox/FXSlider" to="." method="_on_fx_slider_value_changed"]
+[connection signal="value_changed" from="VBox/UISlider" to="." method="_on_ui_slider_value_changed"]
+[connection signal="pressed" from="VBox/Back" to="." method="_on_back_pressed"]

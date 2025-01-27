@@ -10,6 +10,7 @@ var loggedIn : bool
 @onready var signUpForm: Control = $MenuLayer/SignUpForm
 @onready var mainMenu: Control = $MenuLayer/MainMenu
 @onready var optionsMenu: Control = $MenuLayer/OptionsMenu
+@onready var audioMenu: Control = $MenuLayer/AudioMenu
 
 
 @onready var hud: Control = $MenuLayer/HUD
@@ -29,6 +30,7 @@ func _ready() -> void:
 	signUpForm.visible = false
 	mainMenu.visible = false
 	optionsMenu.visible = false
+	audioMenu.visible = false
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("open_menu"):
@@ -40,16 +42,26 @@ func _input(event: InputEvent) -> void:
 			return
 
 func startGame():
-	mainMenu.visible = false
 	backGround.visible = false
+	mainMenu.visible = false
+	loginMenu.visible = false
+	loginForm.visible = false
+	signUpForm.visible = false
+	optionsMenu.visible = false
+	audioMenu.visible = false
 	inMenu = false
 	inGame = true
 	intializeGame()
 	Engine.time_scale = 1.0
 
 func continueGame():
-	mainMenu.visible = false
 	backGround.visible = false
+	mainMenu.visible = false
+	loginMenu.visible = false
+	loginForm.visible = false
+	signUpForm.visible = false
+	optionsMenu.visible = false
+	audioMenu.visible = false
 	inMenu = false
 	inGame = true
 	Engine.time_scale = 1.0
@@ -87,6 +99,12 @@ func playOffline():
 
 func openMainMenu():
 	mainMenu.visible = true
+	backGround.visible = true
+	loginMenu.visible = true
+	loginForm.visible = false
+	signUpForm.visible = false
+	optionsMenu.visible = false
+	audioMenu.visible = false
 	inMenu = true
 	if Engine.time_scale > 0:
 		Engine.time_scale = 0
@@ -98,3 +116,11 @@ func openOptionsMenu():
 func closeOptionsMenu():
 	optionsMenu.visible = false
 	mainMenu.visible = true
+
+func openAudioMenu():
+	optionsMenu.visible = false
+	audioMenu.visible = true
+
+func closeAudioMenu():
+	optionsMenu.visible = true
+	audioMenu.visible = false

@@ -87,4 +87,5 @@ theme = ExtResource("4_taobs")
 action_mode = 0
 texture_normal = ExtResource("7_8vgh3")
 
+[connection signal="pressed" from="VBox/Audio" to="." method="_on_audio_pressed"]
 [connection signal="pressed" from="VBox/Back" to="." method="_on_back_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bo64vasx02sta"]
+[gd_scene load_steps=14 format=3 uid="uid://bo64vasx02sta"]
 
 [ext_resource type="Script" path="res://globals/main.gd" id="1_is4p4"]
 [ext_resource type="PackedScene" uid="uid://dhqweiul45ifi" path="res://scenes/utillities/camera/camera_rig.tscn" id="1_m4lal"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://64ghqqxktqtj" path="res://UI/signup_form/signup_form.tscn" id="9_q6rjk"]
 [ext_resource type="PackedScene" uid="uid://cfubmbc2dmj0j" path="res://UI/hud/hud.tscn" id="10_iy6fr"]
 [ext_resource type="PackedScene" uid="uid://dydmc2ikurkyf" path="res://UI/options_menu/options_menu.tscn" id="11_duf1j"]
+[ext_resource type="PackedScene" uid="uid://bf1jr5wo1gvlo" path="res://UI/audio_menu/audio_menu.tscn" id="12_q5i71"]
 
 [sub_resource type="Environment" id="Environment_87gcj"]
 background_mode = 1
@@ -77,4 +78,7 @@ visible = false
 visible = false
 
 [node name="OptionsMenu" parent="MenuLayer" instance=ExtResource("11_duf1j")]
+visible = false
+
+[node name="AudioMenu" parent="MenuLayer" instance=ExtResource("12_q5i71")]
 visible = false
