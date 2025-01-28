@@ -99,7 +99,8 @@ func playOffline():
 
 func openMainMenu():
 	mainMenu.visible = true
-	backGround.visible = true
+	if !inGame:
+		backGround.visible = true
 	loginMenu.visible = true
 	loginForm.visible = false
 	signUpForm.visible = false

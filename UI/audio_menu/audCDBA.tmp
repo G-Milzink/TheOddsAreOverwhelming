@@ -110,8 +110,6 @@ texture_normal = ExtResource("7_q78ri")
 
 [connection signal="drag_ended" from="VBox/MusicSlider" to="." method="_on_music_slider_drag_ended"]
 [connection signal="value_changed" from="VBox/MusicSlider" to="." method="_on_music_slider_value_changed"]
-[connection signal="drag_ended" from="VBox/FXSlider" to="." method="_on_fx_slider_drag_ended"]
 [connection signal="value_changed" from="VBox/FXSlider" to="." method="_on_fx_slider_value_changed"]
-[connection signal="drag_ended" from="VBox/UISlider" to="." method="_on_ui_slider_drag_ended"]
 [connection signal="value_changed" from="VBox/UISlider" to="." method="_on_ui_slider_value_changed"]
 [connection signal="pressed" from="VBox/Back" to="." method="_on_back_pressed"]

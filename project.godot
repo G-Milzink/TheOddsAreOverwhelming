@@ -23,6 +23,7 @@ ProgressionManager="*res://globals/progression_manager/progression_manager.gd"
 PickupSpawner="*res://globals/pickup_spawner/pickup_spawner.tscn"
 EnemySpawner="*res://globals/enemy_spawner/enemy_spawner.tscn"
 JuiceInjector="*res://globals/juice_injector/juice_injector.tscn"
+SettingsManager="*res://globals/settings_manager/settings_manager.tscn"
 
 [display]
 
@@ -42,7 +43,8 @@ folder_colors={
 "res://assets/": "red",
 "res://globals/": "teal",
 "res://resources/": "orange",
-"res://scenes/": "green"
+"res://scenes/": "green",
+"res://settings/": "gray"
 }
 
 [global_group]
