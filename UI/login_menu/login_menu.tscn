@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://cpovwq062s261"]
+[gd_scene load_steps=10 format=3 uid="uid://cpovwq062s261"]
 
 [ext_resource type="Script" path="res://UI/login_menu/login_menu.gd" id="1_l6ceu"]
 [ext_resource type="Theme" uid="uid://citwgq7liyjkf" path="res://resources/themes/button_theme.tres" id="2_3ds6i"]
 [ext_resource type="Texture2D" uid="uid://dblxcs4ts6co0" path="res://assets/png/button_textures/LOGIN.png" id="2_3yo8h"]
 [ext_resource type="Texture2D" uid="uid://c2lsaidi68w61" path="res://assets/png/MenuBackground.png" id="2_owbpk"]
 [ext_resource type="Texture2D" uid="uid://du1stvp5f786k" path="res://assets/png/button_textures/SIGNUP.png" id="4_35kck"]
+[ext_resource type="Texture2D" uid="uid://fxcm1ryx7aab" path="res://assets/png/button_textures/LOGIN_disabled.png" id="4_dwia1"]
 [ext_resource type="Texture2D" uid="uid://cmeyh5pla50w5" path="res://assets/png/button_textures/OFFLINE.png" id="5_vhd2q"]
 [ext_resource type="Texture2D" uid="uid://btoigdr0wt5e" path="res://assets/png/button_textures/EXIT.png" id="6_0pqyr"]
+[ext_resource type="Texture2D" uid="uid://bpvrmtarmn8fh" path="res://assets/png/button_textures/SIGNUP_disabled.png" id="7_43xek"]
 
 [node name="LoginMenu" type="Control"]
 layout_mode = 3
@@ -60,6 +62,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 action_mode = 0
 texture_normal = ExtResource("2_3yo8h")
+texture_disabled = ExtResource("4_dwia1")
 
 [node name="SignUp" type="TextureButton" parent="VBox"]
 texture_filter = 1
@@ -69,6 +72,7 @@ size_flags_vertical = 4
 theme = ExtResource("2_3ds6i")
 action_mode = 0
 texture_normal = ExtResource("4_35kck")
+texture_disabled = ExtResource("7_43xek")
 
 [node name="Offline" type="TextureButton" parent="VBox"]
 layout_mode = 2

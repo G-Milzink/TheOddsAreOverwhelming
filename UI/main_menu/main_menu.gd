@@ -6,6 +6,13 @@ extends Control
 @onready var continueGame : TextureButton = $VBox/Continue
 @onready var login: TextureButton = $VBox/Login
 @onready var logout: TextureButton = $VBox/Logout
+@onready var leaderBoards: TextureButton = $VBox/LeaderBoards
+
+func _ready() -> void:
+	if !main.isApiOnline():
+		login.set_disabled(true)
+		logout.set_disabled(true)
+		leaderBoards.set_disabled(true)
 
 
 func _process(delta: float) -> void:
@@ -32,6 +39,11 @@ func handleGameStates():
 	else:
 		login.disabled = false
 		logout.disabled = false
+	
+	if !main.isApiOnline():
+		login.set_disabled(true)
+		logout.set_disabled(true)
+		leaderBoards.set_disabled(true)
 
 
 func _on_start_pressed() -> void:

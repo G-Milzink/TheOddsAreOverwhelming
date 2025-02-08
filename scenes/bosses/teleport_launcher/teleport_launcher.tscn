@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://bncaic5g0ydej"]
+
+[ext_resource type="Script" path="res://scenes/bosses/teleport_launcher/teleport_launcher.gd" id="1_b7eje"]
+[ext_resource type="PackedScene" uid="uid://deum4h0joq044" path="res://assets/blends/bosses/teleporting_launcher/teleporting_launcher_body.blend" id="1_m8w6n"]
+[ext_resource type="PackedScene" uid="uid://ok881gnxuwf8" path="res://assets/blends/bosses/teleporting_launcher/teleporting_launcher_radar.blend" id="2_5054p"]
+[ext_resource type="PackedScene" uid="uid://c1eymrj7w3ito" path="res://scenes/bosses/teleport_launcher/teleport_launcher_launchpad.tscn" id="4_02oab"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4bgr4"]
+size = Vector3(4.43567, 5.56078, 3.23291)
+
+[sub_resource type="Animation" id="Animation_yu7f3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jgsb8"]
+resource_name = "turn"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a7hs1"]
+_data = {
+"RESET": SubResource("Animation_yu7f3"),
+"turn": SubResource("Animation_jgsb8")
+}
+
+[node name="TeleportLauncher" type="CharacterBody3D"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+script = ExtResource("1_b7eje")
+
+[node name="Body" parent="." instance=ExtResource("1_m8w6n")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.00375364, 0.702855, 0.399595)
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, -3.82137e-15, 0, -4.37114e-08, -1, -8.74228e-08, -1, 4.37114e-08, -0.00375369, 1.65386, 0.494055)
+shape = SubResource("BoxShape3D_4bgr4")
+
+[node name="Radar" parent="." instance=ExtResource("2_5054p")]
+transform = Transform3D(1, 0, 4.46638e-06, 0, 1, 0, -4.46638e-06, 0, 1, 0.00375379, 1.42271, -1.24405)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Radar"]
+libraries = {
+"": SubResource("AnimationLibrary_a7hs1")
+}
+autoplay = "turn"
+
+[node name="Launcher" parent="." instance=ExtResource("4_02oab")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0.00375358, 1.5, 1.1496)

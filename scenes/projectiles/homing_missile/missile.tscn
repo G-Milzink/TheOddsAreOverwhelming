@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://r2chju7f1cje"]
+
+[ext_resource type="PackedScene" uid="uid://bmlwfr2po3suo" path="res://assets/blends/bosses/teleporting_launcher/teleporting_launcher_missile.blend" id="1_jmc4u"]
+[ext_resource type="Script" path="res://scenes/projectiles/homing_missile/missile.gd" id="1_ohyu1"]
+[ext_resource type="PackedScene" uid="uid://c420rtv7ejdoa" path="res://scenes/utillities/pulsating_light/pulsating_light.tscn" id="3_nsx5s"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nunf6"]
+radius = 0.101181
+height = 0.721069
+
+[sub_resource type="Gradient" id="Gradient_6mm8c"]
+colors = PackedColorArray(0.301579, 0.311519, 0.327943, 1, 0.16, 0.16, 0.16, 0.796078)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rmkuk"]
+gradient = SubResource("Gradient_6mm8c")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mkkyi"]
+lifetime_randomness = 0.38
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 1.2
+color = Color(0.739054, 0.749773, 0.733783, 1)
+color_ramp = SubResource("GradientTexture1D_rmkuk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_22twp"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_ibfug"]
+material = SubResource("StandardMaterial3D_22twp")
+radius = 0.125
+height = 0.25
+radial_segments = 8
+rings = 4
+
+[node name="Missile" type="CharacterBody3D"]
+script = ExtResource("1_ohyu1")
+speed = 25.0
+
+[node name="missile" parent="." instance=ExtResource("1_jmc4u")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1.56811e-08, 0.358742)
+shape = SubResource("CapsuleShape3D_nunf6")
+
+[node name="LaunchTimer" type="Timer" parent="."]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+gi_mode = 2
+amount = 20
+lifetime = 0.2
+randomness = 0.43
+process_material = SubResource("ParticleProcessMaterial_mkkyi")
+draw_pass_1 = SubResource("SphereMesh_ibfug")
+
+[node name="PulsatingLight" parent="." instance=ExtResource("3_nsx5s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.747746)
+color = Color(1, 0, 0, 1)
+pulseFrequency = 2.0
+intensity = 0.25
+
+[connection signal="timeout" from="LaunchTimer" to="." method="_on_launch_timer_timeout"]

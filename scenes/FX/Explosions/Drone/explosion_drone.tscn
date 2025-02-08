@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/FX/Explosions/Drone/explosion_drone.gd" id="1_ie8kh"]
 [ext_resource type="AudioStream" uid="uid://npchc3frg2b3" path="res://assets/wav/explosion_a1.wav" id="2_blc7g"]
+[ext_resource type="Material" uid="uid://b034kg23o57hy" path="res://scenes/FX/Explosions/Drone/explosion_shader_ithink.tres" id="2_d4qqr"]
 [ext_resource type="AudioStream" uid="uid://dof48ijbb4abh" path="res://assets/wav/explosion_a2.wav" id="3_vu22m"]
 [ext_resource type="AudioStream" uid="uid://xdp3lsg7e1hy" path="res://assets/wav/explosion_a3.wav" id="4_y47ds"]
 [ext_resource type="AudioStream" uid="uid://cf8v500hmjpa1" path="res://assets/wav/explosion_a4.wav" id="5_e4lic"]
@@ -120,12 +121,8 @@ scale_curve = SubResource("CurveTexture_ivixu")
 color = Color(0.38, 0.38, 0.38, 1)
 alpha_curve = SubResource("CurveTexture_y6ws0")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2lakm"]
-transparency = 1
-vertex_color_use_as_albedo = true
-
 [sub_resource type="SphereMesh" id="SphereMesh_nnhbu"]
-material = SubResource("StandardMaterial3D_2lakm")
+material = ExtResource("2_d4qqr")
 radial_segments = 8
 rings = 4
 

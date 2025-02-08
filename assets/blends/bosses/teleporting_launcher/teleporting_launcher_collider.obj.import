@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bt2n0k2yeajop"
+path="res://.godot/imported/teleporting_launcher_collider.obj-237e942ddb818f5a6ccc5e20e447fb4f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/teleporting_launcher_collider.obj-237e942ddb818f5a6ccc5e20e447fb4f.mesh"]
+
+source_file="res://assets/blends/bosses/teleporting_launcher/teleporting_launcher_collider.obj"
+dest_files=["res://.godot/imported/teleporting_launcher_collider.obj-237e942ddb818f5a6ccc5e20e447fb4f.mesh", "res://.godot/imported/teleporting_launcher_collider.obj-237e942ddb818f5a6ccc5e20e447fb4f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

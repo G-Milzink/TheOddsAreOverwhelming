@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg4kdmtcb6qkp"]
+
+[ext_resource type="Script" path="res://scenes/projectiles/homing_missile/missile_target.gd" id="1_gkjl8"]
+[ext_resource type="PackedScene" uid="uid://bouxorfq8di27" path="res://assets/blends/enemies/orbital_canon/CrossHair.blend" id="2_5pp7w"]
+
+[node name="MissileTarget" type="Node3D"]
+script = ExtResource("1_gkjl8")
+
+[node name="CrossHair" parent="." instance=ExtResource("2_5pp7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0464213, 0.00849104, 0.010674)
+visible = false

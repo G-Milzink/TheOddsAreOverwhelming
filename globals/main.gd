@@ -3,6 +3,7 @@ extends Node3D
 var inMenu : bool
 var inGame : bool
 var loggedIn : bool
+var ApiOnline : bool
 
 @onready var backGround: TextureRect = $MenuLayer/BackGround
 @onready var loginMenu: Control = $MenuLayer/LoginMenu
@@ -24,6 +25,7 @@ func _ready() -> void:
 	inMenu = true
 	inGame = false
 	loggedIn = false
+	ApiOnline = false
 	backGround.visible = true
 	loginMenu.visible = true
 	loginForm.visible = false
@@ -40,6 +42,9 @@ func _input(event: InputEvent) -> void:
 		if inGame && inMenu:
 			continueGame()
 			return
+
+func isApiOnline() -> bool:
+	return ApiOnline
 
 func startGame():
 	backGround.visible = false

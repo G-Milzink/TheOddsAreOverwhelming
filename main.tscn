@@ -67,6 +67,7 @@ offset_bottom = 1080.0
 texture = ExtResource("5_i0tc3")
 
 [node name="LoginMenu" parent="MenuLayer" instance=ExtResource("6_jobkx")]
+visible = false
 
 [node name="LoginForm" parent="MenuLayer" instance=ExtResource("8_pkeo6")]
 visible = false

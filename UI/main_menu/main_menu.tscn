@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bkkfcfns0tsn0"]
+[gd_scene load_steps=13 format=3 uid="uid://bkkfcfns0tsn0"]
 
 [ext_resource type="Script" path="res://UI/main_menu/main_menu.gd" id="1_w3dre"]
 [ext_resource type="Theme" uid="uid://citwgq7liyjkf" path="res://resources/themes/button_theme.tres" id="2_7l30x"]
@@ -8,8 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://btoigdr0wt5e" path="res://assets/png/button_textures/EXIT.png" id="4_5gk51"]
 [ext_resource type="Texture2D" uid="uid://d3wvxtuc4vsqo" path="res://assets/png/button_textures/CONTINUE.png" id="4_s028d"]
 [ext_resource type="Texture2D" uid="uid://bcvq6r7b3wf12" path="res://assets/png/button_textures/LOGOUT.png" id="6_0ngfu"]
+[ext_resource type="Texture2D" uid="uid://fxcm1ryx7aab" path="res://assets/png/button_textures/LOGIN_disabled.png" id="7_ubgqk"]
 [ext_resource type="Texture2D" uid="uid://co2y7d70qhnj2" path="res://assets/png/button_textures/LEADERBOARDS.png" id="7_ymlpb"]
 [ext_resource type="Texture2D" uid="uid://bsm0xdg2h3kwj" path="res://assets/png/button_textures/OPTIONS.png" id="8_xsqrq"]
+[ext_resource type="Texture2D" uid="uid://7wmwss88k138" path="res://assets/png/button_textures/LEADERBOARDS_disabled.png" id="10_xa2m8"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -76,6 +78,7 @@ size_flags_vertical = 4
 theme = ExtResource("2_7l30x")
 action_mode = 0
 texture_normal = ExtResource("3_mjk8w")
+texture_disabled = ExtResource("7_ubgqk")
 
 [node name="Logout" type="TextureButton" parent="VBox"]
 visible = false
@@ -87,8 +90,8 @@ texture_normal = ExtResource("6_0ngfu")
 [node name="LeaderBoards" type="TextureButton" parent="VBox"]
 layout_mode = 2
 theme = ExtResource("2_7l30x")
-disabled = true
 texture_normal = ExtResource("7_ymlpb")
+texture_disabled = ExtResource("10_xa2m8")
 
 [node name="Options" type="TextureButton" parent="VBox"]
 layout_mode = 2
