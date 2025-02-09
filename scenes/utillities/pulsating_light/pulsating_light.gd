@@ -14,7 +14,6 @@ func _ready() -> void:
 
 func _process(delta: float):
 	time_passed += delta
-	print(time_passed)
 	var sine_value = get_sine_wave(time_passed, pulseFrequency)
 	light.set_param(Light3D.PARAM_ENERGY,sine_value*intensity)
 

@@ -20,7 +20,7 @@ var hasShield : bool = false
 
 const BULLET : PackedScene = preload("res://scenes/projectiles/player/bullet/player_bullet.tscn")
 const TEMP_SHIELD : PackedScene = preload("res://scenes/shields/temp_shield/temp_shield.tscn")
-const EXPLOSION_PLAYER_DEATH : PackedScene = preload("res://scenes/FX/Explosions/Player/explosion_player_death.tscn")
+const EXPLOSION_PLAYER_DEATH = preload("res://scenes/FX/Explosions/Player/explosion_player_death.tscn")
 
 @onready var main : Node3D = get_tree().get_root().get_node("Main")
 @onready var camera: Camera3D = get_tree().get_first_node_in_group("camera")

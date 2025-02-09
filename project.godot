@@ -61,6 +61,7 @@ spawnpoints=""
 map=""
 runtimer=""
 runtimedisplay=""
+boss_teleport_launcher=""
 
 [input]
 

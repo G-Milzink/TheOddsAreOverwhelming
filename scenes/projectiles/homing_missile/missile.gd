@@ -7,12 +7,15 @@ var camera : Camera3D
 var launchTimer: Timer
 var launched: bool = false
 
+
 @onready var main : Node3D = get_tree().get_root().get_node("Main")
+@onready var launcher : CharacterBody3D = get_tree().get_first_node_in_group("boss_teleport_launcher")
 
 const TARGET = preload("res://scenes/projectiles/homing_missile/missile_target.tscn")
 
 func _ready() -> void:
 	camera = get_tree().get_first_node_in_group("camera")
+	
 	launchTimer = $LaunchTimer
 	startTimer()
 
@@ -25,6 +28,7 @@ func _physics_process(delta: float) -> void:
 
 func _process(_delta):
 	if camera && !is_visible_from_camera(camera):
+		launcher.nrOfMissiles -= 1
 		spawnTarget()
 		queue_free() 
 
@@ -35,7 +39,7 @@ func is_visible_from_camera(camera: Camera3D) -> bool:
 
 func startTimer():
 	if launchTimer.is_stopped():
-		var time: float = randf_range(0,2.5)*4.0
+		var time: float = randf_range(.25,2.5)*4.0
 		launchTimer.start(time)
 
 

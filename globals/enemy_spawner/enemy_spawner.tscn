@@ -4,4 +4,3 @@
 
 [node name="EnemySpawer" type="Node"]
 script = ExtResource("1_iopen")
-canSpawn = false

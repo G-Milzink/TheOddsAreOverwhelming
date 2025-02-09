@@ -37,8 +37,8 @@ func spawnPickup():
 	if canSpawnPickups && player:
 		instance = selectPickup().instantiate()
 		while true:
-			spawnX = randf_range(-7.0, 7.0) * 2 + player.position.x
-			if spawnX < -6.0 or spawnX > 6.0:
+			spawnX = randf_range(-4.0, 4.0) * 2 + player.position.x
+			if spawnX < -3.0 or spawnX > 3.0:
 				break
 		while true:
 			spawnZ = randf_range(-7.0, 7.0) * 2 + player.position.z
