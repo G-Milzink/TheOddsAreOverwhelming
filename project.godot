@@ -63,6 +63,7 @@ runtimer=""
 runtimedisplay=""
 boss_teleport_launcher=""
 boss_teleporter_launcher_missile=""
+boss_enemy=""
 
 [input]
 

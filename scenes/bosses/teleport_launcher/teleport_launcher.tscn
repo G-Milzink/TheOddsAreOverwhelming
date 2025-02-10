@@ -46,9 +46,10 @@ _data = {
 "turn": SubResource("Animation_jgsb8")
 }
 
-[node name="TeleportLauncher" type="CharacterBody3D" groups=["boss_teleport_launcher"]]
+[node name="TeleportLauncher" type="CharacterBody3D" groups=["boss_enemy", "boss_teleport_launcher"]]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_b7eje")
+baseHitpoints = 400.0
 
 [node name="Body" parent="." instance=ExtResource("1_m8w6n")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.00375364, 0.702855, 0.399595)

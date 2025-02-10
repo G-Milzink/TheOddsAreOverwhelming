@@ -34,4 +34,3 @@ func increaseDamage():
 	damageMultiplier += 1.0
 	if damageMultiplier > maxDamageMultiplier:
 		damageMultiplier = maxDamageMultiplier
-	print_debug(damageMultiplier)

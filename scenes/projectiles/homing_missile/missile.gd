@@ -32,11 +32,10 @@ func _physics_process(delta: float) -> void:
 		move_and_collide(velocity * delta)
 		launcher = get_tree().get_first_node_in_group("boss_teleport_launcher")
 		if camera && !is_visible_from_camera(camera):
-			launcher.nrOfMissiles -= 1
-			spawnTarget()
-			queue_free() 
-	
-
+			if launcher:
+				launcher.nrOfMissiles -= 1
+				spawnTarget()
+				queue_free() 
 
 
 func is_visible_from_camera(camera: Camera3D) -> bool:
@@ -48,8 +47,8 @@ func startTimer():
 	launchTimer.stop()
 	launchTimer.start(launchDelay+launchOffset)
 
+
 func _on_launch_timer_timeout() -> void:
-	print("Timer timeout for missile:", name, " at time:", Time.get_ticks_msec())
 	launched = true
 
 
