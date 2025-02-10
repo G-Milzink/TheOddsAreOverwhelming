@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/bosses/teleport_launcher/teleport_launcher.gd" id="1_b7eje"]
 [ext_resource type="PackedScene" uid="uid://deum4h0joq044" path="res://assets/blends/bosses/teleporting_launcher/teleporting_launcher_body.blend" id="1_m8w6n"]
 [ext_resource type="PackedScene" uid="uid://ok881gnxuwf8" path="res://assets/blends/bosses/teleporting_launcher/teleporting_launcher_radar.blend" id="2_5054p"]
-[ext_resource type="PackedScene" uid="uid://c1eymrj7w3ito" path="res://scenes/bosses/teleport_launcher/teleport_launcher_launchpad.tscn" id="4_02oab"]
+[ext_resource type="PackedScene" uid="uid://c1eymrj7w3ito" path="res://scenes/bosses/teleport_launcher/launchpad.tscn" id="4_02oab"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4bgr4"]
 size = Vector3(4.43567, 5.56078, 3.23291)
@@ -66,5 +66,11 @@ libraries = {
 }
 autoplay = "turn"
 
-[node name="Launcher" parent="." instance=ExtResource("4_02oab")]
+[node name="Launchpad" parent="." instance=ExtResource("4_02oab")]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0.00375358, 1.5, 1.1496)
+
+[node name="TeleportDelay" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="TeleportDelay" to="." method="_on_teleport_delay_timeout"]

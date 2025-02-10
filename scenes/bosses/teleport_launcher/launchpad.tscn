@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c1eymrj7w3ito"]
 
-[ext_resource type="PackedScene" uid="uid://opdjonurju0r" path="res://assets/blends/bosses/teleporting_launcher/teleporting_launcher_launcher.blend" id="1_homqv"]
-[ext_resource type="PackedScene" uid="uid://r2chju7f1cje" path="res://scenes/projectiles/homing_missile/missile.tscn" id="2_8cnlw"]
+[ext_resource type="PackedScene" uid="uid://opdjonurju0r" path="res://assets/blends/bosses/teleporting_launcher/teleporting_launcher_launcher.blend" id="1_qjpec"]
+[ext_resource type="PackedScene" uid="uid://r2chju7f1cje" path="res://scenes/projectiles/homing_missile/missile.tscn" id="2_kkg11"]
 
 [sub_resource type="Animation" id="Animation_xgu0i"]
 length = 0.001
@@ -41,29 +41,34 @@ _data = {
 "turn": SubResource("Animation_iqj5b")
 }
 
-[node name="Launcher" instance=ExtResource("1_homqv")]
+[node name="Launcher" instance=ExtResource("1_qjpec")]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0, 0, 0)
 
 [node name="LaunchGrid" type="Node3D" parent="Launcher" index="0"]
 transform = Transform3D(0.714286, 0, -2.98023e-08, 0, 0.714286, 0, 2.98023e-08, 0, 0.714286, 0, 0, 0)
 
-[node name="Missile1" parent="Launcher/LaunchGrid" index="0" instance=ExtResource("2_8cnlw")]
+[node name="Missile1" parent="Launcher/LaunchGrid" index="0" instance=ExtResource("2_kkg11")]
 transform = Transform3D(1, 0, 0, 0, 0.675577, 0.737289, 0, -0.737289, 0.675577, -0.471963, 1.42329, -0.433415)
 
-[node name="Missile2" parent="Launcher/LaunchGrid" index="1" instance=ExtResource("2_8cnlw")]
+[node name="Missile2" parent="Launcher/LaunchGrid" index="1" instance=ExtResource("2_kkg11")]
 transform = Transform3D(1, 0, 0, 0, 0.674289, 0.738467, 0, -0.738467, 0.674289, -0.00670803, 1.42329, -0.433415)
+launchDelay = 2.0
 
-[node name="Missile3" parent="Launcher/LaunchGrid" index="2" instance=ExtResource("2_8cnlw")]
+[node name="Missile3" parent="Launcher/LaunchGrid" index="2" instance=ExtResource("2_kkg11")]
 transform = Transform3D(1, 0, 0, 0, 0.674289, 0.738467, 0, -0.738467, 0.674289, 0.466433, 1.42329, -0.433415)
+launchDelay = 3.0
 
-[node name="Missile4" parent="Launcher/LaunchGrid" index="3" instance=ExtResource("2_8cnlw")]
+[node name="Missile4" parent="Launcher/LaunchGrid" index="3" instance=ExtResource("2_kkg11")]
 transform = Transform3D(1, 0, 0, 0, 0.674289, 0.738467, 0, -0.738467, 0.674289, -0.471963, 1.16884, -0.154737)
+launchDelay = 4.0
 
-[node name="Missile5" parent="Launcher/LaunchGrid" index="4" instance=ExtResource("2_8cnlw")]
+[node name="Missile5" parent="Launcher/LaunchGrid" index="4" instance=ExtResource("2_kkg11")]
 transform = Transform3D(1, 0, 0, 0, 0.674289, 0.738467, 0, -0.738467, 0.674289, -0.00670803, 1.16884, -0.154737)
+launchDelay = 5.0
 
-[node name="Missile6" parent="Launcher/LaunchGrid" index="5" instance=ExtResource("2_8cnlw")]
+[node name="Missile6" parent="Launcher/LaunchGrid" index="5" instance=ExtResource("2_kkg11")]
 transform = Transform3D(1, 0, 0, 0, 0.674289, 0.738467, 0, -0.738467, 0.674289, 0.466433, 1.16884, -0.154737)
+launchDelay = 6.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 libraries = {

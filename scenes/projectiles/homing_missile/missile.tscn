@@ -33,7 +33,7 @@ height = 0.25
 radial_segments = 8
 rings = 4
 
-[node name="Missile" type="CharacterBody3D"]
+[node name="Missile" type="CharacterBody3D" groups=["boss_teleporter_launcher_missile"]]
 script = ExtResource("1_ohyu1")
 speed = 25.0
 
@@ -45,6 +45,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1.
 shape = SubResource("CapsuleShape3D_nunf6")
 
 [node name="LaunchTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 gi_mode = 2
