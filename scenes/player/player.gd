@@ -34,7 +34,7 @@ const EXPLOSION_PLAYER_DEATH = preload("res://scenes/FX/Explosions/Player/explos
 
 func _ready():
 	currentSpeed = PlayerData.baseSpeed
-	currentHitpoints = PlayerData.maxHitpoints
+	currentHitpoints = PlayerData.baseHitpoints
 	projectile = BULLET
 	projectileInterval = PlayerData.projectileInterval
 	PlayerData.reset()
@@ -108,8 +108,8 @@ func takeDamage(amount : float):
 
 func healDamage(amount : float):
 	currentHitpoints += amount
-	if currentHitpoints > PlayerData.maxHitpoints:
-		currentHitpoints = PlayerData.maxHitpoints
+	if currentHitpoints > PlayerData.baseHitpoints:
+		currentHitpoints = PlayerData.baseHitpoints
 	PlayerData.setCurrentHitPoints(currentHitpoints)
 
 func increaseFireRate():

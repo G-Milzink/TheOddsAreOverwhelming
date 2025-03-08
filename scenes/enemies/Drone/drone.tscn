@@ -11,7 +11,7 @@ radius = 1.25
 axis_lock_linear_y = true
 safe_margin = 0.005
 script = ExtResource("1_yk1l3")
-baseSpeed = 5.0
+baseSpeed = 7.5
 
 [node name="model" parent="." instance=ExtResource("2_61tgh")]
 

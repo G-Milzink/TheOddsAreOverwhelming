@@ -1,8 +1,8 @@
 extends Node
 
-var baseSpeed : float = 12.5
-var baseDamage : float = 10.0
-var maxHitpoints : float = 100.0
+@export var baseSpeed : float = 12.5
+@export var baseDamage : float = 10.0
+@export var baseHitpoints : float = 100.0
 var currentHitPoints : float = 100.0
 
 var damageMultiplier : float
@@ -21,7 +21,7 @@ func _ready() -> void:
 	damageMultiplier = BASE_DAMAGE_MULTIPLIER
 
 func reset():
-	currentHitPoints = maxHitpoints
+	currentHitPoints = baseHitpoints
 	playerHealthBar.set_value(currentHitPoints)
 	projectileInterval = baseProjectileInterval
 	damageMultiplier = BASE_DAMAGE_MULTIPLIER

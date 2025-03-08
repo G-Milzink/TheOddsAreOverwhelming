@@ -4,3 +4,4 @@
 
 [node name="PlayerData" type="Node"]
 script = ExtResource("1_qtysv")
+baseSpeed = 15.0

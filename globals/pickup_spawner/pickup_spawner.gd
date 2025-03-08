@@ -62,7 +62,7 @@ func selectPickup():
 			if crystal_data["crystal"] == BLUE_CRYSTAL and player.hasShield:
 				print("Blue pickup canceled")
 				return WHITE_CRYSTAL
-			if crystal_data["crystal"] == GREEN_CRYSTAL and player.currentHitpoints == PlayerData.maxHitpoints:
+			if crystal_data["crystal"] == GREEN_CRYSTAL and player.currentHitpoints == PlayerData.baseHitpoints:
 				print("Green pickup canceled")
 				return WHITE_CRYSTAL
 			return crystal_data["crystal"]
