@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://p11ldq2q2sqg"]
 
-[ext_resource type="Script" path="res://scenes/utillities/audio_system/audio_system.gd" id="1_fox6n"]
+[ext_resource type="Script" uid="uid://ce74gex2rip1i" path="res://scenes/utillities/audio_system/audio_system.gd" id="1_fox6n"]
 [ext_resource type="AudioStream" uid="uid://c07w6mggtvmwv" path="res://assets/wav/nextWave.wav" id="1_ops7c"]
 [ext_resource type="AudioStream" uid="uid://d3ekm36gcmv08" path="res://assets/wav/music/Drum'n'Bass.wav" id="3_pvafq"]
 

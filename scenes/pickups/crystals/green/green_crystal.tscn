@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cb5f8i3iiks02"]
 
 [ext_resource type="PackedScene" uid="uid://nplh0hrbl67m" path="res://assets/blends/pickups/green_crystal.blend" id="1_yriof"]
-[ext_resource type="Script" path="res://scenes/pickups/crystals/green/green_crystal.gd" id="2_2l016"]
+[ext_resource type="Script" uid="uid://dmcblss8na2av" path="res://scenes/pickups/crystals/green/green_crystal.gd" id="2_2l016"]
 [ext_resource type="AudioStream" uid="uid://8brinvh6k63d" path="res://assets/wav/pickups/hitPointsUp.wav" id="3_2214q"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_c17np"]

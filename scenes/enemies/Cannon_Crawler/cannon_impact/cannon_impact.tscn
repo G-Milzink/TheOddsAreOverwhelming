@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://60osc1s721fr"]
 
-[ext_resource type="Script" path="res://scenes/enemies/Cannon_Crawler/cannon_impact/cannon_impact.gd" id="1_mihx2"]
+[ext_resource type="Script" uid="uid://b0jdevl82yriu" path="res://scenes/enemies/Cannon_Crawler/cannon_impact/cannon_impact.gd" id="1_mihx2"]
 [ext_resource type="Shader" uid="uid://b6qjpgrqmp8c3" path="res://resources/shaders/cannon_beam_shader.tres" id="2_fg3p1"]
 
 [sub_resource type="Curve" id="Curve_ysili"]
@@ -52,7 +52,7 @@ colors = PackedColorArray(1, 0.756863, 0, 1, 1, 0.208, 0.00999999, 1)
 gradient = SubResource("Gradient_3lxeh")
 
 [sub_resource type="Curve" id="Curve_uaue7"]
-max_value = 2.0
+_limits = [0.0, 2.0, 0.0, 1.0]
 _data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(1, 0.98324), 0.0, 0.0, 0, 0]
 point_count = 2
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://7ec8v6xn1u0t"]
+[gd_scene load_steps=5 format=3 uid="uid://7ec8v6xn1u0t"]
 
 [ext_resource type="PackedScene" uid="uid://ilmqv3evv707" path="res://assets/gltf/grid_map_tiles/_00/floor_tile_00_basic.glb" id="1_1d5qq"]
 [ext_resource type="PackedScene" uid="uid://df26livsf8n3w" path="res://assets/gltf/grid_map_tiles/_00/floor_tile_00_vent.glb" id="2_0nnyk"]
 [ext_resource type="PackedScene" uid="uid://cl1hsp28oy4u2" path="res://assets/gltf/grid_map_tiles/_00/floor_tile_00_wall.glb" id="3_jqyhx"]
+[ext_resource type="PackedScene" uid="uid://dd11mqhb74aax" path="res://assets/gltf/grid_map_tiles/_00/floor_tile_00_tree.glb" id="4_c0xs8"]
 
 [node name="MeshLib_00" type="Node3D"]
 
@@ -13,3 +14,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
 
 [node name="floor_tile_00_wall" parent="." instance=ExtResource("3_jqyhx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+
+[node name="floor_tile_00_tree2" parent="." instance=ExtResource("4_c0xs8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)

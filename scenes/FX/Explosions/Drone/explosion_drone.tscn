@@ -1,6 +1,6 @@
 [gd_scene load_steps=36 format=3 uid="uid://5hn8oybcbolj"]
 
-[ext_resource type="Script" path="res://scenes/FX/Explosions/Drone/explosion_drone.gd" id="1_ie8kh"]
+[ext_resource type="Script" uid="uid://5m7qfvxlidbt" path="res://scenes/FX/Explosions/Drone/explosion_drone.gd" id="1_ie8kh"]
 [ext_resource type="AudioStream" uid="uid://npchc3frg2b3" path="res://assets/wav/explosion_a1.wav" id="2_blc7g"]
 [ext_resource type="Material" uid="uid://b034kg23o57hy" path="res://scenes/FX/Explosions/Drone/explosion_shader_ithink.tres" id="2_d4qqr"]
 [ext_resource type="AudioStream" uid="uid://dof48ijbb4abh" path="res://assets/wav/explosion_a2.wav" id="3_vu22m"]
@@ -133,7 +133,7 @@ colors = PackedColorArray(1, 0.756863, 0, 1, 1, 0.208, 0.00999999, 1)
 gradient = SubResource("Gradient_3lxeh")
 
 [sub_resource type="Curve" id="Curve_uaue7"]
-max_value = 2.0
+_limits = [0.0, 2.0, 0.0, 1.0]
 _data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(1, 0.98324), 0.0, 0.0, 0, 0]
 point_count = 2
 

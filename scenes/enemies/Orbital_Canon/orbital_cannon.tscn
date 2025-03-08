@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://blj70phbkn3mn"]
 
-[ext_resource type="Script" path="res://scenes/enemies/Orbital_Canon/orbital_cannon.gd" id="1_534c0"]
+[ext_resource type="Script" uid="uid://dw7pcrjgjndur" path="res://scenes/enemies/Orbital_Canon/orbital_cannon.gd" id="1_534c0"]
 [ext_resource type="PackedScene" uid="uid://ckagdxoi46e6s" path="res://scenes/enemies/Orbital_Canon/cross_hair_model.tscn" id="1_td5wx"]
 [ext_resource type="ArrayMesh" uid="uid://r4s45pefj75n" path="res://assets/obj/particle_shapes/orbital_cannon_beam_particle_shape.obj" id="3_dg4gu"]
 
@@ -16,17 +16,17 @@ emission = Color(1, 0, 0, 1)
 emission_energy_multiplier = 1.5
 
 [sub_resource type="Curve" id="Curve_vmgqa"]
-max_value = 3.0
+_limits = [0.0, 3.0, 0.0, 1.0]
 _data = [Vector2(0.00218818, 0.504519), 0.0, 0.0, 0, 0, Vector2(0.509847, 0.515201), 0.0, 0.0, 0, 0, Vector2(0.757112, 3), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="Curve" id="Curve_sp6bj"]
-max_value = 25.0
+_limits = [0.0, 25.0, 0.0, 1.0]
 _data = [Vector2(0, 0.175823), 0.0, 0.0, 0, 0, Vector2(0.748359, 25), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_7m12s"]
-max_value = 3.0
+_limits = [0.0, 3.0, 0.0, 1.0]
 _data = [Vector2(0, 0.493837), 0.0, 0.0, 0, 0, Vector2(0.496718, 0.504519), 0.0, 0.0, 0, 0, Vector2(0.754923, 3), 0.0, 0.0, 0, 0]
 point_count = 3
 

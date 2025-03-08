@@ -1,6 +1,6 @@
 [gd_scene load_steps=32 format=3 uid="uid://lp40ai4r7t14"]
 
-[ext_resource type="Script" path="res://scenes/FX/Explosions/Player/explosion_player_death.gd" id="1_1gd45"]
+[ext_resource type="Script" uid="uid://bmfl403sookuy" path="res://scenes/FX/Explosions/Player/explosion_player_death.gd" id="1_1gd45"]
 [ext_resource type="AudioStream" uid="uid://c3xik8oj7srib" path="res://assets/wav/player_death.wav" id="2_hclgt"]
 
 [sub_resource type="Curve" id="Curve_8b3ej"]
@@ -133,7 +133,7 @@ colors = PackedColorArray(1, 0.756863, 0, 1, 1, 0.208, 0.00999999, 1)
 gradient = SubResource("Gradient_3lxeh")
 
 [sub_resource type="Curve" id="Curve_uaue7"]
-max_value = 2.0
+_limits = [0.0, 2.0, 0.0, 1.0]
 _data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(1, 0.98324), 0.0, 0.0, 0, 0]
 point_count = 2
 

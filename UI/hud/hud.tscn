@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cfubmbc2dmj0j"]
 
-[ext_resource type="Script" path="res://UI/hud/hud.gd" id="1_a7ada"]
+[ext_resource type="Script" uid="uid://bqij8awhteup" path="res://UI/hud/hud.gd" id="1_a7ada"]
 [ext_resource type="Theme" uid="uid://cyxa2x2gw780h" path="res://resources/themes/current_score_display_theme.tres" id="2_nrwxx"]
 [ext_resource type="FontFile" uid="uid://bc67rduseqc40" path="res://assets/fonts/kongtext.ttf" id="3_basgh"]
 
@@ -41,8 +41,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r3qh4"]
 _data = {
-"RESET": SubResource("Animation_japrm"),
-"RunTimeFlash": SubResource("Animation_ubppl")
+&"RESET": SubResource("Animation_japrm"),
+&"RunTimeFlash": SubResource("Animation_ubppl")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kxgr7"]

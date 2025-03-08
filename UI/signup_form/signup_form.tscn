@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://64ghqqxktqtj"]
 
-[ext_resource type="Script" path="res://UI/signup_form/signup_form.gd" id="1_qvdqi"]
+[ext_resource type="Script" uid="uid://c0bxdy6vioadn" path="res://UI/signup_form/signup_form.gd" id="1_qvdqi"]
 [ext_resource type="Texture2D" uid="uid://c2lsaidi68w61" path="res://assets/png/MenuBackground.png" id="2_e4dm7"]
 [ext_resource type="Theme" uid="uid://citwgq7liyjkf" path="res://resources/themes/button_theme.tres" id="2_j42jg"]
 [ext_resource type="Texture2D" uid="uid://dlxi8l1w0vg0f" path="res://assets/png/button_textures/SUBMIT.png" id="3_hc27m"]

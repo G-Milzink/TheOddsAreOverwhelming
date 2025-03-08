@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://bmnnf070vdaf3"]
 
-[ext_resource type="Script" path="res://scenes/FX/SpawnFx/enemy_spawnIn/spawn_in.gd" id="1_c2leq"]
+[ext_resource type="Script" uid="uid://bh57tp5h34i6m" path="res://scenes/FX/SpawnFx/enemy_spawnIn/spawn_in.gd" id="1_c2leq"]
 [ext_resource type="Shader" uid="uid://b6qjpgrqmp8c3" path="res://resources/shaders/cannon_beam_shader.tres" id="1_s0gen"]
 [ext_resource type="Texture2D" uid="uid://dt12deqrvjpy4" path="res://assets/png/textures/T_VFX_Noise_4.PNG" id="3_mhdkp"]
 [ext_resource type="Texture2D" uid="uid://d0d473yr222s0" path="res://assets/png/textures/T_VFX_Glow_1.PNG" id="4_ughdf"]
@@ -9,15 +9,15 @@
 render_priority = 0
 shader = ExtResource("1_s0gen")
 shader_parameter/speed = Vector2(-2, -1)
-shader_parameter/Texture_Power = 1.5
 shader_parameter/energy_texture = ExtResource("3_mhdkp")
+shader_parameter/Texture_Power = 1.5
 
 [sub_resource type="Curve" id="Curve_3mls8"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_fmslc"]
-max_value = 3.0
+_limits = [0.0, 3.0, 0.0, 1.0]
 _data = [Vector2(0.00290698, 0.268793), 0.0, 0.0, 0, 0, Vector2(0.752907, 1.93394), 0.0, 0.0, 0, 0, Vector2(1, 3), 0.0, 0.0, 0, 0]
 point_count = 3
 
@@ -38,6 +38,7 @@ emission_ring_axis = Vector3(0, 0, 1)
 emission_ring_height = 1.0
 emission_ring_radius = 1.0
 emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
 gravity = Vector3(0, 9, 0)
 linear_accel_min = -2.23517e-06
 linear_accel_max = 27.38
@@ -54,11 +55,11 @@ radial_segments = 16
 render_priority = 0
 shader = ExtResource("1_s0gen")
 shader_parameter/speed = Vector2(-2, -1)
-shader_parameter/Texture_Power = 1.5
 shader_parameter/energy_texture = ExtResource("4_ughdf")
+shader_parameter/Texture_Power = 1.5
 
 [sub_resource type="Curve" id="Curve_ejkvj"]
-max_value = 2.0
+_limits = [0.0, 2.0, 0.0, 1.0]
 _data = [Vector2(0, 0.0992126), 0.0, 0.0, 0, 0, Vector2(0.737643, 0.300787), 0.0, 0.0, 0, 0, Vector2(0.984791, 2), 6.00551, 0.0, 0, 0]
 point_count = 3
 

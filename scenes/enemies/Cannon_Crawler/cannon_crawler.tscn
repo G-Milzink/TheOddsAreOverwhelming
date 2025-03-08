@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://c8oyo6g48g0iq"]
 
-[ext_resource type="Script" path="res://scenes/enemies/Cannon_Crawler/cannon_crawler.gd" id="1_uh7vf"]
+[ext_resource type="Script" uid="uid://d0nt7gepx7q3q" path="res://scenes/enemies/Cannon_Crawler/cannon_crawler.gd" id="1_uh7vf"]
 [ext_resource type="PackedScene" uid="uid://dp3o65sc3kq1o" path="res://scenes/enemies/Cannon_Crawler/cannon_crawler_body.tscn" id="2_ocxbe"]
 [ext_resource type="PackedScene" uid="uid://bguunslidbmre" path="res://scenes/enemies/Cannon_Crawler/cannon_crawler_turret.tscn" id="3_tteel"]
 [ext_resource type="PackedScene" uid="uid://bxo3dfs4mxm3t" path="res://scenes/enemies/Cannon_Crawler/cannon_beam.tscn" id="4_4nrag"]
@@ -43,8 +43,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_twbw3"]
 _data = {
-"RESET": SubResource("Animation_bgby6"),
-"rotate": SubResource("Animation_aeu1t")
+&"RESET": SubResource("Animation_bgby6"),
+&"rotate": SubResource("Animation_aeu1t")
 }
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_1uo85"]

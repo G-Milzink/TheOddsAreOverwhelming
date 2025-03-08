@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dg4kdmtcb6qkp"]
 
-[ext_resource type="Script" path="res://scenes/projectiles/homing_missile/missile_target.gd" id="1_gkjl8"]
+[ext_resource type="Script" uid="uid://sdgo2tyt83v6" path="res://scenes/projectiles/homing_missile/missile_target.gd" id="1_gkjl8"]
 [ext_resource type="PackedScene" uid="uid://rn6smarwmnuk" path="res://scenes/projectiles/homing_missile/missile_target_model.tscn" id="2_aotif"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_wetw6"]

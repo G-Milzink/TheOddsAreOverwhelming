@@ -37,8 +37,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i1yif"]
 _data = {
-"RESET": SubResource("Animation_xgu0i"),
-"turn": SubResource("Animation_iqj5b")
+&"RESET": SubResource("Animation_xgu0i"),
+&"turn": SubResource("Animation_iqj5b")
 }
 
 [node name="Launcher" instance=ExtResource("1_qjpec")]

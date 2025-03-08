@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://bo64vasx02sta"]
 
-[ext_resource type="Script" path="res://globals/main.gd" id="1_is4p4"]
+[ext_resource type="Script" uid="uid://bwy8gmv4hfqra" path="res://globals/main.gd" id="1_is4p4"]
 [ext_resource type="PackedScene" uid="uid://dhqweiul45ifi" path="res://scenes/utillities/camera/camera_rig.tscn" id="1_m4lal"]
 [ext_resource type="PackedScene" uid="uid://mh7qc55oo1dr" path="res://scenes/maps/map.tscn" id="1_ug4g2"]
 [ext_resource type="Texture2D" uid="uid://ddvjx82nv1v2o" path="res://assets/png/StartScreen.png" id="5_i0tc3"]
@@ -45,8 +45,8 @@ environment = SubResource("Environment_87gcj")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 21.5306, -21.0703)
-light_color = Color(0.787759, 0.787759, 0.787759, 1)
-light_energy = 0.15
+light_color = Color(0.732104, 0.803804, 0.818543, 1)
+light_energy = 0.25
 light_indirect_energy = 1.5
 light_volumetric_fog_energy = 0.5
 shadow_enabled = true

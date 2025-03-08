@@ -56,8 +56,23 @@ tracks/1/keys = PackedFloat32Array(0, 1, -0.707107, 5.41081e-17, 5.41081e-17, 0.
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6h3v4"]
 _data = {
-"RESET": SubResource("Animation_7el11"),
-"anim": SubResource("Animation_y7jq3")
+&"RESET": SubResource("Animation_7el11"),
+&"anim": SubResource("Animation_y7jq3")
+}
+
+[sub_resource type="Animation" id="Animation_b4ui3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CrossHair/Skeleton3D/CrossHair_mesh:mesh:surface_0/material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_psy3k"]
@@ -76,25 +91,10 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_b4ui3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CrossHair/Skeleton3D/CrossHair_mesh:mesh:surface_0/material:albedo_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 0, 0, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r5i2j"]
 _data = {
-"RESET": SubResource("Animation_b4ui3"),
-"color_shift": SubResource("Animation_psy3k")
+&"RESET": SubResource("Animation_b4ui3"),
+&"color_shift": SubResource("Animation_psy3k")
 }
 
 [node name="CrossHair" type="Node3D"]

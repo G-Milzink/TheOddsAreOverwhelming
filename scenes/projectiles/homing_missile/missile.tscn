@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://r2chju7f1cje"]
 
 [ext_resource type="PackedScene" uid="uid://bmlwfr2po3suo" path="res://assets/blends/bosses/teleporting_launcher/teleporting_launcher_missile.blend" id="1_jmc4u"]
-[ext_resource type="Script" path="res://scenes/projectiles/homing_missile/missile.gd" id="1_ohyu1"]
+[ext_resource type="Script" uid="uid://j3hmf1ck10mx" path="res://scenes/projectiles/homing_missile/missile.gd" id="1_ohyu1"]
 [ext_resource type="PackedScene" uid="uid://c420rtv7ejdoa" path="res://scenes/utillities/pulsating_light/pulsating_light.tscn" id="3_nsx5s"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nunf6"]

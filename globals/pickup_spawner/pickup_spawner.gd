@@ -1,6 +1,8 @@
 extends Node
 
 @export var canSpawnPickups : bool = true
+@export var SpawnIntervalMin: float = 5.0
+@export var SpawnIntervalMax: float = 15.0
 
 var spawnTimer : Timer
 var spawnInterval : float
@@ -28,7 +30,7 @@ func _ready() -> void:
 
 func onTimeout():
 	spawnPickup()
-	spawnInterval = randf_range(5.0, 15.0)
+	spawnInterval = randf_range(SpawnIntervalMin, SpawnIntervalMax)
 	spawnTimer.start(spawnInterval)
 
 func spawnPickup():

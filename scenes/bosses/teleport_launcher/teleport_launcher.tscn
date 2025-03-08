@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bncaic5g0ydej"]
 
-[ext_resource type="Script" path="res://scenes/bosses/teleport_launcher/teleport_launcher.gd" id="1_b7eje"]
+[ext_resource type="Script" uid="uid://bf6tn5705wmp8" path="res://scenes/bosses/teleport_launcher/teleport_launcher.gd" id="1_b7eje"]
 [ext_resource type="PackedScene" uid="uid://deum4h0joq044" path="res://assets/blends/bosses/teleporting_launcher/teleporting_launcher_body.blend" id="1_m8w6n"]
 [ext_resource type="PackedScene" uid="uid://ok881gnxuwf8" path="res://assets/blends/bosses/teleporting_launcher/teleporting_launcher_radar.blend" id="2_5054p"]
 [ext_resource type="PackedScene" uid="uid://c1eymrj7w3ito" path="res://scenes/bosses/teleport_launcher/launchpad.tscn" id="4_02oab"]
@@ -42,8 +42,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a7hs1"]
 _data = {
-"RESET": SubResource("Animation_yu7f3"),
-"turn": SubResource("Animation_jgsb8")
+&"RESET": SubResource("Animation_yu7f3"),
+&"turn": SubResource("Animation_jgsb8")
 }
 
 [node name="TeleportLauncher" type="CharacterBody3D" groups=["boss_enemy", "boss_teleport_launcher"]]
@@ -63,7 +63,7 @@ transform = Transform3D(1, 0, 4.46638e-06, 0, 1, 0, -4.46638e-06, 0, 1, 0.003753
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Radar"]
 libraries = {
-"": SubResource("AnimationLibrary_a7hs1")
+&"": SubResource("AnimationLibrary_a7hs1")
 }
 autoplay = "turn"
 
