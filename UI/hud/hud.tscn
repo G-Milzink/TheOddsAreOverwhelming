@@ -100,7 +100,7 @@ autowrap_mode = 0
 
 [node name="RunTimeAnimator" type="AnimationPlayer" parent="RunTimeDisplay"]
 libraries = {
-"": SubResource("AnimationLibrary_r3qh4")
+&"": SubResource("AnimationLibrary_r3qh4")
 }
 
 [node name="Panel" type="Panel" parent="."]
