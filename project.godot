@@ -24,6 +24,7 @@ PickupSpawner="*res://globals/pickup_spawner/pickup_spawner.tscn"
 EnemySpawner="*res://globals/enemy_spawner/enemy_spawner.tscn"
 JuiceInjector="*res://globals/juice_injector/juice_injector.tscn"
 SettingsManager="*res://globals/settings_manager/settings_manager.tscn"
+BossSpawner="*res://globals/boss_spawner/boss_spawner.tscn"
 
 [display]
 

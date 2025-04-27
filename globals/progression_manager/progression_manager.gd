@@ -1,5 +1,9 @@
 extends Node
 
+var nextBossNumber: int = 1
+var bossTimerMinutes: int = 0
+var bossTimerSeconds: int = 10
+
 const droneReward : int = 1
 const dartReward : int = 2
 const droneArmoredReward : int = 3
@@ -58,3 +62,6 @@ func _process(_delta: float) -> void:
 func increase_score(amount : int):
 	currentScore += amount
 	currentScoreDisplay.set_text(str(currentScore))    
+
+func SpawnNextBoss() -> void:
+	BossSpawner.SpawnNextBoss(nextBossNumber)

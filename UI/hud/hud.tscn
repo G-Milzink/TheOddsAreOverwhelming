@@ -138,7 +138,7 @@ value = 50.0
 show_percentage = false
 
 [node name="RunTimer" type="Timer" parent="." groups=["runtimer"]]
-wait_time = 0.05
+wait_time = 0.01
 one_shot = true
 
 [connection signal="timeout" from="RunTimer" to="." method="_on_timer_timeout"]
