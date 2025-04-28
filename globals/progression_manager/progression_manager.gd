@@ -2,7 +2,7 @@ extends Node
 
 var nextBossNumber: int = 1
 var bossTimerMinutes: int = 0
-var bossTimerSeconds: int = 10
+var bossTimerSeconds: int = 1
 
 const droneReward : int = 1
 const dartReward : int = 2
@@ -64,4 +64,4 @@ func increase_score(amount : int):
 	currentScoreDisplay.set_text(str(currentScore))    
 
 func SpawnNextBoss() -> void:
-	BossSpawner.SpawnNextBoss(nextBossNumber)
+	BossSpawner.SpawnNextBoss()

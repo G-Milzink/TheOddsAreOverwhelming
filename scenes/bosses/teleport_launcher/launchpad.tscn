@@ -72,6 +72,6 @@ launchDelay = 6.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 libraries = {
-"": SubResource("AnimationLibrary_i1yif")
+&"": SubResource("AnimationLibrary_i1yif")
 }
 autoplay = "turn"

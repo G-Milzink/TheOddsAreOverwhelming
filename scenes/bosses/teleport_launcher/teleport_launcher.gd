@@ -13,6 +13,8 @@ var isFirstSpawn: bool = true
 var collisionDamage : float = 15.0
 var noVelocity: Vector3 = Vector3.ZERO
 
+var spawnLocation: Vector3 = Vector3.ZERO
+
 @onready var radar: Node3D = $Radar
 @onready var teleportDelay: Timer = $TeleportDelay
 @onready var main : Node3D = get_tree().get_root().get_node("Main")
@@ -22,9 +24,11 @@ const SELF_RESPAWN = preload("res://scenes/bosses/teleport_launcher/teleport_lau
 func _ready() -> void:
 	if isFirstSpawn:
 		hitpoints = baseHitpoints
+		position = spawnLocation
 	player = get_tree().get_first_node_in_group("player")
 
 func _physics_process(delta: float) -> void:
+	print_debug("alive")
 	rotateTowardsPlayer()
 	manageState()
 
